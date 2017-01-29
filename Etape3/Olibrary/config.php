@@ -1,7 +1,7 @@
 <?php
 
 $_dir["controllers"] = "controllers/";
-$_dir["views"] = "/views/";
+$_dir["views"] = "views/";
 
 $config = array(
 	"loginBDD" => "olibrary",

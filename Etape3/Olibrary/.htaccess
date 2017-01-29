@@ -5,3 +5,6 @@ RewriteRule ^admin/$      index.php?page=Admin&%{QUERY_STRING} [L]
    
 ## Le site ##
 RewriteRule ^index/$      index.php?page=Accueil&%{QUERY_STRING} [L]
+
+## test ##
+RewriteRule ^contact/$      index.php?page=Contact&%{QUERY_STRING} [L]

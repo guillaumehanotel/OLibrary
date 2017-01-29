@@ -1,8 +1,8 @@
 <?php
 require('config.php');
 require('function.php');
-//require('views/Header.php');
-//require('views/Footer.php');
+require('views/Header.php');
+require('views/Footer.php');
 
 
 /*
