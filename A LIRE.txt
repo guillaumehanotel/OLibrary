@@ -30,28 +30,29 @@ ORGANISATION DU CODE :
 Chaque page sera organisé de la manière suivante :
 
 
-require('Header.php');
-<body>
-<div id="accueil">
+
+<main id="accueil">
 
 //Votre code
 
-</div>
-</body>
-
-require('Footer.php');
+</main>
 
 
+LES LIENS :
 
-Le html du header et footer seront dans des fichiers à part que l'on appela avec require car ceux-ci ne bougent pas
+Pour faire un lien vers une image dans votre fichier html : 
+<img src="<?php echo BASE_URL."/Olibrary/img/votreImage.png"; ?>"  />
+
+
 
 
 LE CSS (sous réserve de faire du BootStrap)
 
-Le fichier CSS sera dur à gérer car on sera 4 dessus et il n'y aura qu'un seul fichier css pour toutes les pages, mais :
-Au sein du fichier on séparera le code de chacun avec de gros commentaires pour bien identifier à qui est la partie de qui.
+J'ai organisé le fichier CSS pour que chacun ait sa partie et dans sa chaque partie, les différentes pages que vous avez à faire.
 
-après la balise body, vous créez une div avec comme identifiant le titre de la page pour mieux manipuler les sélecteurs css
+J'ai déjà créé la balise <main> avec son id dans chaque fichier, ainsi qu'un sélecteur pour chaque page dans le fichier css
+
+Pour manipuler vos balises en css, pensez bien à les faire précéder de l'identifiant qui correspond à la page
 ex : si vous mettez un <ul> dans votre code et que vous voulez le stylisé comme suit :
 
 ul {
