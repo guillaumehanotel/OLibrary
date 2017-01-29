@@ -4,4 +4,4 @@ RewriteEngine On
 RewriteRule ^admin/$      index.php?page=Admin&%{QUERY_STRING} [L]
    
 ## Le site ##
-RewriteRule ^login/$      index.php?page=Login&%{QUERY_STRING} [L]
+RewriteRule ^index/$      index.php?page=Accueil&%{QUERY_STRING} [L]

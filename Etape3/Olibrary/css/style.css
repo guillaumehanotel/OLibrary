@@ -1,0 +1,280 @@
+/*
+ * SOMMAIRE
+ *
+ * =1= HEADER
+ * =2= FOOTER
+ *
+ * =3= PARTIE KELIAN
+ *   -3.1- INSCRIPTION
+ *   -3.2- DESCRIPTION
+ *   -3.3- GESTION UTILISATEURS
+ *   -3.4- MENTIONS LEGALES
+ *
+ * =4= PARTIE CYRIAQUE
+ *   -4.1- CONTACT
+ *   -4.2- ESPACE PERSONNEL
+ *   -4.3- GESTION DES AUTORITES
+ *
+ * =5= PARTIE HUGO
+ *   -5.1- CONNEXION
+ *   -5.2- MENU GESTIONNAIRE
+ *   -5.3- GESTION EMPRUNTEURS
+ *
+ * =6= PARTIE GUILLAUME
+ *   -6.1- ACCUEIL
+ *   -6.2- PAGE RESULTATS
+ *   -6.3- GESTION NOTICES
+ *   -6.4- GESTION DOCUMENTS
+ *
+ *
+ *
+ */
+
+
+
+
+
+
+/*******************************************************************************/
+/*****************************  =1= HEADER  ************************************/
+/*******************************************************************************/
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: "Fortune City";
+    font-family: "Space Marine";
+    font-family: "Precious";
+    font-family: "Black Olives";
+    src: url('../fonts/FortuneCity.ttf');
+    src: url('../fonts/SM.ttf');
+    src: url('../fonts/Precious.ttf');
+    src: url('../fonts/BlackOlives.ttf');
+}
+
+body {
+    width: 100%;
+    background: url("../img/library6.jpg") no-repeat center fixed;
+    background-size: cover;
+    font-family: 'Oxygen', sans-serif;
+}
+
+header {
+    margin-top: 40px;
+    height: 100px;
+    line-height: 100px;
+}
+
+header #flou {
+    position: absolute;
+    width: 100%;
+    height: 100px;
+    background-color: rgb(100, 100, 100);
+    background-color: rgba(100, 100, 100, 0.5);
+    -webkit-filter: blur(2px);
+    filter: blur(2px);
+}
+
+main {
+    /* background-color: darkgrey;*/
+    height: 569px;
+    /* 739*/
+}
+
+footer {
+    /*background-color: darkred;*/
+    height: 70px;
+}
+
+#top {
+    display: inline-block;
+    width: 100%;
+    /* regroupe dans le header les divs logo et logs*/
+    /* background-color: darkgreen;*/
+    height: 100px;
+    vertical-align: middle;
+    line-height: 100px;
+}
+
+#logo {
+    float: left;
+    margin-left: 20%;
+    /*width: 200px;*/
+    height: 100px;
+    /*background-color: darkred*/
+    ;
+}
+
+#logo img {
+    float: left;
+    width: 116px;
+    height: 100px;
+}
+
+#logo h1 {
+    float: left;
+    margin-left: 10px;
+    color: white;
+    font-size: 50px;
+    font-family: 'Black Olives', sans-serif;
+}
+
+
+
+#logs {
+    float: right;
+    margin-right: 20%;
+    height: 50px;
+    font-weight: bold;
+}
+
+#logs a {
+    margin-right: 25px;
+    color: white;
+    text-decoration: none;
+}
+
+
+/*******************************************************************************/
+/****************************  =2= FOOTER **************************************/
+/*******************************************************************************/
+
+
+
+
+
+
+
+/*******************************************************************************/
+/****************************  =3= PARTIE KELIAN *******************************/
+/*******************************************************************************/
+
+
+
+/****************** -3.1- INSCRIPTION **********************/
+
+
+
+
+
+/****************** -3.2- DESCRIPTION **********************/
+
+
+
+
+
+/*************** -3.3- GESTION UTILISATEURS ****************/
+
+
+
+
+
+
+/****************** -3.4- MENTIONS LEGALES *****************/
+
+
+
+
+
+
+
+
+/*******************************************************************************/
+/**************************  =4= PARTIE CYRIAQUE  ******************************/
+/*******************************************************************************/
+
+
+
+
+
+
+/********************* -4.1- CONTACT ***********************/
+
+
+
+
+
+
+/***************** -4.2- ESPACE PERSONNEL ******************/
+
+
+
+
+
+
+/*************** -4.3- GESTION DES AUTORITES ***************/
+
+
+
+
+
+
+
+
+
+
+
+/*******************************************************************************/
+/***************************  =5= PARTIE HUGO **********************************/
+/*******************************************************************************/
+
+
+
+
+
+/********************** -5.1- CONNEXION ********************/
+
+
+
+
+
+
+/***************** -5.2- MENU GESTIONNAIRE *****************/
+
+
+
+
+
+
+/**************** -5.3- GESTION EMPRUNTEURS ****************/
+
+
+
+
+
+
+
+
+
+/*******************************************************************************/
+/******************************  =6= PARTIE GUILLAUME **************************/
+/*******************************************************************************/
+
+
+
+/******************* -6.1- ACCUEIL *************************/
+
+
+
+
+
+/****************** -6.2- PAGE RESULTATS *******************/
+
+
+
+
+
+/****************** -6.3- GESTION NOTICES ******************/
+
+
+
+
+
+
+/**************** -6.4- GESTION DOCUMENTS ******************/
+
+
