@@ -1,9 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Gestion des notices</title>
-</head>
-<body>
+<main id="gestionNotices">
 
-</body>
-</html>
+
+
+
+
+
+</main>

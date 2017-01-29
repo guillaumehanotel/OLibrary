@@ -1,9 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Gestion des emprunteurs</title>
-</head>
-<body>
+<main id="gestionEmprunteurs">
 
-</body>
-</html>
+
+
+
+
+
+</main>

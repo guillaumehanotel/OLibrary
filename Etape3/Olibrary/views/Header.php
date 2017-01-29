@@ -3,7 +3,8 @@
     <head>
         <meta charset="utf-8" />
 
-        <link href="css/style.css" rel="stylesheet" type="text/css" />
+
+        <link href="<?php echo BASE_URL."/Olibrary/css/style.css"; ?>" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet">
         <title>OLibrary</title>
 
@@ -21,7 +22,7 @@
             <div id="top">
 
                 <div id="logo">
-                    <img src="img/logo3.png"  />
+                    <img src="<?php echo BASE_URL."/Olibrary/img/logo3.png"; ?>"  />
                     <h1>OLibrary</h1>
                 </div>
 

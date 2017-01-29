@@ -1,9 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Menu gestionnaire</title>
-</head>
-<body>
+<main id="menuGestion">
 
-</body>
-</html>
+
+
+</main>

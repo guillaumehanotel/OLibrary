@@ -1,9 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Gestion des utilisateurs</title>
-</head>
-<body>
+<main id="gestionUtilisateurs">
 
-</body>
-</html>
+
+
+
+
+
+</main>

@@ -1,9 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Page de résultats</title>
-</head>
-<body>
+<main id="pageResultats">
 
-</body>
-</html>
+
+
+</main>

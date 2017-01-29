@@ -1,12 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <title>Contact</title>
-</head>
-<body>
 
+<main id="contact">
     <form action="" method="post">
 
         <label for="nom">Nom :</label>
@@ -27,8 +20,4 @@
         <button type="submit">Envoyer votre message</button>
 
     </form>
-
-</body>
-</html>
-
-
+</main>

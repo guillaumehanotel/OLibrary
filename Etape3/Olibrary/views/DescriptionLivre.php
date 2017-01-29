@@ -1,9 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Livre</title>
-</head>
-<body>
+<main id="descriptionLivre">
 
-</body>
-</html>
+
+
+
+
+</main>

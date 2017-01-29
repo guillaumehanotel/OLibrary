@@ -1,9 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Mentions Légales</title>
-</head>
-<body>
+<main id="mentionLegales">
 
-</body>
-</html>
+
+
+</main>

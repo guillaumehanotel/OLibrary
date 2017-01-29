@@ -1,9 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Gestion des documents</title>
-</head>
-<body>
+<main id="gestionDocuments">
 
-</body>
-</html>
+
+
+
+
+
+</main>

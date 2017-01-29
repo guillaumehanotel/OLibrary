@@ -1,9 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Gestion des autorités</title>
-</head>
-<body>
+<main id="gestionAutorites">
 
-</body>
-</html>
+
+
+
+
+
+</main>
