@@ -1,15 +1,14 @@
 <?php
 
-
-
-
 define('ROOT_DIR', dirname(__FILE__));
 define('ROOT',dirname(ROOT_DIR));
 define('DS', DIRECTORY_SEPARATOR);
 define('CORE', ROOT.DS.'core');
+
+
 define('BASE_URL', dirname(dirname($_SERVER['SCRIPT_NAME'])));
 
-
+echo BASE_URL;
 
 $_dir["controllers"] = "controllers/";
 $_dir["views"] = "views/";
