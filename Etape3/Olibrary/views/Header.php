@@ -28,7 +28,7 @@
 
 
                 <div id="logs">
-                    <a href="#">Connexion</a>
+                    <a href="">Connexion</a>
                     <a href="#">Inscription</a>
                 </div>
 
