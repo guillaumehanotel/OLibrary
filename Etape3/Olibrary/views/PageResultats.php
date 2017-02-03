@@ -1,4 +1,4 @@
-<main id="pageResultats">
+<main id="pageResultats"  class="container">
 
 
 

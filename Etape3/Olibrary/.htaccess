@@ -9,3 +9,16 @@ RewriteRule ^contact/$      index.php?page=Contact&%{QUERY_STRING} [L]
 ## Inscription ##
 RewriteRule ^inscription/$ index.php?page=Inscription&%{QUERY_STRING} [L]
 
+## Connexion ##
+RewriteRule ^connexion/$ index.php?page=Connexion&%{QUERY_STRING} [L]
+
+## Description Livre##
+RewriteRule ^descriptionlivre/$ index.php?page=DescriptionLivre&%{QUERY_STRING} [L]
+
+## Espace Perso ##
+RewriteRule ^espaceperso/$ index.php?page=EspacePerso&%{QUERY_STRING} [L]
+
+## Gestion Autorités ##
+RewriteRule ^autorites/$ index.php?page=GestionAutorites&%{QUERY_STRING} [L]
+
+

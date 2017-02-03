@@ -1,4 +1,4 @@
-<main id="gestionNotices">
+<main id="gestionNotices"  class="container">
 
 
 

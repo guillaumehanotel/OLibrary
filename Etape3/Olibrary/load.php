@@ -1,7 +1,18 @@
 <?php
 require('config.php');
 require('function.php');
-require('views/Header.php');
+
+
+
+if(isset($_SESSION["admin"])){
+    require('views/back/Header.php');
+} else {
+    require('views/front/Header.php');
+}
+
+
+
+
 require('views/Footer.php');
 
 

@@ -1,4 +1,4 @@
-<main id="menuGestion">
+<main id="menuGestion"  class="container">
 
 
 

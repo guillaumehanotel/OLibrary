@@ -1,4 +1,4 @@
-<main id="gestionDocuments">
+<main id="gestionDocuments" class="container">
 
 
 

@@ -1,4 +1,4 @@
-<main id="espacePerso">
+<main id="espacePerso" class="container">
 
 
 

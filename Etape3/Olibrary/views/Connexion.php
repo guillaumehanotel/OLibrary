@@ -1,4 +1,4 @@
-<main id="connexion">
+<main id="connexion" class="container">
 
     <form style="text-align: center;" method="POST">
         Adresse Mail : <br>
