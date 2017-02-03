@@ -1,4 +1,4 @@
-<main id="mentionLegales">
+<main id="mentionLegales"  class="container">
 
 
 

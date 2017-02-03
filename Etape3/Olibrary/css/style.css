@@ -68,7 +68,7 @@ header {
     height: 100px;
     line-height: 100px;
 }
-/*
+
 header #flou {
     position: absolute;
     width: 100%;
@@ -78,7 +78,7 @@ header #flou {
     -webkit-filter: blur(2px);
     filter: blur(2px);
     z-index: 1;
-}*/
+}
 
 main {
     /* background-color: darkgrey;*/
@@ -99,6 +99,7 @@ footer {
     height: 100px;
     vertical-align: middle;
     line-height: 100px;
+    position:absolute;
     z-index: 3;
     /*
     background-color: rgba(100, 100, 100, 0.5);
@@ -148,6 +149,18 @@ footer {
 }
 
 
+.container {
+
+
+    background-color: #FEFEE2;
+    /*box-shadow: 1px 1px 15px white;*/
+
+}
+
+
+
+
+
 /*******************************************************************************/
 /****************************  =2= FOOTER **************************************/
 /*******************************************************************************/
@@ -167,13 +180,6 @@ footer {
 /****************** -3.1- INSCRIPTION **********************/
 #inscription {
 
-
-}
-
-.background {
-	background-color: white;
-	height: 500px;
-	width: 500px;
 
 }
 

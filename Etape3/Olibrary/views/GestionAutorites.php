@@ -1,4 +1,4 @@
-<main id="gestionAutorites">
+<main id="gestionAutorites"  class="container">
 
 
 

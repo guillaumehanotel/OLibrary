@@ -1,5 +1,5 @@
 
-<main id="contact">
+<main id="contact" class="container">
     <form action="" method="post">
 
         <label for="nom">Nom :</label>

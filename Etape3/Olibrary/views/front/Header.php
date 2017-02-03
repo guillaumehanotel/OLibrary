@@ -6,16 +6,16 @@
         
         <!-- FICHIER CSS -->
         
-        <link rel="stylesheet" href="<?= BASE_URL."Olibrary/bootstrap/css/bootstrap.min.css" ?>"/>
+        <link rel="stylesheet" href="<?= BASE_URL."/Olibrary/bootstrap/css/bootstrap.min.css" ?>"/>
        
         <link href="<?php echo BASE_URL."/Olibrary/css/style.css"; ?>" rel="stylesheet" type="text/css" />
         
         
         <!-- FICHIER JS -->
         
-        <script type="application/javascript" src="<?= BASE_URL."Olibrary/bootstrap/js/jquery-3.1.1.min.js" ?>"></script>
+        <script type="application/javascript" src="<?= BASE_URL."/Olibrary/bootstrap/js/jquery-3.1.1.min.js" ?>"></script>
     
-        <script type="application/javascript" src="<?= BASE_URL."Olibrary/bootstrap/js/bootstrap.js" ?>"></script>
+        <script type="application/javascript" src="<?= BASE_URL."/Olibrary/bootstrap/js/bootstrap.js" ?>"></script>
         
         
         <!-- FONTS -->
@@ -50,8 +50,8 @@
 
 
                 <div id="logs">
-                    <a href="">Connexion</a>
-                    <a href="#">Inscription</a>
+                    <a href="<?= BASE_URL."/Olibrary/connexion/" ?>">Connexion</a>
+                    <a href="<?= BASE_URL."/Olibrary/inscription/" ?>">Inscription</a>
                 </div>
 
             </div>
