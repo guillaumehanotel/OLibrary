@@ -225,9 +225,75 @@ footer {
 
 /********************* -4.1- CONTACT ***********************/
 
-#contact {
-
-
+#contact body {
+  background: white;
+  font-family: 'Open Sans', sans-serif;
+}
+#contact.login {
+  width: 400px;
+  margin: 16px auto;
+  font-size: 16px;
+}
+#contact .login-header,
+.login p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+#contact .login-triangle {
+  width: 0;
+  margin-right: auto;
+  margin-left: auto;
+  border: 12px solid transparent;
+  border-bottom-color: #28d;
+}
+#contact .login-header {
+  background: #28d;
+  padding: 20px;
+  font-size: 1.4em;
+  font-weight: normal;
+  text-align: center;
+  text-transform: uppercase;
+  color: #fff;
+}
+#contact .login-container {
+  background: #ebebeb;
+  padding: 12px;
+}
+#contact .login p {
+  padding: 12px;
+}
+#contact .login input {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  border-width: 1px;
+  border-style: solid;
+  padding: 16px;
+  outline: 0;
+  font-family: inherit;
+  font-size: 0.95em;
+}
+#contact .login input[type="email"],
+.login input[type="password"] {
+  background: #fff;
+  border-color: black;
+  color: #555;
+}
+#contact .login input[type="email"]:focus,
+.login input[type="password"]:focus {
+  border-color: #888;
+}
+#contact .login input[type="submit"] {
+  background: #28d;
+  border-color: transparent;
+  color: #fff;
+  cursor: pointer;
+}
+#contact .login input[type="submit"]:hover {
+  background: #17c;
+}
+#contact .login input[type="submit"]:focus {
+  border-color: #05a;
 }
 
 
