@@ -1,4 +1,4 @@
-<main id="descriptionLivre">
+<main id="descriptionLivre"  class="container">
 
 
 

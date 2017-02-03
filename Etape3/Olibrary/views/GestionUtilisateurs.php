@@ -1,4 +1,4 @@
-<main id="gestionUtilisateurs">
+<main id="gestionUtilisateurs"  class="container">
 
 
 

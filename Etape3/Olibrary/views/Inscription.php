@@ -1,6 +1,8 @@
-<main id="inscription">
+<main id="inscription"  class="container">
 
-	<div class="background">
+
+
+	<div>
 	<form method="post">
 		<input type="text" name="nom" placeholder="Nom"><br>
 		<input type="text" name="prenom" placeholder="Prénom"><br>
