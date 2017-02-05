@@ -12,6 +12,9 @@ RewriteRule ^inscription/$ index.php?page=Inscription&%{QUERY_STRING} [L]
 ## Connexion ##
 RewriteRule ^connexion/$ index.php?page=Connexion&%{QUERY_STRING} [L]
 
+## Deconnexion ##
+RewriteRule ^deconnexion/$ index.php?page=Deconnexion&%{QUERY_STRING} [L]
+
 ## Description Livre##
 RewriteRule ^descriptionlivre/$ index.php?page=DescriptionLivre&%{QUERY_STRING} [L]
 

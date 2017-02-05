@@ -38,50 +38,61 @@ if(!empty($_POST)){
 }*/
 
 
-require $_dir["views"]."Connexion.php";
+
 
 if(!empty($_POST)){
+
     if(!empty($_POST["email"]) && !empty($_POST["password"]) &&
         isset($_POST["email"]) && isset($_POST["password"])){
+
+
         $email = $_POST["email"];
-        $password = $_POST["password"];
 
-        $requete = "SELECT user_mail, user_mdp FROM utilisateur WHERE user_mail='$email'";
-        $req = $bdd->query($requete);
+        //Si l'email existe dans la base
+        if(DansBase($email,$bdd) == true){
 
-        $user = $req->fetch(PDO::FETCH_OBJ);
-       /* var_dump($requete);
-        var_dump($user);
-        var_dump($user['user_mdp']);
-        var_dump($password);*/
+            // On récupère l'utilisateur (sous forme de tableaux)
+            $user=GetUser($email,$bdd);
 
-        $passhach = '$2y$10$ies5lZIQFf6UDnlcjR3Jk.7BzPrCQeT00zlSuEonrTmFoSaL1Sv4y';
+            // compare le mdp rentré par l'utilisateur avec celui présent dans la base correspondant à l'email rentré
+            if(password_verify($_POST["password"],$user["user_mdp"])) {
+
+                if(!isset($_SESSION)){
+                    session_start();
+                }
+                $_SESSION['connect'] = true;
+
+                // on déclare une nouvelle varianle session pour chaque caractéristique de l'utilisateur
+             /*   foreach ($user[0] as $key => $value){
+                    $_SESSION[$key] = $value;
+                }*/
+                echo "OKayy";
 
 
 
-        if(password_verify($password,/*$user['user_mdp']*/$passhach)) {
-            $_SESSION["connect"]=true;
-            $_SESSION["user"]=$user['user_nom'];
-            $_SESSION["admin"]=$user['is_admin'];
-            echo "OKAYYYYYYYY";
-            var_dump($user);
+            } else {
+                $_SESSION["erreur"] = "Mot de passe incorrect !";
+            }
+
+
+        } else {
+            $_SESSION["erreur"] = "Email incorrect !";
         }
 
 
-        else {
-            $_SESSION["erreur"]="Identification impossible. Verifiez vos identifiants";
-        }
-
-        if(!empty($_SESSION["erreur"])){
-            echo "<div>".$_SESSION['erreur']."</div>";
-            unset($_SESSION["erreur"]);
-            var_dump(password_verify($_POST['password'], $user['user_mdp']));
-        }
-
-
+    } else{
+        $_SESSION['erreur'] = "Merci de remplir tout les champs";
     }
 
-    else{
-        echo "Merci de remplir tout les champs";
-    }
+
+}else {
+    // formulaire pas envoyé
 }
+
+if(!empty($_SESSION["erreur"])){
+    echo "<div>".$_SESSION['erreur']."</div>";
+    unset($_SESSION["erreur"]);
+    //var_dump(password_verify($_POST['password'], $user['user_mdp']));
+}
+
+require $_dir["views"]."Connexion.php";

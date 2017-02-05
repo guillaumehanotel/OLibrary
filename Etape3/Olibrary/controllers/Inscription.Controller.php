@@ -8,28 +8,38 @@ if(!empty($_POST)){
 
 
         if( $_POST["password"] == $_POST["repassword"]) {
-            $nom = $_POST["nom"];
-            $prenom = $_POST["prenom"];
-            $email = $_POST["email"];
-            $password = password_hash($_POST['password'], PASSWORD_DEFAULT)."\n";
-            $repassword = password_hash($_POST['repassword'], PASSWORD_DEFAULT)."\n";
 
-            $requete = "INSERT INTO utilisateur (user_nom,user_prenom,user_mail,user_mdp,is_admin)
-              VALUES ('$nom','$prenom','$email','$password',FALSE)";
-            $bdd->query($requete);
 
-            header('Location: ' . BASE_URL . '/Olibrary/ ');
+            if(DansBase($_POST['email'],$bdd) == false) {
+
+
+                $nom = $_POST["nom"];
+                $prenom = $_POST["prenom"];
+                $email = $_POST["email"];
+                $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+
+                $requete = "INSERT INTO utilisateur (user_nom,user_prenom,user_mail,user_mdp,is_admin)
+               VALUES ('$nom','$prenom','$email','$password',FALSE)";
+                $bdd->query($requete);
+
+
+                header('Location: ' . BASE_URL . '/Olibrary/connexion/ ');
+
+
+            } else {
+                alertMsg("Adresse mail déjà dans base");
+            }
+
+
+        } else {
+            alertMsg("Merci de rentrer le même mot de passe");
         }
-        else{
-            echo "Merci de rentrer le même mot de passe";
-        }
 
 
+    } else {
+        alertMsg("Veuillez compléter tous les champs");
     }
-    else {
-        echo "Merci de remplir tout les champs.";
-    }
-}
 
-else {
+} else {
+    //formulaire pas envoyé
 }
