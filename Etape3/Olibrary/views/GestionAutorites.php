@@ -24,6 +24,7 @@
     <form action="" method="post">
         <input type="text" name="collection_nom" placeholder="Nom de la collection">
         <select name="editeur_id">
+            <option disabled selected>Editeur id </option>
             <?php
                     foreach($editeur_id as $edit_id){
                     echo "<option>".$edit_id['editeur_id'];?> </option><?php } ?>
