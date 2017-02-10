@@ -1,5 +1,9 @@
 RewriteEngine On
   
+
+## 404##
+RewriteRule ^404/$      index.php?page=404&%{QUERY_STRING} [L]
+
 ## Le site ##
 RewriteRule ^index/$      index.php?page=Accueil&%{QUERY_STRING} [L]
 
@@ -7,21 +11,40 @@ RewriteRule ^index/$      index.php?page=Accueil&%{QUERY_STRING} [L]
 RewriteRule ^contact/$      index.php?page=Contact&%{QUERY_STRING} [L]
 
 ## Inscription ##
-RewriteRule ^inscription/$ index.php?page=Inscription&%{QUERY_STRING} [L]
+RewriteRule ^inscription/$      index.php?page=Inscription&%{QUERY_STRING} [L]
 
 ## Connexion ##
-RewriteRule ^connexion/$ index.php?page=Connexion&%{QUERY_STRING} [L]
+RewriteRule ^connexion/$        index.php?page=Connexion&%{QUERY_STRING} [L]
 
 ## Deconnexion ##
-RewriteRule ^deconnexion/$ index.php?page=Deconnexion&%{QUERY_STRING} [L]
+RewriteRule ^deconnexion/$      index.php?page=Deconnexion&%{QUERY_STRING} [L]
 
 ## Description Livre##
-RewriteRule ^descriptionlivre/$ index.php?page=DescriptionLivre&%{QUERY_STRING} [L]
+RewriteRule ^descriptionlivre/$         index.php?page=DescriptionLivre&%{QUERY_STRING} [L]
 
 ## Espace Perso ##
-RewriteRule ^espaceperso/$ index.php?page=EspacePerso&%{QUERY_STRING} [L]
+RewriteRule ^espaceperso/$      index.php?page=EspacePerso&%{QUERY_STRING} [L]
 
 ## Gestion Autorités ##
-RewriteRule ^autorites/$ index.php?page=GestionAutorites&%{QUERY_STRING} [L]
+RewriteRule ^autorites/$        index.php?page=GestionAutorites&%{QUERY_STRING} [L]
 
+## Gestion Documents ##
+RewriteRule ^documents/$        index.php?page=GestionDocuments&%{QUERY_STRING} [L]
 
+## Gestion Emprunteurs ##
+RewriteRule ^emprunteurs/$        index.php?page=GestionEmprunteurs&%{QUERY_STRING} [L]
+
+## Gestion Notices ##
+RewriteRule ^notices/$        index.php?page=GestionNotices&%{QUERY_STRING} [L]
+
+## Gestion Utilisateurs ##
+RewriteRule ^utilisateurs/$        index.php?page=GestionUtilisateurs&%{QUERY_STRING} [L]
+
+## Menu Gestion ##
+RewriteRule ^menugestion/$        index.php?page=MenuGestion&%{QUERY_STRING} [L]
+
+## Mentions Légales ##
+RewriteRule ^mentionslegales/$        index.php?page=MentionsLegales&%{QUERY_STRING} [L]
+
+## PageResultats ##
+RewriteRule ^pageresultats/$        index.php?page=PagesResultats&%{QUERY_STRING} [L]
