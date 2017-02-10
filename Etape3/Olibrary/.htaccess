@@ -24,7 +24,4 @@ RewriteRule ^espaceperso/$ index.php?page=EspacePerso&%{QUERY_STRING} [L]
 ## Gestion Autorités ##
 RewriteRule ^autorites/$ index.php?page=GestionAutorites&%{QUERY_STRING} [L]
 
-## Menu Gestion ##
-        RewriteRule ^menuGestion/$ index.php?page=menuGestion&%{QUERY_STRING} [L]
-
 
