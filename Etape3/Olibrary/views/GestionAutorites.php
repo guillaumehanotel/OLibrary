@@ -3,26 +3,26 @@
            <h2 class="soustitre">Gestion des autorités</h2>
 
     <h3>Ajouter un auteur :</h3>
-    <form action="" method="post">
+    <form action="/projetolibrary/OLibrary/Etape3/Olibrary/autorites/" method="post">
         <input type="text" name="auteur_nom" placeholder="Nom">
         <input type="text" name="auteur_prenom" placeholder="Prénom">
         <input type="submit" name="auteur">
     </form>
 
     <h3>Ajouter un editeur :</h3>
-    <form action="" method="post">
+    <form action="/projetolibrary/OLibrary/Etape3/Olibrary/autorites/" method="post">
         <input type="text" name="editeur_nom" placeholder="Nom de l'éditeur">
         <input type="submit" name="editeur">
     </form>
 
     <h3>Ajouter un fournisseur :</h3>
-    <form action="" method="post">
+    <form action="/projetolibrary/OLibrary/Etape3/Olibrary/autorites/" method="post">
         <input type="text" name="fournisseur_nom" placeholder="Nom du fournisseur">
         <input type="submit" name="fournisseur">
     </form>
 
     <h3>Ajouter une collection :</h3>
-    <form action="" method="post">
+    <form action="/projetolibrary/OLibrary/Etape3/Olibrary/autorites/" method="post">
         <input type="text" name="collection_nom" placeholder="Nom de la collection">
         <select name="editeur_id">
             <option disabled selected>Editeur id </option>
@@ -34,7 +34,7 @@
     </form>
 
     <h3>Ajouter un livre :</h3>
-    <form action="" method="post">
+    <form action="/projetolibrary/OLibrary/Etape3/Olibrary/autorites/" method="post">
         <input type="text" name="livre_ISBN" placeholder="ISBN">
         <input type="text" name="livre_titre" placeholder="Titre">
         <input type="text" name="nb_exemplaire" placeholder="Nombre d'exemplaires">

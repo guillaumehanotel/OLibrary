@@ -11,6 +11,7 @@ if(!empty($_POST["auteur"])){
         $requete = "INSERT INTO auteur (auteur_nom, auteur_prenom)
                VALUES ('$auteur_nom','$auteur_prenom')";
         $bdd->query($requete);
+        header('Location: ' . BASE_URL . '/Olibrary/autorites/');
     }
     else {
         echo "Merci de remplir tout les champs";
@@ -25,6 +26,7 @@ if(!empty($_POST["editeur"])){
         $requete = "INSERT INTO editeur (editeur_nom)
                VALUES ('$editeur_nom')";
         $bdd->query($requete);
+        header('Location: ' . BASE_URL . '/Olibrary/autorites/');
     }
     else {
         echo "Merci de remplir tout les champs";
@@ -39,6 +41,7 @@ if(!empty($_POST["fournisseur"])){
         $requete = "INSERT INTO fournisseur (fournisseur_nom)
                VALUES ('$fournisseur_nom')";
         $bdd->query($requete);
+        header('Location: ' . BASE_URL . '/Olibrary/autorites/');
     }
     else {
         echo "Merci de remplir tout les champs";
@@ -68,11 +71,11 @@ if(!empty($_POST["collection"])) {
 
         //SUPRIMERNKJFBJFBRUBZJKCVRZE ?C  --------------------------------------------------------------------
 
-
+        $editeur_id1 = explode(" ", $editeur_id);
         $requete = "INSERT INTO collection (collection_nom, editeur_id)
-               VALUES ('$collection_nom', '$editeur_id')";
+               VALUES ('$collection_nom', '$editeur_id1[0]')";
         $bdd->query($requete);
-    var_dump($requete);
+        header('Location: ' . BASE_URL . '/Olibrary/autorites/');
     }
     else {
         echo "Merci de remplir tout les champs";
@@ -97,12 +100,13 @@ if(!empty($_POST["livre"])) {
         $collection_id = $_POST["collection_id"];
         $fournisseur_id = $_POST["fournisseur_id"];
 
-
+        $auteur_id1 = explode(" ", $auteur_id);
+        $collection_id1= explode(" ", $collection_id);
+        $fournisseur_id1= explode(" ", $fournisseur_id);
         $requete = "INSERT INTO livre (livre_ISBN,livre_titre, nb_exemplaire, date_parution,synopsis,auteur_id,collection_id,fournisseur_id)
-               VALUES ('$livre_ISBN','$livre_titre', '$nb_exemplaire', '$date','$synopsis','$auteur_id','$collection_id','$fournisseur_id')";
+               VALUES ('$livre_ISBN','$livre_titre', '$nb_exemplaire', '$date','$synopsis','$auteur_id1[0]','$collection_id1[0]','$fournisseur_id1[0]')";
         $bdd->query($requete);
-
-        var_dump($requete);
+        header('Location: ' . BASE_URL . '/Olibrary/autorites/');
 
     }
     else {
