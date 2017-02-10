@@ -7,13 +7,14 @@
                <!-- à toi de jouer ! --> 
                
                
-               <a href="<?php echo BASE_URL."/Olibrary/notices/"; ?>">Gestion des notices et des exemplaires</a>
-               <a href="<?php echo BASE_URL."/Olibrary/utilisateurs/"; ?>">Gestion des  Utilisateurs</a>
-               <a href="<?php echo BASE_URL."/Olibrary/autorites/"; ?>">Gestion des Autorités</a>
-               <a href="<?php echo BASE_URL."/Olibrary/emprunteurs/"; ?>">Gestion des  Emprunteurs</a>
-               <a href="<?php echo BASE_URL."/Olibrary/documents/"; ?>">Gestion  des Documents</a>
-               
-               
+               <Button href="<?php echo BASE_URL."/Olibrary/notices/"; ?>">Gestion des notices et des exemplaires</Button>
+               <Button href="<?php echo BASE_URL."/Olibrary/utilisateurs/"; ?>">Gestion des  Utilisateurs</Button>
+               <Button href="<?php echo BASE_URL."/Olibrary/autorites/"; ?>">Gestion des Autorités</Button>
+               <br>  <br> <br>
+               <Button style="width: 300px" href="<?php echo BASE_URL."/Olibrary/emprunteurs/"; ?>">Gestion des  Emprunteurs</Button>
+               <Button style="width: 300px" href="<?php echo BASE_URL."/Olibrary/documents/"; ?>">Gestion  des Documents</Button>
+
+
                
            </div>
 
