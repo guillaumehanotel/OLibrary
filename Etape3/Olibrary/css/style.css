@@ -333,7 +333,10 @@ footer div a {
 }
 
 
-
+button{
+    width: 200px;
+    height: 300px;
+}
 
 /**************** -5.3- GESTION EMPRUNTEURS ****************/
 
