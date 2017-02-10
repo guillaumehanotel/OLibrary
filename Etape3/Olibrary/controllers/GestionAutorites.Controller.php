@@ -46,16 +46,16 @@ if(!empty($_POST["fournisseur"])){
 }
 
 
-$editid= $bdd->query("SELECT editeur_id FROM editeur");
+$editid= $bdd->query("SELECT * FROM editeur");
 $editeur_id=$editid->fetchAll();
 
-$autid= $bdd->query("SELECT auteur_id FROM auteur");
+$autid= $bdd->query("SELECT * FROM auteur");
 $auteur_id=$autid->fetchAll();
 
-$collid= $bdd->query("SELECT collection_id FROM collection ORDER BY collection_id");
+$collid= $bdd->query("SELECT * FROM collection ORDER BY collection_id");
 $collection_id=$collid->fetchAll();
 
-$fournid= $bdd->query("SELECT fournisseur_id FROM fournisseur");
+$fournid= $bdd->query("SELECT * FROM fournisseur");
 $fournisseur_id=$fournid->fetchAll();
 
 
@@ -66,11 +66,13 @@ if(!empty($_POST["collection"])) {
         $collection_nom = $_POST["collection_nom"];
         $editeur_id = $_POST["editeur_id"];
 
+        //SUPRIMERNKJFBJFBRUBZJKCVRZE ?C  --------------------------------------------------------------------
+
 
         $requete = "INSERT INTO collection (collection_nom, editeur_id)
                VALUES ('$collection_nom', '$editeur_id')";
         $bdd->query($requete);
-
+    var_dump($requete);
     }
     else {
         echo "Merci de remplir tout les champs";

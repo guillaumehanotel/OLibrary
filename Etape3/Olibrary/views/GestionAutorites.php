@@ -27,7 +27,7 @@
             <option disabled selected>Editeur id </option>
             <?php
                     foreach($editeur_id as $edit_id){
-                    echo "<option>".$edit_id['editeur_id'];?> </option><?php } ?>
+                    echo "<option>".$edit_id['editeur_id']." - ".$edit_id['editeur_nom'];?> </option><?php } ?>
         </select>
         <input type="submit" name="collection">
     </form>
@@ -45,21 +45,21 @@
             <option disabled selected>Auteur id </option>
             <?php
             foreach($auteur_id as $aut_id){
-                echo "<option>".$aut_id['auteur_id'];?> </option><?php } ?>
+                echo "<option>".$aut_id['auteur_id']." - ".$aut_id['auteur_nom'];?> </option><?php } ?>
         </select>
 
         <select name="collection_id">
             <option disabled selected>Collection id </option>
             <?php
             foreach($collection_id as $coll_id){
-                echo "<option placeholder='Collection'>".$coll_id['collection_id'];?> </option><?php } ?>
+                echo "<option placeholder='Collection'>".$coll_id['collection_id']." - ".$coll_id['collection_nom'];?> </option><?php } ?>
         </select>
 
         <select name="fournisseur_id">
             <option disabled selected>Fournisseur id </option>
             <?php
             foreach($fournisseur_id as $fourn_id){
-                echo "<option>".$fourn_id['fournisseur_id'];?> </option><?php } ?>
+                echo "<option>".$fourn_id['fournisseur_id']." - ".$fourn_id['fournisseur_nom'];?> </option><?php } ?>
         </select>
 
         <input type="submit" name="livre">
