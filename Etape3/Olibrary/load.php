@@ -4,7 +4,7 @@ require('function.php');
 
 
 
-if(isset($_SESSION["admin"])){
+if(isset($_SESSION["is_admin"])){
     require('views/back/Header.php');
 } else {
     require('views/front/Header.php');
@@ -13,7 +13,7 @@ if(isset($_SESSION["admin"])){
 
 
 
-require('views/Footer.php');
+
 
 
 /*

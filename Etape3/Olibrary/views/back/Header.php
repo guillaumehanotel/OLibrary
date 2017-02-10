@@ -44,15 +44,41 @@
             <div id="top">
 
                 <div id="logo">
+                   <a href="<?php echo BASE_URL."/Olibrary/index/"; ?>">
                     <img src="<?php echo BASE_URL."/Olibrary/img/logo3.png"; ?>"  />
                     <h1>OLibrary</h1>
+                    </a>
                 </div>
 
+                        
 
+                <?php
+                
+                if(!isset($_SESSION['connect'])){   
+                
+                ?>
+                
                 <div id="logs">
                     <a href="<?= BASE_URL."/Olibrary/connexion/" ?>">Connexion</a>
                     <a href="<?= BASE_URL."/Olibrary/inscription/" ?>">Inscription</a>
                 </div>
+                
+                <?php
+    
+                } else {
+                    
+                ?>
+               <div id="logs">
+                    <a href="<?= BASE_URL."/Olibrary/menugestion/" ?>">MenuGestion</a>
+                    <a href="<?= BASE_URL."/Olibrary/espaceperso/" ?>">Espace Perso</a>
+                    <a href="<?= BASE_URL."/Olibrary/deconnexion/" ?>">Deconnexion</a>
+                </div>
+              
+              
+               <?php
+                    
+                }
+                ?>
 
             </div>
 
