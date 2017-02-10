@@ -1,7 +1,7 @@
-<main id="gestionUtilisateurs"  class="container">
+<main id="gestionUtilisateurs"  class="content container">
 
 
-
+           <h2 class="soustitre">Gestion des utilisateurs</h2>
 
 
 

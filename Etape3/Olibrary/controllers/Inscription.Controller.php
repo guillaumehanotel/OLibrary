@@ -17,9 +17,15 @@ if(!empty($_POST)){
                 $prenom = $_POST["prenom"];
                 $email = $_POST["email"];
                 $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+                
+                if(isset($_POST['admin'])){
+                    $admin =1;
+                } else {
+                    $admin=0;
+                }
 
                 $requete = "INSERT INTO utilisateur (user_nom,user_prenom,user_mail,user_mdp,is_admin)
-               VALUES ('$nom','$prenom','$email','$password',FALSE)";
+               VALUES ('$nom','$prenom','$email','$password','$admin')";
                 $bdd->query($requete);
 
 

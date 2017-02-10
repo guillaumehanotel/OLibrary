@@ -1,5 +1,6 @@
-<main id="gestionAutorites"  class="container">
-<h2>Gestion des Autorités</h2>
+<main id="gestionAutorites"  class="content container">
+          
+           <h2 class="soustitre">Gestion des autorités</h2>
 
     <h3>Ajouter un auteur :</h3>
     <form action="" method="post">

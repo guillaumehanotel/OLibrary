@@ -20,3 +20,5 @@ else
 {
 	include $_dir["controllers"].'404.Controller.php';
 }
+
+require('views/Footer.php');
