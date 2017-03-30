@@ -1,0 +1,158 @@
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: "Black Olives";
+    src: url('../fonts/BlackOlives.ttf');
+}
+
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    /*background-color: #233237;*/
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+i.fa {
+    color: 	#FF7F50;
+}
+
+
+.myorange {
+    background-color: #FF7F50;
+}
+
+.myblue {
+    background-color: #3498DB;
+}
+
+
+main {
+    flex: 1 0 auto;
+}
+
+
+
+
+
+
+
+
+/** NAVIGATION **/
+
+nav {
+    background-color: #3498DB; /* bleu */
+}
+
+#mobile-demo {
+    width: 150px;
+    text-align: center;
+}
+
+h1 {
+    font-size: inherit;
+    margin: inherit;
+    line-height: inherit;
+    font-family: 'Black Olives', sans-serif;
+    font-size: 44px;
+    font-weight: 800;
+}
+
+footer.page-footer {
+    background-color: #3498DB;
+    color: white;
+}
+
+
+
+
+/**** ACCUEIL *****/
+
+#accueil {
+    margin-top: 120px;
+}
+
+#accueil #searchbar {
+    padding: 0;
+}
+
+#accueil input {
+    background-color: white;
+}
+
+#accueil #loupe {
+    color: #c1c1c1;
+}
+
+#accueil #backsearch {
+    height: 90px;
+}
+
+
+
+/**** MENU GESTION ***/
+
+#menuGestion .elem_gestion {
+
+    background-color: #3498DB;
+    /*
+    border: 5px black solid;
+    border-color: #FF7F50;
+    */
+    box-shadow: 2px 2px 5px black;
+
+    height: 200px;
+    margin-right: 4%;
+    color: white;
+
+    font-weight: 500;
+    font-size: 20px;
+
+}
+
+#menuGestion .row {
+    margin-bottom: 0px;
+}
+
+#menuGestion .row .col{
+    padding: 0px;
+}
+
+
+#menuGestion #elem_left .elem_gestion {
+    margin-bottom : 15px;
+    line-height: 200px;
+}
+
+#menuGestion #elem_left .elem_gestion:first-child{
+    line-height: normal;
+    display: inline-block;
+    padding-top: 80px;
+
+}
+
+
+#menuGestion #elem_right .elem_gestion {
+    line-height: 415px;
+    height: 415px;
+}
+
+
+
+@media screen and (min-width: 1092px) and (max-width: 1092px) {
+
+    .brand-logo {
+        margin-left: 100px;
+    }
+
+
+}

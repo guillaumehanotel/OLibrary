@@ -12,7 +12,7 @@ CREATE TABLE utilisateur(
         user_nom    Varchar (50) ,
         user_prenom Varchar (50) ,
         user_mail   Varchar (50) ,
-        user_mdp    Varchar (50) ,
+        user_mdp    Varchar (255) ,
         is_admin    Bool ,
         PRIMARY KEY (user_num )
 )ENGINE=InnoDB;

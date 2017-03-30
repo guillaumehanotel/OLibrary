@@ -3,9 +3,9 @@
        <h2 class="soustitre">Connexion</h2>
 
     <form method="POST" action="">
-        Adresse Mail : <br>
+        Adresse Mail :
         <input name="email" required="" type="mail"><br>
-        Mot de passe : <br>
+        Mot de passe :
         <input name="password" type="password"> <br>
         <br>
         <input type="submit" value="Se connecter">

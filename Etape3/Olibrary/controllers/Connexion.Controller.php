@@ -71,7 +71,7 @@ if(!empty($_POST)){
                 $_SESSION['user_mail'] = $user['user_mail'];
                 $_SESSION['is_admin'] = $user['is_admin'];
                      
-                header('Location: ' . BASE_URL . '/Olibrary/connexion/ ');
+                header('Location: ' . BASE_URL . '/index/ ');
 
 /*
             } else {
