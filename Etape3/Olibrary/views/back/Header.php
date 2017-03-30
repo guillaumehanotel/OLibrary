@@ -6,28 +6,28 @@
 
         <!-- FICHIER CSS -->
 
-        <link rel="stylesheet" href="<?= BASE_URL."/Olibrary/bootstrap/css/bootstrap.min.css" ?>"/>
+        <link rel="stylesheet" href="<?= BASE_URL."/css/font-awesome.min.css" ?>">
 
-        <link href="<?php echo BASE_URL."/Olibrary/css/style.css"; ?>" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="<?= BASE_URL."/css/materialize.min.css" ?>"/>
+
+        <link href="<?php echo BASE_URL."/css/style2.css"; ?>" rel="stylesheet" type="text/css" />
+
+        <!-- ICONES -->
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 
         <!-- FICHIER JS -->
 
-        <script type="application/javascript" src="<?= BASE_URL."/Olibrary/bootstrap/js/jquery-3.1.1.min.js" ?>"></script>
+        <script type="application/javascript" src="<?= BASE_URL."/js/jquery-2.1.4.js" ?>"></script>
 
-        <script type="application/javascript" src="<?= BASE_URL."/Olibrary/bootstrap/js/bootstrap.js" ?>"></script>
-        
-        
-        <!-- FONTS -->
-        
-        <link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet">
-        
-        
-        
-        
-        
-        
-        
+        <script type="application/javascript" src="<?= BASE_URL."/js/materialize.min.js" ?>"></script>
+
+        <script type="application/javascript" src="<?= BASE_URL."/js/app.js" ?>"></script>
+
+
+
+
+
         <title>OLibrary</title>
 
     </head>
@@ -38,50 +38,77 @@
 
         <header>
 
-           <!-- div "flou" servant à mettre un flou sur le top -->
-            <div id="flou"></div> 
+            <?php
+            // si pas connecté
+            if(!isset($_SESSION['connect'])){
 
-            <div id="top">
+                ?>
 
-                <div id="logo">
-                   <a href="<?php echo BASE_URL."/Olibrary/index/"; ?>">
-                    <img src="<?php echo BASE_URL."/Olibrary/img/logo3.png"; ?>"  />
-                    <h1>OLibrary</h1>
-                    </a>
+                <div class="" id="navbar">
+                    <nav class="navbar-wrapped">
+                        <div class="row">
+
+                            <a href="#" data-activates="mobile-demo" class="button-collapse col m2"><i class="material-icons">menu</i></a>
+                            <a href="<?php echo BASE_URL."/index/" ?>" class="brand-logo col m4 offset-m2 offset-l2 "><i class="fa fa-book fa-2x" aria-hidden="true"></i><h1>OLibrary</h1></a>
+
+                            <ul id="nav-mobile" class=" col m4 right hide-on-med-and-down">
+                                <li><a href="<?= BASE_URL."/connexion/" ?>">Connexion</a></li>
+                                <li><a href="<?= BASE_URL."/inscription/" ?>">Inscription</a></li>
+
+                            </ul>
+
+                        </div>
+                    </nav>
+
+
+                    <ul class="side-nav" id="mobile-demo">
+                        <li><a href="<?= BASE_URL."/connexion/" ?>">Connexion</a></li>
+                        <li><a href="<?= BASE_URL."/inscription/" ?>">Inscription</a></li>
+                    </ul>
+
                 </div>
 
-                        
+
+
+
 
                 <?php
-                
-                if(!isset($_SESSION['connect'])){   
-                
+                // si admin connecté
+            } else {
+
                 ?>
-                
-                <div id="logs">
-                    <a href="<?= BASE_URL."/Olibrary/connexion/" ?>">Connexion</a>
-                    <a href="<?= BASE_URL."/Olibrary/inscription/" ?>">Inscription</a>
+
+                <div class="" id="navbar">
+                <nav class="navbar-wrapped">
+                    <div class="row">
+
+                        <a href="#" data-activates="mobile-demo" class="button-collapse col m2"><i class="material-icons">menu</i></a>
+                        <a href="<?php echo BASE_URL."/index/" ?>" class="brand-logo col m4 offset-m2 offset-l2 "><i class="fa fa-book fa-2x" aria-hidden="true"></i><h1>OLibrary</h1></a>
+
+                        <ul id="nav-mobile" class=" col m5 right hide-on-med-and-down">
+                            <li><a href="<?= BASE_URL."/menugestion/" ?>">Menu Gestion</a></li>
+                            <li><a href="<?= BASE_URL."/espaceperso/" ?>">Espace Perso</a></li>
+                            <li><a href="<?= BASE_URL."/deconnexion/" ?>">Deconnexion</a></li>
+
+                        </ul>
+
+                    </div>
+                </nav>
+
+
+                <ul class="side-nav" id="mobile-demo">
+                    <li><a href="<?= BASE_URL."/menugestion/" ?>">Menu Gestion</a></li>
+                    <li><a href="<?= BASE_URL."/espaceperso/" ?>">Espace Perso</a></li>
+                    <li><a href="<?= BASE_URL."/deconnexion/" ?>">Deconnexion</a></li>
+                </ul>
+
                 </div>
-                
+
+
                 <?php
-    
-                } else {
-                    
-                ?>
-               <div id="logs">
-                    <a href="<?= BASE_URL."/Olibrary/menugestion/" ?>">MenuGestion</a>
-                    <a href="<?= BASE_URL."/Olibrary/espaceperso/" ?>">Espace Perso</a>
-                    <a href="<?= BASE_URL."/Olibrary/deconnexion/" ?>">Deconnexion</a>
-                </div>
-              
-              
-               <?php
-                    
-                }
-                ?>
 
-            </div>
-
+            }
+            ?>
 
 
         </header>

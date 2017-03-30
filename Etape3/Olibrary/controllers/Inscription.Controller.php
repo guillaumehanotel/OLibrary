@@ -29,7 +29,7 @@ if(!empty($_POST)){
                 $bdd->query($requete);
 
 
-                header('Location: ' . BASE_URL . '/Olibrary/connexion/ ');
+                header('Location: ' . BASE_URL . '/connexion/ ');
 
 
             } else {

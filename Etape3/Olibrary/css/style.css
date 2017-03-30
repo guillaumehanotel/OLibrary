@@ -45,16 +45,7 @@
     padding: 0;
 }
 
-@font-face {
-    font-family: "Fortune City";
-    font-family: "Space Marine";
-    font-family: "Precious";
-    font-family: "Black Olives";
-    src: url('../fonts/FortuneCity.ttf');
-    src: url('../fonts/SM.ttf');
-    src: url('../fonts/Precious.ttf');
-    src: url('../fonts/BlackOlives.ttf');
-}
+
 
 body {
     width: 100%;
@@ -251,7 +242,7 @@ footer div a {
 #mentionsLegales p {
 
     text-align: center;
-}*/
+}
 
 
 
