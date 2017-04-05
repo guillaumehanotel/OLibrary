@@ -47,4 +47,4 @@ RewriteRule ^menugestion/$        index.php?page=MenuGestion&%{QUERY_STRING} [L]
 RewriteRule ^mentionslegales/$        index.php?page=MentionsLegales&%{QUERY_STRING} [L]
 
 ## PageResultats ##
-RewriteRule ^pageresultats/$        index.php?page=PagesResultats&%{QUERY_STRING} [L]
+RewriteRule ^pageresultats/$        index.php?page=PageResultats&%{QUERY_STRING} [L]

@@ -42,7 +42,7 @@
             <div class="col l2 s10"> <input type="date" name="date" placeholder="Date parution"></div>
 
             <div class="col l2 s12">
-        <select multiple name="auteur_id">
+        <select name="auteur_id">
             <option disabled selected>Auteur id </option>
             <?php
             foreach($auteur_id as $aut_id){
