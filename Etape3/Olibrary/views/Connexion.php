@@ -1,15 +1,33 @@
 <main id="connexion" class="content container">
-    
-       <h2 class="soustitre">Connexion</h2>
+
+    <div class="row">
+   <div id="carte" class="card-panel hoverable blue col s12 m8 l6 offset-l3 offset-m2 " style="margin-top: 50px">
+       <h2 class="soustitre white-text center">Connexion</h2>
+
 
     <form method="POST" action="">
-        Adresse Mail :
-        <input name="email" required="" type="mail"><br>
-        Mot de passe :
-        <input name="password" type="password"> <br>
-        <br>
-        <input type="submit" value="Se connecter">
+        <div class="row">
+            <form class="col s12 m8 l6 offset-l3">
+                <div class="row">
+                    <div class="input-field col s12 m8 l6 offset-l3 offset-m2 white-text">
+                        <input id="email" type="text" class="validate">
+                        <label class="white-text " for="email">Email</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 m8 l6 offset-l3 offset-m2 white-text">
+                        <input id="password" type="password" class="validate">
+                        <label class="white-text " for="password">Password</label>
+                    </div>
+                </div>
+                <a class="waves-effect waves-light btn white blue-text col s12 m8 l6 offset-l3 offset-m2">Se connecter</a>
 
-    </form>
+                </div>
+
+            </form>
+
+            </div>
+    </div>
+
 
 </main>
