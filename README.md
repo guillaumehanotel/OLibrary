@@ -44,7 +44,7 @@ GARDIN Kélian
 * Liste des users qui ont empruntés (liste des livres empruntés, durées)
 * Mise en avant des utilisateurs qui n'ont pas rendu à temps un livre
 * Liste des users ayant fait des réservations( en attente qu'un exemplaire se libère( avec un compte à rebours ? ))
-* 
+
 
 
 
@@ -57,15 +57,18 @@ GARDIN Kélian
 
 
 
-### Gestion des Documents
+### Gestion/Circulation des Documents
 
+* Liste des exemplaires empruntés
 
 
 
 
 ### Gestion des Utilisateurs
 
-
+* Liste de tous utilisateurs
+* Modif des users (nom/prénom/mdp/mail?/passer en admin)
+* Delete user ?
 
 
 
