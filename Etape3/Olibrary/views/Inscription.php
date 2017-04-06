@@ -1,46 +1,49 @@
-<main id="inscription"  class="content container">
+<main id="inscription"  class="container">
     <div class="row">
-        <div class="card-panel hoverable blue col s12 m8 l6 offset-l3 offset-m2" style="margin-top: 50px">
+        <div class="card-panel hoverable col s12 m8 l6 offset-l3 offset-m2">
             <h2 class="soustitre white-text center">Inscription</h2>
 
 
             <form method="POST" action="">
+
+
                 <div class="row">
                     <form class="col s12 m8 l6 offset-l3">
                         <div class="row">
-                            <div class="input-field col s12 m8 l6 offset-l3 offset-m2 white-text">
-                                <input id="nom" type="text" class="validate">
+                            <div class="input-field col m6 s10 offset-m3 offset-s1 white-text">
+                                <input id="nom" name="nom" type="text" class="validate">
                                 <label class="white-text " for="nom">Nom</label>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="input-field col s12 m8 l6 offset-l3 offset-m2 white-text">
-                                <input id="prenom" type="text" class="validate">
+                            <div class="input-field col m6 s10 offset-m3 offset-s1 white-text">
+                                <input id="prenom" name="prenom" type="text" class="validate">
                                 <label class="white-text " for="prenom">Prénom</label>
                             </div>
                         </div>
 
 
                         <div class="row">
-                            <div class="input-field col s12 m8 l6 offset-l3 offset-m2 white-text">
-                                <input id="email" type="email" class="validate">
-                                <label class="white-text " for="email">E-Mail</label>
+                            <div class="input-field col m6 s10 offset-m3 offset-s1 white-text">
+                                <input id="email" name="email" type="email" class="validate">
+                                <label class="white-text " for="email">Adresse Mail</label>
                             </div>
                         </div>
 
                         <div class="row">
-                            <div class="input-field col s12 m8 l6 offset-l3 offset-m2 white-text">
-                                <input id="password" type="password" class="validate">
-                                <label class="white-text " for="password">Password</label>
+                            <div class="input-field col m6 s10 offset-m3 offset-s1 white-text">
+                                <input id="password" name="password" type="password" class="validate">
+                                <label class="white-text " for="password">Mot de Passe</label>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="input-field col s12 m8 l6 offset-l3 offset-m2 white-text">
-                                <input id="repassword" type="password" class="validate">
-                                <label class="white-text " for="repassword">Password</label>
+                            <div class="input-field col m6 s10 offset-m3 offset-s1 white-text">
+                                <input id="repassword" name="repassword" type="password" class="validate">
+                                <label class="white-text " for="repassword">Confirmation Mot de Passe</label>
                             </div>
                         </div>
-                        <a class="waves-effect waves-light btn white blue-text col s12 m8 l6 offset-l3 offset-m2">Créer son Compte</a>
+
+                        <input class="btn col m6 s8 offset-m3 offset-s2" type="submit" value="Créer un compte"/>
 
                 </div>
 

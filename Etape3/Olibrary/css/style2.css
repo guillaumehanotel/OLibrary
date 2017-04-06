@@ -154,5 +154,153 @@ footer.page-footer {
         margin-left: 100px;
     }
 
-
 }
+
+
+/***** INSCRIPTION ****/
+
+#inscription {
+    margin-top: 50px;
+}
+
+
+#inscription .card-panel {
+    background-color: #3498DB;
+}
+
+
+
+
+/* label color */
+.input-field label {
+    color: #FF7F50;
+}
+/* label focus color */
+.input-field input[type=text]:focus + label {
+    color: #FF7F50;
+}
+/* label underline focus color */
+.input-field input[type=text]:focus {
+    border-bottom: 1px solid #FF7F50;
+    box-shadow: 0 1px 0 0 #FF7F50;
+}
+
+/* valid color */
+.input-field input[type=text].valid {
+    border-bottom: 1px solid #FF7F50;
+    box-shadow: 0 1px 0 0 #FF7F50;
+}
+/* invalid color */
+.input-field input[type=text].invalid {
+    border-bottom: 1px solid #FF7F50;
+    box-shadow: 0 1px 0 0 #FF7F50;
+}
+/* icon prefix focus color */
+.input-field .prefix.active {
+    color: #FF7F50;
+}
+
+
+/* label focus color */
+.input-field input[type=email]:focus + label {
+    color: #FF7F50;
+}
+/* label underline focus color */
+.input-field input[type=email]:focus {
+    border-bottom: 1px solid #FF7F50;
+    box-shadow: 0 1px 0 0 #FF7F50;
+}
+/* valid color */
+.input-field input[type=email].valid {
+    border-bottom: 1px solid #FF7F50;
+    box-shadow: 0 1px 0 0 #FF7F50;
+}
+/* invalid color */
+.input-field input[type=email].invalid {
+    border-bottom: 1px solid #FF7F50;
+    box-shadow: 0 1px 0 0 #FF7F50;
+}
+
+
+
+/* label focus color */
+.input-field input[type=password]:focus + label {
+    color: #FF7F50;
+}
+/* label underline focus color */
+.input-field input[type=password]:focus {
+    border-bottom: 1px solid #FF7F50;
+    box-shadow: 0 1px 0 0 #FF7F50;
+}
+/* valid color */
+.input-field input[type=password].valid {
+    border-bottom: 1px solid #FF7F50;
+    box-shadow: 0 1px 0 0 #FF7F50;
+}
+/* invalid color */
+.input-field input[type=password].invalid {
+    border-bottom: 1px solid #FF7F50;
+    box-shadow: 0 1px 0 0 #FF7F50;
+}
+
+
+
+/* label focus color */
+.input-field textarea[class=materialize-textarea]:focus + label {
+    color: #FF7F50;
+}
+/* label underline focus color */
+.input-field textarea[class=materialize-textarea]:focus {
+    border-bottom: 1px solid #FF7F50;
+    box-shadow: 0 1px 0 0 #FF7F50;
+}
+/* valid color */
+.input-field textarea[class=materialize-textarea].valid {
+    border-bottom: 1px solid #FF7F50;
+    box-shadow: 0 1px 0 0 #FF7F50;
+}
+/* invalid color */
+.input-field textarea[class=materialize-textarea].invalid {
+    border-bottom: 1px solid #FF7F50;
+    box-shadow: 0 1px 0 0 #FF7F50;
+}
+
+
+.btn {
+    background-color: white;
+    color: #3498DB;
+}
+
+
+.btn:hover {
+    background-color: #FF7F50;
+    color: white;
+}
+
+
+
+
+
+#connexion {
+    margin-top: 50px;
+}
+
+#connexion .card-panel {
+    background-color: #3498DB;
+}
+
+
+
+
+
+#contact {
+    margin-top: 50px;
+}
+
+
+#contact .card-panel {
+    background-color: #3498DB;
+}
+
+
+
