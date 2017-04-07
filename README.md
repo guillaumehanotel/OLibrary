@@ -7,9 +7,9 @@ PITAULT Cyriaque
 GARDIN Kélian
 
 
-*réservation : un utilisateur réserve un livre si il n'y a plus d'exemplaires en stock*
+*réservation : un utilisateur réserve un livre si il n'y a plus d'exemplaires en stock -> livres présent dans la table emprunte avec is_reservation à 1*
 
-*emprunt : un utilisateur emprunte un exemplaire d'un livre pour une période donnée*
+*emprunt : un utilisateur emprunte un exemplaire d'un livre pour une période donnée -> livres présent dans la table emprunte avec is_reservation à 0*
 
 ## Espace perso utilisateur :
 
@@ -59,8 +59,7 @@ GARDIN Kélian
 
 ### Gestion/Circulation des Documents
 
-* Liste des exemplaires empruntés
-
+* Liste des exemplaires empruntés et réservés
 
 
 
