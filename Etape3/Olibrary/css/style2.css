@@ -266,18 +266,38 @@ footer.page-footer {
 }
 
 
-.btn {
+#connexion .btn {
     background-color: white;
     color: #3498DB;
 }
 
 
-.btn:hover {
+#connexion .btn:hover {
     background-color: #FF7F50;
     color: white;
 }
 
+#inscription .btn {
+    background-color: white;
+    color: #3498DB;
+}
 
+
+#inscription .btn:hover {
+    background-color: #FF7F50;
+    color: white;
+}
+
+#contact .btn {
+    background-color: white;
+    color: #3498DB;
+}
+
+
+#contact .btn:hover {
+    background-color: #FF7F50;
+    color: white;
+}
 
 
 

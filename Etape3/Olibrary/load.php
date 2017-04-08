@@ -4,12 +4,11 @@ require('function.php');
 
 
 
-if(isset($_SESSION["is_admin"])){
+if(isset($_SESSION["is_admin"]) && $_SESSION["is_admin"] == 1){
     require('views/back/Header.php');
-} else {
+} else  {
     require('views/front/Header.php');
 }
-
 
 
 

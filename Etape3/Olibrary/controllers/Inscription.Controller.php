@@ -1,5 +1,5 @@
 <?php
-require $_dir["views"]."Inscription.php";
+
 
 if(!empty($_POST)){
 
@@ -29,7 +29,8 @@ if(!empty($_POST)){
                 $bdd->query($requete);
 
 
-                header('Location: ' . BASE_URL . '/connexion/ ');
+
+                header('Location: '.BASE_URL.'/connexion/');
 
 
             } else {
@@ -49,3 +50,5 @@ if(!empty($_POST)){
 } else {
     //formulaire pas envoyé
 }
+
+require $_dir["views"]."Inscription.php";
