@@ -18,6 +18,9 @@ if(!empty($_POST["auteur"])){
     }
 }
 
+$requeteauteur=$bdd->query("SELECT * FROM auteur");
+$requete_auteur = $requeteauteur->fetchAll();
+
 // Enregistrer l'éditeur
 if(!empty($_POST["editeur"])){
     if(!empty($_POST["editeur_nom"]) && isset($_POST["editeur_nom"])){
@@ -33,6 +36,9 @@ if(!empty($_POST["editeur"])){
     }
 }
 
+$requeteediteur=$bdd->query("SELECT * FROM editeur");
+$requete_editeur = $requeteediteur->fetchAll();
+
 //Enregistrer le fournisseur
 if(!empty($_POST["fournisseur"])){
     if(!empty($_POST["fournisseur_nom"]) && isset($_POST["fournisseur_nom"])){
@@ -47,6 +53,10 @@ if(!empty($_POST["fournisseur"])){
         echo "Merci de remplir tout les champs";
     }
 }
+
+$requetefournisseur=$bdd->query("SELECT * FROM fournisseur");
+$requete_fournisseur = $requetefournisseur->fetchAll();
+
 
 
 $editid= $bdd->query("SELECT * FROM editeur");
@@ -81,6 +91,9 @@ if(!empty($_POST["collection"])) {
         echo "Merci de remplir tout les champs";
     }
 }
+
+$requetecollection=$bdd->query("SELECT * FROM collection");
+$requete_collection = $requetecollection->fetchAll();
 
 //Enregistrer le livre
 if(!empty($_POST["livre"])) {
