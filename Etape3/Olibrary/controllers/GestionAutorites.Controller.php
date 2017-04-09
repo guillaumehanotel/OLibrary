@@ -119,9 +119,7 @@ if(!empty($_POST["livre"])) {
         $requete = "INSERT INTO livre (livre_ISBN,livre_titre, nb_exemplaire, date_parution,synopsis,auteur_id,collection_id,fournisseur_id)
                VALUES ('$livre_ISBN','$livre_titre', '$nb_exemplaire', '$date','$synopsis','$auteur_id1[0]','$collection_id1[0]','$fournisseur_id1[0]')";
         $bdd->query($requete);
-        var_dump($requete);
-        exit;
-        header('Location: ' . BASE_URL . '/Olibrary/autorites/');
+        header('Location: ' . BASE_URL . '/autorites/');
 
 
     }
