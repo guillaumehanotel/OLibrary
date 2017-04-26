@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Jeu 20 Avril 2017 à 20:24
+-- Généré le :  Mer 26 Avril 2017 à 13:53
 -- Version du serveur :  5.7.14
 -- Version de PHP :  7.0.10
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `bdd_olibrary`
 --
-CREATE DATABASE IF NOT EXISTS `bdd_olibrary` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+CREATE DATABASE IF NOT EXISTS `bdd_olibrary` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 USE `bdd_olibrary`;
 
 -- --------------------------------------------------------
@@ -31,10 +31,10 @@ USE `bdd_olibrary`;
 DROP TABLE IF EXISTS `auteur`;
 CREATE TABLE IF NOT EXISTS `auteur` (
   `auteur_id` int(11) NOT NULL AUTO_INCREMENT,
-  `auteur_nom` varchar(25) DEFAULT NULL,
-  `auteur_prenom` varchar(25) DEFAULT NULL,
+  `auteur_nom` varchar(25) CHARACTER SET latin1 DEFAULT NULL,
+  `auteur_prenom` varchar(25) CHARACTER SET latin1 DEFAULT NULL,
   PRIMARY KEY (`auteur_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 --
 -- Vider la table avant d'insérer `auteur`
@@ -64,11 +64,11 @@ INSERT INTO `auteur` (`auteur_id`, `auteur_nom`, `auteur_prenom`) VALUES
 DROP TABLE IF EXISTS `collection`;
 CREATE TABLE IF NOT EXISTS `collection` (
   `collection_id` int(11) NOT NULL AUTO_INCREMENT,
-  `collection_nom` varchar(25) DEFAULT NULL,
+  `collection_nom` varchar(25) CHARACTER SET latin1 DEFAULT NULL,
   `editeur_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`collection_id`),
   KEY `FK_collection_editeur_id` (`editeur_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 --
 -- Vider la table avant d'insérer `collection`
@@ -99,9 +99,9 @@ INSERT INTO `collection` (`collection_id`, `collection_nom`, `editeur_id`) VALUE
 DROP TABLE IF EXISTS `editeur`;
 CREATE TABLE IF NOT EXISTS `editeur` (
   `editeur_id` int(11) NOT NULL AUTO_INCREMENT,
-  `editeur_nom` varchar(25) DEFAULT NULL,
+  `editeur_nom` varchar(25) CHARACTER SET latin1 DEFAULT NULL,
   PRIMARY KEY (`editeur_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 --
 -- Vider la table avant d'insérer `editeur`
@@ -137,7 +137,7 @@ CREATE TABLE IF NOT EXISTS `emprunte` (
   `exemplaire_id` int(11) NOT NULL,
   PRIMARY KEY (`user_num`,`exemplaire_id`),
   KEY `FK_emprunte_exemplaire_id` (`exemplaire_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Vider la table avant d'insérer `emprunte`
@@ -178,14 +178,14 @@ INSERT INTO `emprunte` (`emprunt_date`, `emprunt_retour`, `is_reservation`, `use
 DROP TABLE IF EXISTS `exemplaire`;
 CREATE TABLE IF NOT EXISTS `exemplaire` (
   `exemplaire_id` int(11) NOT NULL AUTO_INCREMENT,
-  `exemplaire_ISBN` varchar(13) NOT NULL,
+  `exemplaire_ISBN` varchar(13) CHARACTER SET latin1 NOT NULL,
   `exemplaire_notice_id` int(11) NOT NULL,
   `exemplaire_collection_id` int(11) NOT NULL,
   `exemplaire_fournisseur_id` int(11) NOT NULL,
   PRIMARY KEY (`exemplaire_id`),
   KEY `FK_exemplaire_collection_id` (`exemplaire_collection_id`),
   KEY `FK_exemplaire_fournisseur_id` (`exemplaire_fournisseur_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=106 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=106 DEFAULT CHARSET=utf8;
 
 --
 -- Vider la table avant d'insérer `exemplaire`
@@ -312,9 +312,9 @@ INSERT INTO `exemplaire` (`exemplaire_id`, `exemplaire_ISBN`, `exemplaire_notice
 DROP TABLE IF EXISTS `fournisseur`;
 CREATE TABLE IF NOT EXISTS `fournisseur` (
   `fournisseur_id` int(11) NOT NULL AUTO_INCREMENT,
-  `fournisseur_nom` varchar(25) DEFAULT NULL,
+  `fournisseur_nom` varchar(25) CHARACTER SET latin1 DEFAULT NULL,
   PRIMARY KEY (`fournisseur_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 --
 -- Vider la table avant d'insérer `fournisseur`
@@ -340,13 +340,13 @@ INSERT INTO `fournisseur` (`fournisseur_id`, `fournisseur_nom`) VALUES
 DROP TABLE IF EXISTS `notice`;
 CREATE TABLE IF NOT EXISTS `notice` (
   `notice_id` int(10) NOT NULL AUTO_INCREMENT,
-  `notice_titre` varchar(100) NOT NULL,
+  `notice_titre` varchar(100) CHARACTER SET latin1 NOT NULL,
   `notice_date_parution` date NOT NULL,
-  `notice_synopsis` text NOT NULL,
+  `notice_synopsis` text CHARACTER SET latin1 NOT NULL,
   `notice_auteur_id` int(3) NOT NULL,
   PRIMARY KEY (`notice_id`),
   KEY `FK_notice_auteur_id` (`notice_auteur_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=36 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=36 DEFAULT CHARSET=utf8;
 
 --
 -- Vider la table avant d'insérer `notice`
@@ -403,13 +403,13 @@ INSERT INTO `notice` (`notice_id`, `notice_titre`, `notice_date_parution`, `noti
 DROP TABLE IF EXISTS `utilisateur`;
 CREATE TABLE IF NOT EXISTS `utilisateur` (
   `user_num` int(11) NOT NULL AUTO_INCREMENT,
-  `user_nom` varchar(50) DEFAULT NULL,
-  `user_prenom` varchar(50) DEFAULT NULL,
-  `user_mail` varchar(50) DEFAULT NULL,
-  `user_mdp` varchar(255) DEFAULT NULL,
+  `user_nom` varchar(50) CHARACTER SET latin1 DEFAULT NULL,
+  `user_prenom` varchar(50) CHARACTER SET latin1 DEFAULT NULL,
+  `user_mail` varchar(50) CHARACTER SET latin1 DEFAULT NULL,
+  `user_mdp` varchar(255) CHARACTER SET latin1 DEFAULT NULL,
   `is_admin` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`user_num`)
-) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8;
 
 --
 -- Vider la table avant d'insérer `utilisateur`
