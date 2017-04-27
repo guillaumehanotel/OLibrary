@@ -47,10 +47,10 @@
 
     <h3>Ajouter un editeur :</h3>
 
-    <a class="waves-effect waves-light btn" href="#modal1">Ajouter un éditeur</a>
+    <a class="waves-effect waves-light btn" href="#modal2">Ajouter un éditeur</a>
 
     <!-- Modal Structure -->
-    <div id="modal1" class="modal">
+    <div id="modal2" class="modal">
         <div class="modal-content">
             <h4>Ajouter un éditeur</h4>
             <form action="/projetolibrary/OLibrary/Etape3/Olibrary/autorites/" method="post">
@@ -86,10 +86,10 @@
 
     <h3>Ajouter un fournisseur :</h3>
 
-    <a class="waves-effect waves-light btn" href="#modal1">Ajouter un fournisseur</a>
+    <a class="waves-effect waves-light btn" href="#modal3">Ajouter un fournisseur</a>
 
     <!-- Modal Structure -->
-    <div id="modal1" class="modal">
+    <div id="modal3" class="modal">
         <div class="modal-content">
             <h4>Ajouter un fournisseur</h4>
             <form action="/projetolibrary/OLibrary/Etape3/Olibrary/autorites/" method="post">
@@ -124,10 +124,10 @@
 
     <h3>Ajouter une collection :</h3>
 
-    <a class="waves-effect waves-light btn" href="#modal1">Ajouter une collection</a>
+    <a class="waves-effect waves-light btn" href="#modal4">Ajouter une collection</a>
 
     <!-- Modal Structure -->
-    <div id="modal1" class="modal">
+    <div id="modal4" class="modal">
         <div class="modal-content">
             <h4>Ajouter une collection</h4>
             <form class="col s12" action="/projetolibrary/OLibrary/Etape3/Olibrary/autorites/" method="post">
@@ -173,10 +173,10 @@
 
     <h3>Ajouter un livre :</h3>
 
-    <a class="waves-effect waves-light btn" href="#modal1">Ajouter un livre</a>
+    <a class="waves-effect waves-light btn" href="#modal5">Ajouter un livre</a>
 
     <!-- Modal Structure -->
-    <div id="modal1" class="modal">
+    <div id="modal5" class="modal">
         <div class="modal-content">
             <h4>Ajouter un livre</h4>
             <form action="/projetolibrary/OLibrary/Etape3/Olibrary/autorites/" method="post">
