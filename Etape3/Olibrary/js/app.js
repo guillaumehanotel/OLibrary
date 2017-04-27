@@ -10,10 +10,11 @@ $(document).ready(function() {
     $(".button-collapse").sideNav();
 
 
+
+    // BARRE DE RECHERCHE
     $("#search").focus(function () {
         $("#loupe").css("color","black");
     });
-
 
 
     $("#search").blur(function () {
@@ -21,6 +22,14 @@ $(document).ready(function() {
     });
 
 
+
+
+
+
+
+
+
+    //ajax apparition formulaire de la modification de la notice
     $("#mode_edit").click(function(){
 
         var titre = $('#notice_titre').html();
@@ -46,10 +55,48 @@ $(document).ready(function() {
 
 
 
+    //console.log($base_url);
+
+    // Changer la couleur au hover d'une ligne -> soucis en CSS à cause de materialize
+    $('.selectable').hover(function(){
+            var $this = $(this);
+            $this.data('bgcolor', $this.css('background-color')).css('background-color', '#ccc');
+        },
+        function(){
+            var $this = $(this);
+            $this.css('background-color', $this.data('bgcolor'));
+        }
+    );
+
+
+
+    $('.selectable').click(function(){
+
+        var $this = $(this);
+
+        var $id = $this.attr('id');
+        var $id_num = $id.substr(4,2);
+
+        var $class = $this.attr('class').split(' ')[1];
+        var $length_class = $class.length;
+        var $link_name = $class.substr(5,$length_class)
+
+        //console.log($link_name);
+
+        window.location.href = $base_url+"/"+$link_name+"/?id="+$id_num;
+
+
+    });
 
 
 
 
+
+
+
+
+    // page liste des notices
+    // tri par auteur A FINIR
     $("#auteur").click(function(){
 
 
@@ -134,8 +181,8 @@ $(document).ready(function() {
 
 
 
-
-
+    // page liste des notices
+    // tri par titre A FINIR
     $("#titre").click(function(){
 
         var array = [];

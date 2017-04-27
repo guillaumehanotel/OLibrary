@@ -10,7 +10,7 @@
                 <th data-field="titre"><a id="titre" href="#" class="asc">Titre</a></th>
                 <th data-field="auteur"><a id="auteur" href="#" class="asc">Auteur</a></th>
                 <th data-field="nb">Nombre d'exemplaires</th>
-               <!-- <th data-field="showExempl">Voir les exemplaires</th> -->
+                <!--<th data-field="showExempl">Voir les exemplaires</th>-->
             </tr>
             </thead>
             <tbody id="bodyLivres">
@@ -21,11 +21,12 @@
             <?php
             foreach ($resultat_livre as $value){?>
 
-                    <tr class="row_notice_<?= $value['notice_id'] ?>">
+                    <tr class="selectable link_exemplaires" id="row_<?= $value['notice_id'] ?>">
+
                         <td class="notice_titre"><?= $value['notice_titre'];?></td>
                         <td class="auteur_name"><?= $value['auteur_prenom'];?> <?=$value['auteur_nom'];?></td>
                         <td class="cpt"><?= $value['cpt'];?></td>
-
+                        <!--<td class="link"> <a href='<?//= BASE_URL."/exemplaires"; ?>/?id=<?//= $value['notice_id'] ?>'><i class="small material-icons">visibility</i></a></td>-->
                     </tr>
 
 
@@ -38,6 +39,9 @@
 
         <br>
 
+        <script type="text/javascript">
+            var $base_url = <?php echo json_encode(BASE_URL); ?>;
+        </script>
 
 </div>
 </main>

@@ -347,6 +347,14 @@ footer.page-footer {
 
 
 
+/*** GESTION NOTICES ***/
+
+.selectable {
+    cursor: pointer;
+}
+
+
+
 
 /**** GESTION EXEMPLAIRES ****/
 
