@@ -13,7 +13,8 @@ if (!empty($_POST)){ // si le formulaire a été envoyé
 
     if(isset($_POST['date']) && !empty($_POST['date']) &&
         isset($_POST['titre']) && !empty($_POST['titre']) &&
-        isset($_POST['synopsis']) && !empty($_POST['synopsis'])){
+        isset($_POST['synopsis']) && !empty($_POST['synopsis']) &&
+        isset($_POST['auteur_id']) && !empty($_POST['auteur_id'])){
 
         $id = securify((int)$_GET['id']);
 
@@ -23,24 +24,40 @@ if (!empty($_POST)){ // si le formulaire a été envoyé
 
 
 
-
         if(!empty($resultat_notice)){
 
             $requete = $bdd->prepare("UPDATE notice SET
-            notice_titre      = :titre
-            WHERE notice_id   = :id");
+            notice_titre          = :titre,
+            notice_date_parution  = :date,
+            notice_synopsis       = :synopsis,
+            notice_auteur_id      = :auteur
+            WHERE notice_id       = :id");
 
 
 
+            $date = $_POST['date'].'-01-01';
+
+            $date = date ('Y-m-d', strtotime($date));
 
 
 
+            $param = array(
+                'titre' => securify($_POST['titre']),
+                'date' => $date,
+                'synopsis' => securify($_POST['synopsis']),
+                'auteur' => securify(explode(" ",$_POST['auteur_id'])[0]),
+                'id' => $id
+            );
+
+            $bdd->setAttribute(PDO::ATTR_EMULATE_PREPARES,false);
+
+            $requete->execute($param);
+
+
+            header("Refresh:0");
+            //header('Location: '.BASE_URL.'/exemplaires/');
 
         }
-
-
-
-
 
     }
 
@@ -71,9 +88,18 @@ if (!empty($_POST)){ // si le formulaire a été envoyé
     WHERE n.notice_id = e.exemplaire_notice_id
     AND n.notice_id = '$id'";
 
-
     $reponse_exemplaire = $bdd->query($requete_exemplaire);
     $resultat_exemplaire = $reponse_exemplaire->fetchAll();
+
+
+
+/* REQUETE DES AUTEURS POUR LE FORMRULAIRE SELECT */
+
+    $requete_auteur = "SELECT * FROM auteur";
+    $reponse_auteur = $bdd->query($requete_auteur);
+    $auteurs = $reponse_auteur->fetchAll();
+
+
 
 
     require $_dir["views"] . "GestionExemplaires.php";

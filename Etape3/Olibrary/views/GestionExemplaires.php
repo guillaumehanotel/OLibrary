@@ -5,6 +5,7 @@
     $date = date ('Y', strtotime($resultat_notice['notice_date_parution']));
     $synopsis = $resultat_notice['notice_synopsis'];
     $auteur = $resultat_notice['auteur_prenom'].' '.$resultat_notice['auteur_nom'];
+    $auteur_id = $resultat_notice['auteur_id'];
 
 
 ?>
@@ -27,8 +28,8 @@
 
                         <h5 class="center">NOTICE</h5>
                         <span id="notice_titre" class="card-title"><?= $titre ?></span>
-                        <p id="notice_auteur"><?= $auteur ?></p>
-                        <p id="notice_date"><?= $date  ?></p>
+                        <p id="notice_auteur" data-id="<?= $auteur_id ?>"><?= $auteur ?></p>
+                        <p id="notice_date"><?= $date ?></p>
                     </div>
 
                     <div id="notice_synopsis" class="card-action white-text">
@@ -49,3 +50,9 @@
 
     </div>
 </main>
+
+<script type="text/javascript">
+
+    var TabAuteurs = <?php echo json_encode($auteurs); ?>;
+
+</script>

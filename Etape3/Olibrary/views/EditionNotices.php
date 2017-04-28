@@ -5,8 +5,12 @@ $titre = $_GET['titre'];
 $date = $_GET['date'];
 $synopsis = $_GET['synopsis'];
 $auteur = $_GET['auteur'];
+$auteur_id = intval($_GET['auteur_id']);
 
 
+$auteurs = json_decode($_GET['auteurs'], true);
+
+$default_date = new DateTime('2000-01-01');
 
 ?>
 
@@ -33,13 +37,25 @@ $auteur = $_GET['auteur'];
 
                 <div class="row">
                     <div class="input-field col m6">
-                        <input id="auteur" name="auteur" type="text" value="<?= $auteur ?>" class="validate">
-                        <label class="active" for="auteur">Auteur
-                </div>
+
+                        <select name="auteur_id" id="select_auteur">
+                            <option disabled >Auteur</option>
+                            <?php
+                            foreach($auteurs as $auteur){
+                                if($auteur['auteur_id'] == $auteur_id){
+                                    echo "<option selected>".$auteur['auteur_id']." - ".$auteur['auteur_prenom'].' '.$auteur['auteur_nom']."</option>";
+                                } else {
+                                    echo "<option>".$auteur['auteur_id']." - ".$auteur['auteur_prenom'].' '.$auteur['auteur_nom']."</option>";
+                                }
+                            } ?>
+                        </select>
+                        <label for="select_auteur">Auteur</label>
+
+                    </div>
 
 
                 <div class="row">
-                    <div class="input-field col m2">
+                    <div class="input-field col m3">
                         <input id="date" name="date" type="text" value="<?= $date ?>" class="validate">
                         <label class="active" for="date">Date de parution</label>
                     </div>
@@ -69,3 +85,12 @@ $auteur = $_GET['auteur'];
     </form>
 
 </div>
+
+<script>
+
+    $(document).ready(function() {
+        $('select').material_select();
+    });
+
+
+</script>

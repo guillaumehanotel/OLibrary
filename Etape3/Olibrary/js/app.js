@@ -13,6 +13,16 @@ $(document).ready(function() {
     Materialize.updateTextFields();
 
 
+
+    $('select').material_select('destroy');
+
+    /* Materialize Select */
+    $('select').material_select();
+
+
+
+
+
     // BARRE DE RECHERCHE
     $("#search").focus(function () {
         $("#loupe").css("color","black");
@@ -26,27 +36,28 @@ $(document).ready(function() {
 
 
 
+    if(!(typeof TabAuteurs === 'undefined')){
+        StrTabAuteurs = JSON.stringify(TabAuteurs);
+    }
+
     function cancel_edit() {
         location.reload();
     }
 
-
-
     function mode_edit(){
         //ajax apparition formulaire de la modification de la notice
-
-
 
             var titre = $('#notice_titre').html();
             var date = $('#notice_date').html();
             var synopsis = $('#notice_synopsis').html();
             var auteur = $('#notice_auteur').html();
+            var auteur_id = $('#notice_auteur').data("id");
 
-            //console.log()
 
             $.ajax({
-                url : '../views/EditionNotices.php?titre='+titre+'&date='+date+'&synopsis='+synopsis+'&auteur='+auteur,
+                url : '../views/EditionNotices.php?titre='+titre+'&date='+date+'&synopsis='+synopsis+'&auteur='+auteur+'&auteur_id='+auteur_id,
                 type : 'GET',
+                data : { auteurs : StrTabAuteurs },
                 dataType : 'html', // On désire recevoir du HTML
                 success : function(code_html, statut){ // code_html contient le HTML renvoyé
 
@@ -59,12 +70,14 @@ $(document).ready(function() {
     }
 
 
-        $("#mode_edit").click(mode_edit);
+    $("#mode_edit").click(mode_edit);
 
 
-        $( document ).ajaxComplete(function( event,request, settings ) {
-            $("#cancel_edit").click(cancel_edit);
-        });
+    $( document ).ajaxComplete(function( event,request, settings ) {
+        $("#cancel_edit").click(cancel_edit);
+    });
+
+
 
 
 
