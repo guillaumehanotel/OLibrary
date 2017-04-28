@@ -7,33 +7,38 @@
 
         <div id="elem_left" class="col m8">
 
-
+            <a href="<?php echo BASE_URL."/notices/"; ?>">
                 <div class="col m5 offset-m1 elem_gestion">
-                    <a" href="<?php echo BASE_URL."/notices/"; ?>"><span>Gestion des notices et des exemplaires</span></a>
+                    <span>Gestion des notices et des exemplaires</span>
                 </div>
+            </a>
 
+            <a href="<?php echo BASE_URL."/autorites/"; ?>">
                 <div class="col m5 elem_gestion">
-                    <a href="<?php echo BASE_URL."/autorites/"; ?>">Gestion des Autorités</a>
+                    Gestion des Autorités
                 </div>
+            </a>
 
-
-
+            <a href="<?php echo BASE_URL."/emprunteurs/"; ?>">
                 <div class="col m5  offset-m1 elem_gestion">
-                    <a href="<?php echo BASE_URL."/emprunteurs/"; ?>">Gestion des  Emprunteurs</a>
+                    Gestion des  Emprunteurs
                 </div>
+            </a>
 
+            <a href="<?php echo BASE_URL."/documents/"; ?>">
                 <div class="col m5 elem_gestion">
-                    <a href="<?php echo BASE_URL."/documents/"; ?>">Gestion  des Documents</a>
+                    Gestion  des Documents
                 </div>
-
+            </a>
 
         </div>
 
         <div id="elem_right" class="col m4">
-
-            <div class="elem_gestion">
-                <a href="<?php echo BASE_URL."/utilisateurs/"; ?>">Gestion des  Utilisateurs</a>
-            </div>
+            <a href="<?php echo BASE_URL."/utilisateurs/"; ?>">
+                <div class="elem_gestion">
+                    Gestion des  Utilisateurs
+                </div>
+            </a>
 
         </div>
 

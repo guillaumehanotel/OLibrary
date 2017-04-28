@@ -28,4 +28,3 @@ $config = array(
 	"base" => "bdd_olibrary",
 	);
 
-	

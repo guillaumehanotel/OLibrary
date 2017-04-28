@@ -2,7 +2,7 @@
 
     <div class="row">
         <div id="carte" class="card-panel hoverable col s12 m8 l6 offset-l3 offset-m2 ">
-            <h2 class="soustitre white-text center">Connexion</h2>
+            <h2 class=" white-text center">Connexion</h2>
 
 
             <form method="POST" action="">

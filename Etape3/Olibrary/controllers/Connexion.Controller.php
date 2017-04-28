@@ -62,7 +62,7 @@ if(!empty($_POST)){
                 }
                 $_SESSION['connect'] = true;
 
-                // on déclare une nouvelle varianle session pour chaque caractéristique de l'utilisateur
+                // on déclare une nouvelle variable session pour chaque caractéristique de l'utilisateur
                 
                 
                 $_SESSION['user_num'] = $user['user_num'];
