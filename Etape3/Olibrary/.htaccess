@@ -37,6 +37,9 @@ RewriteRule ^emprunteurs/$        index.php?page=GestionEmprunteurs&%{QUERY_STRI
 ## Gestion Notices ##
 RewriteRule ^notices/$        index.php?page=GestionNotices&%{QUERY_STRING} [L]
 
+## Gestion Exemplaires ##
+RewriteRule ^exemplaires/$        index.php?page=GestionExemplaires&%{QUERY_STRING} [L]
+
 ## Gestion Utilisateurs ##
 RewriteRule ^utilisateurs/$        index.php?page=GestionUtilisateurs&%{QUERY_STRING} [L]
 

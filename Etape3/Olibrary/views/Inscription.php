@@ -1,7 +1,7 @@
 <main id="inscription"  class="container">
     <div class="row">
         <div class="card-panel hoverable col s12 m8 l6 offset-l3 offset-m2">
-            <h2 class="soustitre white-text center">Inscription</h2>
+            <h2 class="white-text center">Inscription</h2>
 
 
             <form method="POST" action="">
