@@ -358,16 +358,25 @@ footer.page-footer {
 
 /**** GESTION EXEMPLAIRES ****/
 
-#mode_edit {
+#gestionExemplaires #mode_edit {
     position: relative;
     cursor : pointer;
 
 }
 
+#gestionExemplaires .card {
+    background-color: #777;
+}
 
 
+#check_notice {
+    position: absolute;
+    top: 20px;
+    right: 70px;
+    cursor: pointer;
+}
 
 
-
-
-
+#cancel_edit {
+    cursor: pointer;
+}

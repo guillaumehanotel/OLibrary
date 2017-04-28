@@ -9,6 +9,8 @@ $(document).ready(function() {
     /* Materialize Menu */
     $(".button-collapse").sideNav();
 
+    /* Materialize Input Value  */
+    Materialize.updateTextFields();
 
 
     // BARRE DE RECHERCHE
@@ -24,34 +26,48 @@ $(document).ready(function() {
 
 
 
+    function cancel_edit() {
+        location.reload();
+    }
 
 
 
+    function mode_edit(){
+        //ajax apparition formulaire de la modification de la notice
 
 
-    //ajax apparition formulaire de la modification de la notice
-    $("#mode_edit").click(function(){
 
-        var titre = $('#notice_titre').html();
-        var date = $('#notice_date').html();
-        var synopsis = $('#notice_synopsis').html();
+            var titre = $('#notice_titre').html();
+            var date = $('#notice_date').html();
+            var synopsis = $('#notice_synopsis').html();
+            var auteur = $('#notice_auteur').html();
 
-        //console.log()
+            //console.log()
+
+            $.ajax({
+                url : '../views/EditionNotices.php?titre='+titre+'&date='+date+'&synopsis='+synopsis+'&auteur='+auteur,
+                type : 'GET',
+                dataType : 'html', // On désire recevoir du HTML
+                success : function(code_html, statut){ // code_html contient le HTML renvoyé
+
+                    $('#notice_edit').replaceWith(code_html);
+                    // on insère le code html reçu dans le dom
+
+                }
+            });
+
+    }
 
 
-        $.ajax({
-            url : '../views/testAjax.php?titre='+titre+'&date='+date+'&synopsis='+synopsis,
-            type : 'GET',
-            dataType : 'html', // On désire recevoir du HTML
-            success : function(code_html, statut){ // code_html contient le HTML renvoyé
+        $("#mode_edit").click(mode_edit);
 
-                $('#notice_edit').replaceWith(code_html);
-                // on insère le code html reçu dans le dom
-            }
+
+        $( document ).ajaxComplete(function( event,request, settings ) {
+            $("#cancel_edit").click(cancel_edit);
         });
 
 
-    });
+
 
 
 
