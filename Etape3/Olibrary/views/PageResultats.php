@@ -45,7 +45,7 @@
 
             <div class="col s12 m6 l12">
 
-                <h3 class="header"><?=$req_livre['livre_titre']?></h3>
+                <h3 class="header"><?=$req_livre['notice_titre']?></h3>
                 <div class="card horizontal">
                     <div class="card-image">
                         <img src="http://lorempixel.com/100/190/nature/6">
@@ -53,7 +53,7 @@
                     <div class="card-stacked">
                         <div class="card-content">
                             <span class="card-title"><?=$req_livre['auteur_nom']." ".$req_livre['auteur_prenom']?></span>
-                            <p><?=$req_livre['synopsis']?></p>
+                            <p><?=$req_livre['notice_synopsis']?></p>
                         </div>
                         <div class="card-action">
                             <a href="#">Voir le livre</a>
