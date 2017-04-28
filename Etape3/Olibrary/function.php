@@ -29,3 +29,9 @@ function alertMsg($string){
     echo "window.history.back();";
     echo "</script>";
 }
+
+function securify($str){
+    $invalid_characters = array("$", "%", "#", "<", ">", "|");
+    $string = str_replace($invalid_characters, "", $str);
+    return htmlspecialchars($string);
+}
