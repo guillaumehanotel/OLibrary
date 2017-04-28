@@ -52,10 +52,12 @@
 
     <h3>Ajouter un editeur :</h3>
 
+
     <a class="waves-effect waves-light btn" href="#modal_editeur">Ajouter un éditeur</a>
 
     <!-- Modal Structure -->
     <div id="modal_editeur" class="modal">
+
         <div class="modal-content">
             <h4>Ajouter un éditeur</h4>
             <form action="/projetolibrary/OLibrary/Etape3/Olibrary/autorites/" method="post">
@@ -91,10 +93,12 @@
 
     <h3>Ajouter un fournisseur :</h3>
 
+
     <a class="waves-effect waves-light btn" href="#modal_fournisseur">Ajouter un fournisseur</a>
 
     <!-- Modal Structure -->
     <div id="modal_fournisseur" class="modal">
+
         <div class="modal-content">
             <h4>Ajouter un fournisseur</h4>
             <form action="/projetolibrary/OLibrary/Etape3/Olibrary/autorites/" method="post">
@@ -132,10 +136,12 @@
 
     <h3>Ajouter une collection :</h3>
 
+
     <a class="waves-effect waves-light btn" href="#modal_collection">Ajouter une collection</a>
 
     <!-- Modal Structure -->
     <div id="modal_collection" class="modal">
+
         <div class="modal-content">
             <h4>Ajouter une collection</h4>
             <form class="col s12" action="/projetolibrary/OLibrary/Etape3/Olibrary/autorites/" method="post">
@@ -179,10 +185,12 @@
 
     <h3>Ajouter un livre :</h3>
 
+
     <a class="waves-effect waves-light btn" href="#modal_livre">Ajouter un livre</a>
 
     <!-- Modal Structure -->
     <div id="modal_livre" class="modal">
+
 
         <div class="modal-content">
 
