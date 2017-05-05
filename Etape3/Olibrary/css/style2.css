@@ -380,3 +380,11 @@ footer.page-footer {
 #cancel_edit {
     cursor: pointer;
 }
+
+/**** GESTION UTILISATEUR ****/
+#gestionUtilisateurs #admin{
+    postion : relative;
+    top: 5px;
+    right: 15px;
+
+}
