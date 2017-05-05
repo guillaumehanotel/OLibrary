@@ -3,23 +3,7 @@
 
            <h2 class="soustitre">Gestion des utilisateurs</h2>
 
-    <?php
-    // Connexion à la base de données
-    try
-    {
-        $bdd = new PDO('mysql:host=localhost;dbname=olibrary;', 'olibrary', 'erty');
-    }
-    catch(Exception $e)
-    {
-        die('Erreur : '.$e->getMessage());
-    }
 
-    $req = $bdd->query('SELECT user_num, user_nom, user_prenom, user_mail, is_admin FROM utilisateur ');
-
-
-
-
-    ?>
     <table>
         <thead>
         <tr>
@@ -32,18 +16,18 @@
         </tr>
         </thead>
          <tr>
-            <?php while ($donnees = $req->fetch())
+            <?php foreach ($resultat_utilisateur as $utilisateur)
             { ?>
-                <td><?php echo htmlspecialchars($donnees['user_num']); ?></td>
-               <td><?php echo htmlspecialchars($donnees['user_nom']); ?></td>
-               <td><?php echo $donnees['user_prenom']; ?></td>
-            <td> <?php echo nl2br(htmlspecialchars($donnees['user_mail'])); ?> </td>
-            <td> <?php echo nl2br(htmlspecialchars($donnees['is_admin'])); ?></td>
-            <td> <?php echo '<a href="supprimer.php?id='.$donnees['user_num'].'">Supprimer</a>'; ?> </td>
+                <td><?= $utilisateur['user_num']; ?></td>
+               <td><?= $utilisateur['user_nom']; ?></td>
+               <td><?= $utilisateur['user_prenom']; ?></td>
+            <td> <?= $utilisateur['user_mail']; ?> </td>
+            <td> <?= $utilisateur['is_admin']; ?></td>
+            <td> <?= '<a href="supprimer.php?id='.$utilisateur['user_num'].'">Supprimer</a>'; ?> </td>
         </tr>
         <?php
-        } // Fin de la boucle des billets
-        $req->closeCursor(); ?>
+        } 
+     ?>
     </table>
 
 </main>
