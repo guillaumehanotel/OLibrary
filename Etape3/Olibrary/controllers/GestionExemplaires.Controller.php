@@ -84,8 +84,11 @@ if (!empty($_POST)){ // si le formulaire a été envoyé
 /* REQUETE DES EXEMPLAIRES LIES A LA NOTICE */
     $requete_exemplaire =
         "SELECT *
-    FROM notice n, exemplaire e
+    FROM notice n, exemplaire e, fournisseur f, collection c, editeur ed
     WHERE n.notice_id = e.exemplaire_notice_id
+    AND e.exemplaire_fournisseur_id = f.fournisseur_id
+    AND e.exemplaire_collection_id = c.collection_id
+    AND c.editeur_id = ed.editeur_id
     AND n.notice_id = '$id'";
 
     $reponse_exemplaire = $bdd->query($requete_exemplaire);

@@ -43,9 +43,54 @@
         </div>
 
 
-        <h3></h3>
+        <div class="row" id="show_exemplaire">
+
+            <h3>Exemplaires associés à la notice :</h3>
+
+            <table class="centered striped">
+                <thead>
+                <tr>
+                    <!--
+                    <th data-field="id">ID</th>
+                    <th data-field="titre">Titre</th>
+                    -->
+                    <th data-field="isbn">ISBN</th>
+                    <th data-field="editeur">Editeur</th>
+                    <th data-field="collection">Collection</th>
+                    <th data-field="fournisseur">Fournisseur</th>
+                    <th data-field="edition">Edition</th>
+                    <th data-field="suppression">Suppression</th>
+                </tr>
+                </thead>
+                <tbody id="bodyExemplaires">
 
 
+                <?php
+                foreach ($resultat_exemplaire as $value){?>
+
+                    <tr class="link_exemplaires">
+
+                        <!--
+                        <td class="exemplaire_id"><?//= $value['exemplaire_id'];?></td>
+                        <td class="exemplaire_titre"><?//= $value['notice_titre']?> </td>
+                        -->
+                        <td class="exemplaire_isbn"><?= $value['exemplaire_ISBN']?></td>
+                        <td class="exemplaire_editeur"><?= $value['editeur_nom']?></td>
+                        <td class="exemplaire_collection"><?= $value['collection_nom']?></td>
+                        <td class="exemplaire_fournisseur"><?= $value['fournisseur_nom']?></td>
+                        <td class="exemplaire_edition">Edition</td>
+                        <td class="exemplaire_suppression">X</td>
+                    </tr>
+
+
+                    <?php
+                }
+                ?>
+
+                </tbody>
+            </table>
+
+        </div>
 
 
     </div>
