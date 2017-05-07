@@ -79,9 +79,16 @@ if (!empty($_POST)){ // si le formulaire a été envoyé
     $resultat_notice = $reponse_notice->fetch();
 
 
+    /* REQUETE DES AUTEURS POUR LE FORMRULAIRE SELECT D'EDITION DE NOTICE*/
+
+    $requete_auteur = "SELECT * FROM auteur";
+    $reponse_auteur = $bdd->query($requete_auteur);
+    $auteurs = $reponse_auteur->fetchAll();
 
 
-/* REQUETE DES EXEMPLAIRES LIES A LA NOTICE */
+
+
+    /* REQUETE DES EXEMPLAIRES LIES A LA NOTICE */
     $requete_exemplaire =
         "SELECT *
     FROM notice n, exemplaire e, fournisseur f, collection c, editeur ed
@@ -96,11 +103,26 @@ if (!empty($_POST)){ // si le formulaire a été envoyé
 
 
 
-/* REQUETE DES AUTEURS POUR LE FORMRULAIRE SELECT */
+    /* REQUETE DES FOURNISSEURS POUR LE FORMULAIRE SELECT D'EDITION D'EXEMPLAIRE */
 
-    $requete_auteur = "SELECT * FROM auteur";
-    $reponse_auteur = $bdd->query($requete_auteur);
-    $auteurs = $reponse_auteur->fetchAll();
+    $requete_fournisseur = "SELECT * FROM fournisseur";
+    $reponse_fournisseur = $bdd->query($requete_fournisseur);
+    $fournisseurs = $reponse_fournisseur->fetchAll();
+
+    /* REQUETE DES EDITEURS POUR LE FORMULAIRE SELECT D'EDITION D'EXEMPLAIRE */
+
+    $requete_editeur = "SELECT * FROM editeur";
+    $reponse_editeur = $bdd->query($requete_editeur);
+    $editeurs = $reponse_editeur->fetchAll();
+
+    /* REQUETE DES COLLECTIONS POUR LE FORMULAIRE SELECT D'EDITION D'EXEMPLAIRE */
+
+    $requete_collection = "SELECT * FROM collection";
+    $reponse_collection = $bdd->query($requete_collection);
+    $collections = $reponse_collection->fetchAll();
+
+
+
 
 
 

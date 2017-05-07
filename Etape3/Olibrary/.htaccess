@@ -51,3 +51,6 @@ RewriteRule ^mentionslegales/$        index.php?page=MentionsLegales&%{QUERY_STR
 
 ## PageResultats ##
 RewriteRule ^pageresultats/$        index.php?page=PageResultats&%{QUERY_STRING} [L]
+
+## PageResultats ##
+RewriteRule ^supprExemplaire/$        index.php?page=supprExemplaire&%{QUERY_STRING} [L]

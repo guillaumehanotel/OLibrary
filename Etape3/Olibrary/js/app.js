@@ -8,16 +8,13 @@ $(document).ready(function() {
 
     /* Materialize Menu */
     $(".button-collapse").sideNav();
-
     /* Materialize Input Value  */
     Materialize.updateTextFields();
-
-
-
     $('select').material_select('destroy');
-
     /* Materialize Select */
     $('select').material_select();
+
+
 
 
 
@@ -28,13 +25,17 @@ $(document).ready(function() {
         $("#loupe").css("color","black");
     });
 
-
     $("#search").blur(function () {
         $("#loupe").css("color","#c1c1c1");
     });
 
 
 
+
+
+
+
+    /* AJAX MODIFICATION NOTICE */
 
     if(!(typeof TabAuteurs === 'undefined')){
         StrTabAuteurs = JSON.stringify(TabAuteurs);
@@ -44,7 +45,7 @@ $(document).ready(function() {
         location.reload();
     }
 
-    function mode_edit(){
+    function mode_edit_notice(){
         //ajax apparition formulaire de la modification de la notice
 
             var titre = $('#notice_titre').html();
@@ -66,12 +67,10 @@ $(document).ready(function() {
 
                 }
             });
-
     }
 
 
-    $("#mode_edit").click(mode_edit);
-
+    $("#mode_edit").click(mode_edit_notice);
 
     $( document ).ajaxComplete(function( event,request, settings ) {
         $("#cancel_edit").click(cancel_edit);
@@ -84,7 +83,96 @@ $(document).ready(function() {
 
 
 
-    //console.log($base_url);
+
+
+
+    if(  !(typeof TabEditeurs === 'undefined') && !(typeof TabCollections === 'undefined') && !(typeof TabFournisseurs === 'undefined')  && !(typeof TabExemplaires === 'undefined')   ){
+        StrTabEditeurs = JSON.stringify(TabEditeurs);
+        StrTabCollections = JSON.stringify(TabCollections);
+        StrTabFournisseurs = JSON.stringify(TabFournisseurs);
+        StrTabExemplaires = JSON.stringify(TabExemplaires);
+    }
+
+    function cancel_edit_exemplaire() {
+        location.reload();
+    }
+
+    /* AJAX MODIFICATION EXEMPLAIRE */
+
+    function mode_edit_exemplaire(){
+
+        var $this = $(this);
+        var $id_number = getIDNum($this);
+
+        $.ajax({
+            url : '../views/EditionExemplaires.php',
+            type : 'POST',
+            data : { id_number : $id_number,
+                     editeurs : StrTabEditeurs,
+                     collections : StrTabCollections,
+                     fournisseurs : StrTabFournisseurs,
+                     exemplaires : StrTabExemplaires },
+            dataType : 'html', // On désire recevoir du HTML
+            success : function(code_html, statut){ // code_html contient le HTML renvoyé
+
+                $('#bodyExemplaires').replaceWith(code_html);
+                // on insère le code html reçu dans le dom
+                console.log("ok");
+
+            }
+        });
+
+
+
+
+    }
+
+    $(".mode_edit_exemplaire").click(mode_edit_exemplaire);
+
+
+    $( document ).ajaxComplete(function( event,request, settings ) {
+        $("#cancel_edit_exemplaire").click(cancel_edit_exemplaire);
+    });
+
+
+
+
+
+
+
+    function getIDNum(element){
+
+        var $element_id = element.attr('id');
+        var $id_length =  $element_id.length;
+        var $id_number = "";
+        var $cpt = 1;
+        do {
+            var $oneChar = $element_id.substr($id_length-$cpt,1);
+            $id_number = $oneChar + $id_number;
+            $cpt++;
+        } while(isInt($id_number));
+        $id_number = $id_number.substr(1,$id_number.length-1);
+        return $id_number;
+
+    }
+
+    function isInt(value) {
+        var x = parseFloat(value);
+        return !isNaN(value) && (x | 0) === x;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+    /** SELECTABLE **/
 
     // Changer la couleur au hover d'une ligne -> soucis en CSS à cause de materialize
     $('.selectable').hover(function(){
@@ -98,22 +186,19 @@ $(document).ready(function() {
     );
 
 
-
+    // lien vers la bonne page précisé en classe à l'id du td sélectionné
     $('.selectable').click(function(){
 
         var $this = $(this);
 
-        var $id = $this.attr('id');
-        var $id_num = $id.substr(4,2);
+        var $id_num = getIDNum($this);
 
         var $class = $this.attr('class').split(' ')[1];
         var $length_class = $class.length;
         var $link_name = $class.substr(5,$length_class)
 
         //console.log($link_name);
-
         window.location.href = $base_url+"/"+$link_name+"/?id="+$id_num;
-
 
     });
 
@@ -122,6 +207,13 @@ $(document).ready(function() {
 
 
 
+
+
+
+
+
+
+    /** TRI DES COLONNES */
 
 
     // page liste des notices
@@ -148,14 +240,10 @@ $(document).ready(function() {
 
         // pour chaque tuple
         $('tr').each(function(index, item){
-
             // pour chaque colonne du tuple
             $('td').each(function(index, item){
                 console.log(item.innerHTML);
             });
-
-
-
         });
 
 
@@ -165,7 +253,6 @@ $(document).ready(function() {
 
         $('.auteur_name').each(function(index, item){
             array.push(item.innerHTML);
-
         });
 
         if( $(this).hasClass('asc')){
@@ -195,11 +282,6 @@ $(document).ready(function() {
             });
 
         }
-
-
-
-
-
 
     });
 

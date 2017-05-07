@@ -50,15 +50,12 @@
             <table class="centered striped">
                 <thead>
                 <tr>
-                    <!--
-                    <th data-field="id">ID</th>
-                    <th data-field="titre">Titre</th>
-                    -->
+
                     <th data-field="isbn">ISBN</th>
                     <th data-field="editeur">Editeur</th>
                     <th data-field="collection">Collection</th>
                     <th data-field="fournisseur">Fournisseur</th>
-                    <th data-field="edition">Edition</th>
+                    <th data-field="modification">Modification</th>
                     <th data-field="suppression">Suppression</th>
                 </tr>
                 </thead>
@@ -70,16 +67,12 @@
 
                     <tr class="link_exemplaires">
 
-                        <!--
-                        <td class="exemplaire_id"><?//= $value['exemplaire_id'];?></td>
-                        <td class="exemplaire_titre"><?//= $value['notice_titre']?> </td>
-                        -->
                         <td class="exemplaire_isbn"><?= $value['exemplaire_ISBN']?></td>
                         <td class="exemplaire_editeur"><?= $value['editeur_nom']?></td>
                         <td class="exemplaire_collection"><?= $value['collection_nom']?></td>
                         <td class="exemplaire_fournisseur"><?= $value['fournisseur_nom']?></td>
-                        <td class="exemplaire_edition">Edition</td>
-                        <td class="exemplaire_suppression">X</td>
+                        <td class="exemplaire_edition"><i id="mode_edit_exemplaire_<?= $value['exemplaire_id'] ?>" class="mode_edit_exemplaire small material-icons">mode_edit</i></td>
+                        <td class="exemplaire_suppression"><a href="<?= BASE_URL."/supprExemplaire"; ?>/?id=<?= $value['exemplaire_id'] ?>&notice_id=<?= $value['notice_id'] ?>"><i class="small material-icons">delete</i></a></td>
                     </tr>
 
 
@@ -99,5 +92,12 @@
 <script type="text/javascript">
 
     var TabAuteurs = <?php echo json_encode($auteurs); ?>;
+
+    var TabFournisseurs = <?php echo json_encode($fournisseurs); ?>;
+    var TabEditeurs = <?php echo json_encode($editeurs); ?>;
+    var TabCollections = <?php echo json_encode($collections); ?>;
+    var TabExemplaires = <?php echo json_encode($resultat_exemplaire); ?>;
+
+
 
 </script>
