@@ -24,6 +24,63 @@ USE `bdd_olibrary`;
 
 -- --------------------------------------------------------
 
+
+
+
+
+--
+-- Structure de la table `utilisateur`
+--
+
+DROP TABLE IF EXISTS `utilisateur`;
+CREATE TABLE IF NOT EXISTS `utilisateur` (
+  `user_num` int(11) NOT NULL AUTO_INCREMENT,
+  `user_nom` varchar(50) CHARACTER SET latin1 DEFAULT NULL,
+  `user_prenom` varchar(50) CHARACTER SET latin1 DEFAULT NULL,
+  `user_mail` varchar(50) CHARACTER SET latin1 DEFAULT NULL,
+  `user_mdp` varchar(255) CHARACTER SET latin1 DEFAULT NULL,
+  `is_admin` tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (`user_num`)
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8;
+
+--
+-- Vider la table avant d'insérer `utilisateur`
+--
+
+TRUNCATE TABLE `utilisateur`;
+--
+-- Contenu de la table `utilisateur`
+--
+
+INSERT INTO `utilisateur` (`user_num`, `user_nom`, `user_prenom`, `user_mail`, `user_mdp`, `is_admin`) VALUES
+(13, 'Gardin', 'Kélian', 'kelian.gardin@ynov.com', '$2y$10$pTUeCeGzVS0bPzPvXh/3XueMdhTz2qYfXGMtjhMR1.bpLLKsKjNpe', 0),
+(14, 'Hanotel', 'Guillaume', 'guillaume.hanotel@ynov.com', '$2y$10$78R2G1ffl5EM0lsi9cICbeSut/AL0A1bwMmRoZw8LOxhZ9QpLCCOS', 0),
+(15, 'Pitault', 'Cyriaque', 'cyriaque.pitault@ynov.com', '$2y$10$PWib195Jk.zZMHyDkwXbvekuWAklPxdPMWJdoadbqQVYrk.gV3ILC', 0),
+(16, 'Monfouga', 'Hugo', 'hugo.monfouga@ynov.com', '$2y$10$CpTCxfE6gxaH1FoBNqegl.7JBihDqf5mNkGE3Ekjnl/CBL.7CpCoC', 0),
+(17, 'Giralt', 'Benjamin', 'benjamin.giralt@ynov.com', '$2y$10$4oU8hU6NVcSx50pE37clL.v68GK86ZEBpjIB.Ff2UrB4kTOJrZ6/G', 0),
+(18, 'Cardarelli', 'Clément', 'clement.cardarelli@ynov.com', '$2y$10$EIvgd6JV2nxcBKDT6muVOOIgK8RrVi2R8lGXQRCqyUI9ZrkZ/QMgO', 0),
+(19, 'Aubineau', 'Alexis', 'alexis.aubineau@ynov.com', '$2y$10$1PzvNwwYPNZsqixjpkpAVurMGdi.dPm3uotcMO3bfQn28DFJSL3Q6', 0),
+(20, 'Engler', 'Dylan', 'dylan.engler@ynov.com', '$2y$10$nXAHpjbNCpjGl/oW5nZYNOUdmK2En0TxCeQZHJU5L2hymN8eOhrMO', 0),
+(21, 'Brugères', 'Léo', 'leo.brugeres@ynov.com', '$2y$10$6rdyMzLhw6NFfiXE2KU5duuK638v35RHnaJoywcGc8SdzXPZnBDaS', 0),
+(22, 'Desage', 'Alexandre', 'alexandre.desage@ynov.com', '$2y$10$WWMaXqz4nmWRDLigLFRvEuCW9q7.sn3E6C57ddNiM.kpFekph73bG', 0),
+(23, 'Godrie', 'Paul', 'paul.godrie@ynov.com', '$2y$10$se3kdw71.ktfzrQBjb2li..Jr4Y77W06K4zgUlaUy6fHc2Zh7tACu', 0),
+(24, 'Doret', 'Alexandre', 'alexandre.doret@ynov.com', '$2y$10$1wRzT8O7EvhSEBRmJSTe.eIJWSo9elJrk7zcJ9rxmGeVzEAkh3h8i', 0),
+(25, 'Canteloup', 'Anthony', 'anthony.canteloup@ynov.com', '$2y$10$W06irsrAyp8ni.cnY5SDBu5DsiDAxOm8rrhJhhzxsjnw0E0BVBX2q', 0),
+(26, 'Galle', 'Etoile', 'etoile.galle@ynov.com', '$2y$10$cqD/QzG1pjs9s0sD5JaLLevibPXvhd0C/0sj0jcaVxW/E3FjRBsxi', 0),
+(27, 'Vretman', 'Maxence', 'maxence.vretman@ynov.com', '$2y$10$BQEQQM3XO8V6hqvA2LIC9OLKY2ZiMtYxLHUyvSca0wDbxtVREWd/W', 0),
+(28, 'Chiny', 'Antoine', 'antoine.chiny@ynov.com', '$2y$10$NrLxA8MT50.6Z0c8fkM.WOmAHyOHIleOaydVjEwAnOvlN6e4wQuoC', 0),
+(29, 'Cloux', 'Clément', 'clement.cloux@ynov.com', '$2y$10$AX6qZKQYiITdeQqcDHh/K.meYsleUGXXP/fMQuNc7SCsen6Laz9fC', 0),
+(30, 'Marx', 'John', 'john.marx@ynov.com', '$2y$10$hiw1kWDvHyRNPH5m6j18I.BaX5eQVMIgmwf3/ylHCgWrsyTYlkC8.', 0),
+(31, 'Flamant', 'Cédric', 'cedric.flamant@ynov.com', '$2y$10$svfsTZaW9NRRUoUccMJq7.cCDMKmP.3qx7CUqj.ri7/T6PXZoUONK', 0),
+(32, 'Courrian', 'Yannick', 'yannick.courrian@ynov.com', '$2y$10$djDPh3ccqQalF357W/Dwm.o.XclIVFbO2JH9FI6fAdAnp01ehCpqS', 0),
+(33, 'Lafon', 'Arnaud', 'arnaud.lafon@ynov.com', '$2y$10$Zyv6JiocUS.9WGHq6eFwPeYrqrAHqZc2KkPLatY5I4UQfy3NeODgi', 0),
+(34, 'Java', 'Jean-Michel', 'olibrary@ynov.com', '$2y$10$OOA.t8ZdMHN3gOL8guFhSe8qTx8aaFK4SRG1UgBuKz38xrB/XgKi.', 1);
+
+-- --------------------------------------------------------
+
+
+
+
 --
 -- Structure de la table `auteur`
 --
@@ -56,6 +113,114 @@ INSERT INTO `auteur` (`auteur_id`, `auteur_nom`, `auteur_prenom`) VALUES
 (8, 'Camus', 'Albert');
 
 -- --------------------------------------------------------
+
+
+
+
+
+--
+-- Structure de la table `notice`
+--
+
+DROP TABLE IF EXISTS `notice`;
+CREATE TABLE IF NOT EXISTS `notice` (
+  `notice_id` int(10) NOT NULL AUTO_INCREMENT,
+  `notice_titre` varchar(100) CHARACTER SET latin1 NOT NULL,
+  `notice_date_parution` date NOT NULL,
+  `notice_synopsis` text CHARACTER SET latin1 NOT NULL,
+  `notice_auteur_id` int(3) NOT NULL,
+  PRIMARY KEY (`notice_id`),
+  KEY `FK_notice_auteur_id` (`notice_auteur_id`)
+  
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8;
+
+--
+-- Vider la table avant d'insérer `notice`
+--
+
+TRUNCATE TABLE `notice`;
+--
+-- Contenu de la table `notice`
+--
+
+INSERT INTO `notice` (`notice_id`, `notice_titre`, `notice_date_parution`, `notice_synopsis`, `notice_auteur_id`) VALUES
+(1, 'Une saison en enfer', '1873-01-01', 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella, deinde\naetatem ingressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, iamque \nvergens in senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.', 1),
+(2, 'Les Illuminations', '1873-01-01', 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella, deinde aetatem\ningressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, iamque vergens \nin senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.', 1),
+(3, 'Lettres dites "du Voyant"', '1873-01-01', 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella, deinde\naetatem ingressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, iamque \nvergens in senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.', 1),
+(4, 'Poèmes', '1873-01-01', 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella, deinde aetatem ingressus\nadultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, iamque vergens in senium \net nomine solo aliquotiens vincens ad tranquilliora vitae discessit.', 1),
+(5, 'Quatrevingt-treize', '1873-01-01', 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella, deinde aetatem\ningressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, iamque vergens \nin senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.', 2),
+(6, 'Actes et Paroles -I', '1873-01-01', 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella, deinde\naetatem ingressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, iamque \nvergens in senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.', 2),
+(7, 'La Esmeralda', '1873-01-01', 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella, deinde aetatem\ningressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, iamque vergens \nin senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.', 2),
+(8, 'Les misérables Tome I - Fantine', '1873-01-01', 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella,\ndeinde aetatem ingressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, \niamque vergens in senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.', 2),
+(9, 'Claude Gueux', '1873-01-01', 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella, deinde aetatem\ningressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, iamque vergens \nin senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.', 2),
+(10, 'Du Côté de chez Swann', '1873-01-01', 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella, deinde\naetatem ingressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, iamque \nvergens in senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.', 3),
+(11, 'Les Plaisirs et les Jours', '1873-01-01', 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella, deinde\naetatem ingressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, iamque \nvergens in senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.', 3),
+(12, 'Sodome et Gomorrhe - Volume 1', '1873-01-01', 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella,\ndeinde aetatem ingressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, \niamque vergens in senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.', 3),
+(13, 'Albertine disparue', '1873-01-01', 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella, deinde\naetatem ingressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, iamque \nvergens in senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.', 3),
+(14, 'A celle qui est trop gaie', '1873-01-01', 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella, deinde\naetatem ingressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, iamque \nvergens in senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.', 4),
+(15, 'A une dame créole', '1873-01-01', 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella, deinde aetatem\ningressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, iamque vergens \nin senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.', 4),
+(16, 'A une Madone', '1873-01-01', 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella, deinde aetatem\ningressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, iamque vergens \nin senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.', 4),
+(17, 'A une passante', '1873-01-01', 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella, deinde aetatem\ningressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, iamque vergens \nin senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.', 4),
+(18, 'La Nausée', '1873-01-01', 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella, deinde aetatem\ningressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, iamque vergens \nin senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.', 5),
+(19, 'Le Mur', '1873-01-01', 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella, deinde aetatem ingressus\nadultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, iamque vergens in senium \net nomine solo aliquotiens vincens ad tranquilliora vitae discessit.', 5),
+(20, 'Les Mouches', '1873-01-01', 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella, deinde aetatem\ningressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, iamque vergens \nin senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.', 5),
+(21, 'L\'Etre et le Néant', '1873-01-01', 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella, deinde\naetatem ingressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, iamque \nvergens in senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.', 5),
+(22, 'Morts sans sépulture', '1873-01-01', 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella, deinde\naetatem ingressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, iamque \nvergens in senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.', 5),
+(23, 'Le Flambeau', '1873-01-01', 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella, deinde aetatem\ningressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, iamque vergens \nin senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.', 6),
+(24, 'Le crime de l\'Orient-Express', '1873-01-01', 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella,\ndeinde aetatem ingressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, \niamque vergens in senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.', 6),
+(25, 'Le meurtre de Roger Ackroyd', '1873-01-01', 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella,\ndeinde aetatem ingressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, \niamque vergens in senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.', 6),
+(26, 'Cartes sur table', '1873-01-01', 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella, deinde aetatem\ningressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, iamque vergens \nin senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.', 6),
+(27, 'Nana', '1873-01-01', 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella, deinde aetatem ingressus\nadultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, iamque vergens in senium \net nomine solo aliquotiens vincens ad tranquilliora vitae discessit.', 7),
+(28, 'La fortune des Rougon', '1873-01-01', 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella, deinde\naetatem ingressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, iamque \nvergens in senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.', 7),
+(29, 'Son Excellence Eugène Rougon', '1873-01-01', 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella,\ndeinde aetatem ingressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, \niamque vergens in senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.', 7),
+(30, 'J\'Accuse', '1873-01-01', 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella, deinde aetatem\ningressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, iamque vergens \nin senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.', 7),
+(31, 'La Peste', '1873-01-01', 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella, deinde aetatem\ningressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, iamque vergens \nin senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.', 8),
+(32, 'L\'été', '1873-01-01', 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella, deinde aetatem ingressus\nadultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, iamque vergens in senium \net nomine solo aliquotiens vincens ad tranquilliora vitae discessit.', 8),
+(33, 'L\'Envers et l\'Endroit', '1873-01-01', 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella, deinde\naetatem ingressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, iamque \nvergens in senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.', 8),
+(34, 'Adaptation des Possédés', '1873-01-01', 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella, deinde\naetatem ingressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, iamque \nvergens in senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.', 8),
+(35, 'Notre Dame de Paris', '1873-01-01', 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella, deinde\naetatem ingressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, iamque \nvergens in senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.', 2);
+
+-- --------------------------------------------------------
+
+
+
+
+
+--
+-- Structure de la table `editeur`
+--
+
+DROP TABLE IF EXISTS `editeur`;
+CREATE TABLE IF NOT EXISTS `editeur` (
+  `editeur_id` int(11) NOT NULL AUTO_INCREMENT,
+  `editeur_nom` varchar(25) CHARACTER SET latin1 DEFAULT NULL,
+  PRIMARY KEY (`editeur_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+
+--
+-- Vider la table avant d'insérer `editeur`
+--
+
+TRUNCATE TABLE `editeur`;
+--
+-- Contenu de la table `editeur`
+--
+
+INSERT INTO `editeur` (`editeur_id`, `editeur_nom`) VALUES
+(1, 'Gallimard'),
+(2, 'Le Livre de Poche'),
+(3, 'Larousse'),
+(4, 'Hachette Education'),
+(5, 'Pocket'),
+(6, 'Hatier'),
+(7, 'Flammarion'),
+(8, 'Magnard');
+
+-- --------------------------------------------------------
+
+
+
+
 
 --
 -- Structure de la table `collection`
@@ -92,84 +257,44 @@ INSERT INTO `collection` (`collection_id`, `collection_nom`, `editeur_id`) VALUE
 
 -- --------------------------------------------------------
 
---
--- Structure de la table `editeur`
---
 
-DROP TABLE IF EXISTS `editeur`;
-CREATE TABLE IF NOT EXISTS `editeur` (
-  `editeur_id` int(11) NOT NULL AUTO_INCREMENT,
-  `editeur_nom` varchar(25) CHARACTER SET latin1 DEFAULT NULL,
-  PRIMARY KEY (`editeur_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+
+
+
 
 --
--- Vider la table avant d'insérer `editeur`
+-- Structure de la table `fournisseur`
 --
 
-TRUNCATE TABLE `editeur`;
---
--- Contenu de la table `editeur`
---
-
-INSERT INTO `editeur` (`editeur_id`, `editeur_nom`) VALUES
-(1, 'Gallimard'),
-(2, 'Le Livre de Poche'),
-(3, 'Larousse'),
-(4, 'Hachette Education'),
-(5, 'Pocket'),
-(6, 'Hatier'),
-(7, 'Flammarion'),
-(8, 'Magnard');
-
--- --------------------------------------------------------
+DROP TABLE IF EXISTS `fournisseur`;
+CREATE TABLE IF NOT EXISTS `fournisseur` (
+  `fournisseur_id` int(11) NOT NULL AUTO_INCREMENT,
+  `fournisseur_nom` varchar(25) CHARACTER SET latin1 DEFAULT NULL,
+  PRIMARY KEY (`fournisseur_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 --
--- Structure de la table `emprunte`
+-- Vider la table avant d'insérer `fournisseur`
 --
 
-DROP TABLE IF EXISTS `emprunte`;
-CREATE TABLE IF NOT EXISTS `emprunte` (
-  `emprunt_date` date DEFAULT NULL,
-  `emprunt_retour` date DEFAULT NULL,
-  `is_reservation` tinyint(1) DEFAULT NULL,
-  `user_num` int(11) NOT NULL,
-  `exemplaire_id` int(11) NOT NULL,
-  PRIMARY KEY (`user_num`,`exemplaire_id`),
-  KEY `FK_emprunte_exemplaire_id` (`exemplaire_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
+TRUNCATE TABLE `fournisseur`;
 --
--- Vider la table avant d'insérer `emprunte`
+-- Contenu de la table `fournisseur`
 --
 
-TRUNCATE TABLE `emprunte`;
---
--- Contenu de la table `emprunte`
---
-
-INSERT INTO `emprunte` (`emprunt_date`, `emprunt_retour`, `is_reservation`, `user_num`, `exemplaire_id`) VALUES
-('2017-06-01', '2017-06-14', 1, 13, 75),
-('2017-06-01', '2017-06-14', 0, 14, 1),
-('2017-06-08', '2017-06-22', 0, 15, 28),
-('2017-06-08', '2017-06-22', 0, 15, 56),
-('2017-06-08', '2017-06-22', 0, 16, 29),
-('2017-06-08', '2017-06-22', 0, 17, 30),
-('2017-06-08', '2017-06-22', 0, 18, 31),
-('2017-06-08', '2017-06-22', 0, 19, 32),
-('2017-06-08', '2017-06-22', 0, 20, 33),
-('2017-06-08', '2017-06-22', 0, 21, 67),
-('2017-06-08', '2017-06-22', 0, 22, 68),
-('2017-06-08', '2017-06-22', 0, 23, 69),
-('2017-06-08', '2017-06-22', 0, 24, 70),
-('2017-06-08', '2017-06-22', 0, 25, 71),
-('2017-06-18', '2017-06-22', 1, 26, 80),
-('2017-06-18', '2017-06-22', 1, 27, 81),
-('2017-06-18', '2017-06-22', 1, 28, 82),
-('2017-06-18', '2017-06-22', 1, 29, 83),
-('2017-06-18', '2017-06-22', 1, 30, 84);
+INSERT INTO `fournisseur` (`fournisseur_id`, `fournisseur_nom`) VALUES
+(1, 'Mollat'),
+(2, 'La Maison du Livre'),
+(3, 'Fnac'),
+(4, 'La boîte à Livres');
 
 -- --------------------------------------------------------
+
+
+
+
+
+
 
 --
 -- Structure de la table `exemplaire`
@@ -184,8 +309,9 @@ CREATE TABLE IF NOT EXISTS `exemplaire` (
   `exemplaire_fournisseur_id` int(11) NOT NULL,
   PRIMARY KEY (`exemplaire_id`),
   KEY `FK_exemplaire_collection_id` (`exemplaire_collection_id`),
-  KEY `FK_exemplaire_fournisseur_id` (`exemplaire_fournisseur_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=106 DEFAULT CHARSET=utf8;
+  KEY `FK_exemplaire_fournisseur_id` (`exemplaire_fournisseur_id`),
+  KEY `FK_exemplaire_notice_id` (`exemplaire_notice_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=106 DEFAULT CHARSET=utf8;
 
 --
 -- Vider la table avant d'insérer `exemplaire`
@@ -305,144 +431,66 @@ INSERT INTO `exemplaire` (`exemplaire_id`, `exemplaire_ISBN`, `exemplaire_notice
 
 -- --------------------------------------------------------
 
---
--- Structure de la table `fournisseur`
---
 
-DROP TABLE IF EXISTS `fournisseur`;
-CREATE TABLE IF NOT EXISTS `fournisseur` (
-  `fournisseur_id` int(11) NOT NULL AUTO_INCREMENT,
-  `fournisseur_nom` varchar(25) CHARACTER SET latin1 DEFAULT NULL,
-  PRIMARY KEY (`fournisseur_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
+
+
+
+
 
 --
--- Vider la table avant d'insérer `fournisseur`
+-- Structure de la table `emprunte`
 --
 
-TRUNCATE TABLE `fournisseur`;
---
--- Contenu de la table `fournisseur`
---
-
-INSERT INTO `fournisseur` (`fournisseur_id`, `fournisseur_nom`) VALUES
-(1, 'Mollat'),
-(2, 'La Maison du Livre'),
-(3, 'Fnac'),
-(4, 'La boîte à Livres');
-
--- --------------------------------------------------------
-
---
--- Structure de la table `notice`
---
-
-DROP TABLE IF EXISTS `notice`;
-CREATE TABLE IF NOT EXISTS `notice` (
-  `notice_id` int(10) NOT NULL AUTO_INCREMENT,
-  `notice_titre` varchar(100) CHARACTER SET latin1 NOT NULL,
-  `notice_date_parution` date NOT NULL,
-  `notice_synopsis` text CHARACTER SET latin1 NOT NULL,
-  `notice_auteur_id` int(3) NOT NULL,
-  PRIMARY KEY (`notice_id`),
-  KEY `FK_notice_auteur_id` (`notice_auteur_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=36 DEFAULT CHARSET=utf8;
+DROP TABLE IF EXISTS `emprunte`;
+CREATE TABLE IF NOT EXISTS `emprunte` (
+  `emprunt_date` date DEFAULT NULL,
+  `emprunt_retour` date DEFAULT NULL,
+  `is_reservation` tinyint(1) DEFAULT NULL,
+  `user_num` int(11) NOT NULL,
+  `exemplaire_id` int(11) NOT NULL,
+  PRIMARY KEY (`user_num`,`exemplaire_id`),
+  KEY `FK_emprunte_exemplaire_id` (`exemplaire_id`),
+  KEY `FK_emprunte_user_num` (`user_num`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Vider la table avant d'insérer `notice`
+-- Vider la table avant d'insérer `emprunte`
 --
 
-TRUNCATE TABLE `notice`;
+TRUNCATE TABLE `emprunte`;
 --
--- Contenu de la table `notice`
+-- Contenu de la table `emprunte`
 --
 
-INSERT INTO `notice` (`notice_id`, `notice_titre`, `notice_date_parution`, `notice_synopsis`, `notice_auteur_id`) VALUES
-(1, 'Une saison en enfer', '1873-01-01', 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella, deinde\naetatem ingressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, iamque \nvergens in senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.', 1),
-(2, 'Les Illuminations', '1873-01-01', 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella, deinde aetatem\ningressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, iamque vergens \nin senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.', 1),
-(3, 'Lettres dites "du Voyant"', '1873-01-01', 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella, deinde\naetatem ingressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, iamque \nvergens in senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.', 1),
-(4, 'Poèmes', '1873-01-01', 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella, deinde aetatem ingressus\nadultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, iamque vergens in senium \net nomine solo aliquotiens vincens ad tranquilliora vitae discessit.', 1),
-(5, 'Quatrevingt-treize', '1873-01-01', 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella, deinde aetatem\ningressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, iamque vergens \nin senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.', 2),
-(6, 'Actes et Paroles -I', '1873-01-01', 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella, deinde\naetatem ingressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, iamque \nvergens in senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.', 2),
-(7, 'La Esmeralda', '1873-01-01', 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella, deinde aetatem\ningressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, iamque vergens \nin senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.', 2),
-(8, 'Les misérables Tome I - Fantine', '1873-01-01', 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella,\ndeinde aetatem ingressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, \niamque vergens in senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.', 2),
-(9, 'Claude Gueux', '1873-01-01', 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella, deinde aetatem\ningressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, iamque vergens \nin senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.', 2),
-(10, 'Du Côté de chez Swann', '1873-01-01', 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella, deinde\naetatem ingressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, iamque \nvergens in senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.', 3),
-(11, 'Les Plaisirs et les Jours', '1873-01-01', 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella, deinde\naetatem ingressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, iamque \nvergens in senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.', 3),
-(12, 'Sodome et Gomorrhe - Volume 1', '1873-01-01', 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella,\ndeinde aetatem ingressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, \niamque vergens in senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.', 3),
-(13, 'Albertine disparue', '1873-01-01', 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella, deinde\naetatem ingressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, iamque \nvergens in senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.', 3),
-(14, 'A celle qui est trop gaie', '1873-01-01', 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella, deinde\naetatem ingressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, iamque \nvergens in senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.', 4),
-(15, 'A une dame créole', '1873-01-01', 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella, deinde aetatem\ningressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, iamque vergens \nin senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.', 4),
-(16, 'A une Madone', '1873-01-01', 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella, deinde aetatem\ningressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, iamque vergens \nin senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.', 4),
-(17, 'A une passante', '1873-01-01', 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella, deinde aetatem\ningressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, iamque vergens \nin senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.', 4),
-(18, 'La Nausée', '1873-01-01', 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella, deinde aetatem\ningressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, iamque vergens \nin senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.', 5),
-(19, 'Le Mur', '1873-01-01', 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella, deinde aetatem ingressus\nadultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, iamque vergens in senium \net nomine solo aliquotiens vincens ad tranquilliora vitae discessit.', 5),
-(20, 'Les Mouches', '1873-01-01', 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella, deinde aetatem\ningressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, iamque vergens \nin senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.', 5),
-(21, 'L\'Etre et le Néant', '1873-01-01', 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella, deinde\naetatem ingressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, iamque \nvergens in senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.', 5),
-(22, 'Morts sans sépulture', '1873-01-01', 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella, deinde\naetatem ingressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, iamque \nvergens in senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.', 5),
-(23, 'Le Flambeau', '1873-01-01', 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella, deinde aetatem\ningressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, iamque vergens \nin senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.', 6),
-(24, 'Le crime de l\'Orient-Express', '1873-01-01', 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella,\ndeinde aetatem ingressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, \niamque vergens in senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.', 6),
-(25, 'Le meurtre de Roger Ackroyd', '1873-01-01', 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella,\ndeinde aetatem ingressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, \niamque vergens in senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.', 6),
-(26, 'Cartes sur table', '1873-01-01', 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella, deinde aetatem\ningressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, iamque vergens \nin senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.', 6),
-(27, 'Nana', '1873-01-01', 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella, deinde aetatem ingressus\nadultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, iamque vergens in senium \net nomine solo aliquotiens vincens ad tranquilliora vitae discessit.', 7),
-(28, 'La fortune des Rougon', '1873-01-01', 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella, deinde\naetatem ingressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, iamque \nvergens in senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.', 7),
-(29, 'Son Excellence Eugène Rougon', '1873-01-01', 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella,\ndeinde aetatem ingressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, \niamque vergens in senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.', 7),
-(30, 'J\'Accuse', '1873-01-01', 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella, deinde aetatem\ningressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, iamque vergens \nin senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.', 7),
-(31, 'La Peste', '1873-01-01', 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella, deinde aetatem\ningressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, iamque vergens \nin senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.', 8),
-(32, 'L\'été', '1873-01-01', 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella, deinde aetatem ingressus\nadultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, iamque vergens in senium \net nomine solo aliquotiens vincens ad tranquilliora vitae discessit.', 8),
-(33, 'L\'Envers et l\'Endroit', '1873-01-01', 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella, deinde\naetatem ingressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, iamque \nvergens in senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.', 8),
-(34, 'Adaptation des Possédés', '1873-01-01', 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella, deinde\naetatem ingressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, iamque \nvergens in senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.', 8),
-(35, 'Notre Dame de Paris', '1873-01-01', 'Eius populus ab incunabulis primis ad usque pueritiae tempus extremum, quod annis circumcluditur fere trecentis, circummurana pertulit bella, deinde\naetatem ingressus adultam post multiplices bellorum aerumnas Alpes transcendit et fretum, in iuvenem erectus et virum ex omni plaga quam orbis ambit inmensus, reportavit laureas et triumphos, iamque \nvergens in senium et nomine solo aliquotiens vincens ad tranquilliora vitae discessit.', 2);
+INSERT INTO `emprunte` (`emprunt_date`, `emprunt_retour`, `is_reservation`, `user_num`, `exemplaire_id`) VALUES
+('2017-06-01', '2017-06-14', 1, 13, 75),
+('2017-06-01', '2017-06-14', 0, 14, 1),
+('2017-06-08', '2017-06-22', 0, 15, 28),
+('2017-06-08', '2017-06-22', 0, 15, 56),
+('2017-06-08', '2017-06-22', 0, 16, 29),
+('2017-06-08', '2017-06-22', 0, 17, 30),
+('2017-06-08', '2017-06-22', 0, 18, 31),
+('2017-06-08', '2017-06-22', 0, 19, 32),
+('2017-06-08', '2017-06-22', 0, 20, 33),
+('2017-06-08', '2017-06-22', 0, 21, 67),
+('2017-06-08', '2017-06-22', 0, 22, 68),
+('2017-06-08', '2017-06-22', 0, 23, 69),
+('2017-06-08', '2017-06-22', 0, 24, 70),
+('2017-06-08', '2017-06-22', 0, 25, 71),
+('2017-06-18', '2017-06-22', 1, 26, 80),
+('2017-06-18', '2017-06-22', 1, 27, 81),
+('2017-06-18', '2017-06-22', 1, 28, 82),
+('2017-06-18', '2017-06-22', 1, 29, 83),
+('2017-06-18', '2017-06-22', 1, 30, 84);
 
 -- --------------------------------------------------------
 
---
--- Structure de la table `utilisateur`
---
 
-DROP TABLE IF EXISTS `utilisateur`;
-CREATE TABLE IF NOT EXISTS `utilisateur` (
-  `user_num` int(11) NOT NULL AUTO_INCREMENT,
-  `user_nom` varchar(50) CHARACTER SET latin1 DEFAULT NULL,
-  `user_prenom` varchar(50) CHARACTER SET latin1 DEFAULT NULL,
-  `user_mail` varchar(50) CHARACTER SET latin1 DEFAULT NULL,
-  `user_mdp` varchar(255) CHARACTER SET latin1 DEFAULT NULL,
-  `is_admin` tinyint(1) DEFAULT NULL,
-  PRIMARY KEY (`user_num`)
-) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8;
 
---
--- Vider la table avant d'insérer `utilisateur`
---
 
-TRUNCATE TABLE `utilisateur`;
---
--- Contenu de la table `utilisateur`
---
 
-INSERT INTO `utilisateur` (`user_num`, `user_nom`, `user_prenom`, `user_mail`, `user_mdp`, `is_admin`) VALUES
-(13, 'Gardin', 'Kélian', 'kelian.gardin@ynov.com', '$2y$10$pTUeCeGzVS0bPzPvXh/3XueMdhTz2qYfXGMtjhMR1.bpLLKsKjNpe', 0),
-(14, 'Hanotel', 'Guillaume', 'guillaume.hanotel@ynov.com', '$2y$10$78R2G1ffl5EM0lsi9cICbeSut/AL0A1bwMmRoZw8LOxhZ9QpLCCOS', 0),
-(15, 'Pitault', 'Cyriaque', 'cyriaque.pitault@ynov.com', '$2y$10$PWib195Jk.zZMHyDkwXbvekuWAklPxdPMWJdoadbqQVYrk.gV3ILC', 0),
-(16, 'Monfouga', 'Hugo', 'hugo.monfouga@ynov.com', '$2y$10$CpTCxfE6gxaH1FoBNqegl.7JBihDqf5mNkGE3Ekjnl/CBL.7CpCoC', 0),
-(17, 'Giralt', 'Benjamin', 'benjamin.giralt@ynov.com', '$2y$10$4oU8hU6NVcSx50pE37clL.v68GK86ZEBpjIB.Ff2UrB4kTOJrZ6/G', 0),
-(18, 'Cardarelli', 'Clément', 'clement.cardarelli@ynov.com', '$2y$10$EIvgd6JV2nxcBKDT6muVOOIgK8RrVi2R8lGXQRCqyUI9ZrkZ/QMgO', 0),
-(19, 'Aubineau', 'Alexis', 'alexis.aubineau@ynov.com', '$2y$10$1PzvNwwYPNZsqixjpkpAVurMGdi.dPm3uotcMO3bfQn28DFJSL3Q6', 0),
-(20, 'Engler', 'Dylan', 'dylan.engler@ynov.com', '$2y$10$nXAHpjbNCpjGl/oW5nZYNOUdmK2En0TxCeQZHJU5L2hymN8eOhrMO', 0),
-(21, 'Brugères', 'Léo', 'leo.brugeres@ynov.com', '$2y$10$6rdyMzLhw6NFfiXE2KU5duuK638v35RHnaJoywcGc8SdzXPZnBDaS', 0),
-(22, 'Desage', 'Alexandre', 'alexandre.desage@ynov.com', '$2y$10$WWMaXqz4nmWRDLigLFRvEuCW9q7.sn3E6C57ddNiM.kpFekph73bG', 0),
-(23, 'Godrie', 'Paul', 'paul.godrie@ynov.com', '$2y$10$se3kdw71.ktfzrQBjb2li..Jr4Y77W06K4zgUlaUy6fHc2Zh7tACu', 0),
-(24, 'Doret', 'Alexandre', 'alexandre.doret@ynov.com', '$2y$10$1wRzT8O7EvhSEBRmJSTe.eIJWSo9elJrk7zcJ9rxmGeVzEAkh3h8i', 0),
-(25, 'Canteloup', 'Anthony', 'anthony.canteloup@ynov.com', '$2y$10$W06irsrAyp8ni.cnY5SDBu5DsiDAxOm8rrhJhhzxsjnw0E0BVBX2q', 0),
-(26, 'Galle', 'Etoile', 'etoile.galle@ynov.com', '$2y$10$cqD/QzG1pjs9s0sD5JaLLevibPXvhd0C/0sj0jcaVxW/E3FjRBsxi', 0),
-(27, 'Vretman', 'Maxence', 'maxence.vretman@ynov.com', '$2y$10$BQEQQM3XO8V6hqvA2LIC9OLKY2ZiMtYxLHUyvSca0wDbxtVREWd/W', 0),
-(28, 'Chiny', 'Antoine', 'antoine.chiny@ynov.com', '$2y$10$NrLxA8MT50.6Z0c8fkM.WOmAHyOHIleOaydVjEwAnOvlN6e4wQuoC', 0),
-(29, 'Cloux', 'Clément', 'clement.cloux@ynov.com', '$2y$10$AX6qZKQYiITdeQqcDHh/K.meYsleUGXXP/fMQuNc7SCsen6Laz9fC', 0),
-(30, 'Marx', 'John', 'john.marx@ynov.com', '$2y$10$hiw1kWDvHyRNPH5m6j18I.BaX5eQVMIgmwf3/ylHCgWrsyTYlkC8.', 0),
-(31, 'Flamant', 'Cédric', 'cedric.flamant@ynov.com', '$2y$10$svfsTZaW9NRRUoUccMJq7.cCDMKmP.3qx7CUqj.ri7/T6PXZoUONK', 0),
-(32, 'Courrian', 'Yannick', 'yannick.courrian@ynov.com', '$2y$10$djDPh3ccqQalF357W/Dwm.o.XclIVFbO2JH9FI6fAdAnp01ehCpqS', 0),
-(33, 'Lafon', 'Arnaud', 'arnaud.lafon@ynov.com', '$2y$10$Zyv6JiocUS.9WGHq6eFwPeYrqrAHqZc2KkPLatY5I4UQfy3NeODgi', 0),
-(34, 'Java', 'Jean-Michel', 'olibrary@ynov.com', '$2y$10$OOA.t8ZdMHN3gOL8guFhSe8qTx8aaFK4SRG1UgBuKz38xrB/XgKi.', 1);
+
 
 --
 -- Contraintes pour les tables exportées
@@ -452,7 +500,62 @@ INSERT INTO `utilisateur` (`user_num`, `user_nom`, `user_prenom`, `user_mail`, `
 -- Contraintes pour la table `collection`
 --
 ALTER TABLE `collection`
-  ADD CONSTRAINT `FK_collection_editeur_id` FOREIGN KEY (`editeur_id`) REFERENCES `editeur` (`editeur_id`);
+  ADD CONSTRAINT `FK_collection_editeur_id` 
+  FOREIGN KEY (`editeur_id`) 
+  REFERENCES `editeur` (`editeur_id`)
+  ON DELETE CASCADE;
+  
+  
+--
+-- Contraintes pour la table `notice`
+--
+ALTER TABLE `notice`
+  ADD CONSTRAINT `FK_notice_auteur_id` 
+  FOREIGN KEY (`notice_auteur_id`) 
+  REFERENCES `auteur` (`auteur_id`)
+  ON DELETE CASCADE;
+  
+  
+--
+-- Contraintes pour la table `exemplaire`
+--
+ALTER TABLE `exemplaire`
+  ADD CONSTRAINT `FK_exemplaire_collection_id` 
+  FOREIGN KEY (`exemplaire_collection_id`) 
+  REFERENCES `collection` (`collection_id`)
+  ON DELETE CASCADE;
+  
+ALTER TABLE `exemplaire`
+  ADD CONSTRAINT `FK_fournisseur_collection_id` 
+  FOREIGN KEY (`exemplaire_fournisseur_id`) 
+  REFERENCES `fournisseur` (`fournisseur_id`)
+  ON DELETE CASCADE;
+  
+ALTER TABLE `exemplaire`
+  ADD CONSTRAINT `FK_fournisseur_notice_id` 
+  FOREIGN KEY (`exemplaire_notice_id`) 
+  REFERENCES `notice` (`notice_id`)
+  ON DELETE CASCADE;
+  
+  
+--
+-- Contraintes pour la table `emprunte`
+--
+ALTER TABLE `emprunte`
+  ADD CONSTRAINT `FK_emprunte_exemplaire_id` 
+  FOREIGN KEY (`exemplaire_id`) 
+  REFERENCES `exemplaire` (`exemplaire_id`)
+  ON DELETE CASCADE;
+  
+ALTER TABLE `emprunte`
+  ADD CONSTRAINT `FK_emprunte_user_num` 
+  FOREIGN KEY (`user_num`) 
+  REFERENCES `utilisateur` (`user_num`)
+  ON DELETE CASCADE;
+  
+  
+  
+  
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
