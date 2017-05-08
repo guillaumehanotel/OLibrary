@@ -3,7 +3,7 @@
 
 
 
-    <h3>Ajouter un auteur :</h3>
+    <h3>Auteurs :</h3>
 
     <!-- Modal Trigger -->
     <a class="waves-effect waves-light btn" href="#modal_auteur">Ajouter un auteur</a>
@@ -34,18 +34,22 @@
     <table class="centered responsive-table highlight">
         <thead>
         <tr>
-            <th>Id</th>
+
             <th>Nom</th>
             <th>Prénom</th>
+            <th>Modification</th>
+            <th>Suppression</th>
         </tr>
         </thead>
         <tbody>
         <?php foreach ($requete_auteur as $req_auteur){ ?>
             <tr>
-                <td><?= $req_auteur['auteur_id']?></td>
                 <td><?= $req_auteur['auteur_nom']?></td>
                 <td><?= $req_auteur['auteur_prenom']?></td>
-            </tr> <?php } ?>
+                <td><i class="material-icons">mode_edit</i></td>
+                <td><a href="<?= BASE_URL."/SupprimerAuteur"; ?>/?id=<?= $req_auteur['auteur_id'] ?>"><i class="material-icons">delete</i></a></td>
+            </tr>
+        <?php } ?>
         </tbody>
     </table>
 
