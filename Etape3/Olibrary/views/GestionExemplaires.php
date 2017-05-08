@@ -68,9 +68,9 @@
                     <tr class="link_exemplaires">
 
                         <td class="exemplaire_isbn"><?= $value['exemplaire_ISBN']?></td>
-                        <td class="exemplaire_editeur"><?= $value['editeur_nom']?></td>
-                        <td class="exemplaire_collection"><?= $value['collection_nom']?></td>
-                        <td class="exemplaire_fournisseur"><?= $value['fournisseur_nom']?></td>
+                        <td id="exemplaire_<?= $value['exemplaire_id'] ?>_editeur" class="exemplaire_editeur" data-id="<?= $value['editeur_id']?>"><?= $value['editeur_nom']?></td>
+                        <td id="exemplaire_<?= $value['exemplaire_id'] ?>_collection" class="exemplaire_collection" data-id="<?= $value['collection_id']?>"><?= $value['collection_nom']?></td>
+                        <td id="exemplaire_<?= $value['exemplaire_id'] ?>_fournisseur" class="exemplaire_fournisseur" data-id="<?= $value['fournisseur_id']?>"><?= $value['fournisseur_nom']?></td>
                         <td class="exemplaire_edition"><i id="mode_edit_exemplaire_<?= $value['exemplaire_id'] ?>" class="mode_edit_exemplaire small material-icons">mode_edit</i></td>
                         <td class="exemplaire_suppression"><a href="<?= BASE_URL."/supprExemplaire"; ?>/?id=<?= $value['exemplaire_id'] ?>&notice_id=<?= $value['notice_id'] ?>"><i class="small material-icons">delete</i></a></td>
                     </tr>

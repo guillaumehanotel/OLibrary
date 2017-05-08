@@ -86,6 +86,7 @@ $(document).ready(function() {
 
 
 
+    /* RECUPERATION DES TABLEAUX INITIALISES EN BAS DE PAGE DE GESTION EXEMPLAIRES*/
     if(  !(typeof TabEditeurs === 'undefined') && !(typeof TabCollections === 'undefined') && !(typeof TabFournisseurs === 'undefined')  && !(typeof TabExemplaires === 'undefined')   ){
         StrTabEditeurs = JSON.stringify(TabEditeurs);
         StrTabCollections = JSON.stringify(TabCollections);
@@ -93,9 +94,32 @@ $(document).ready(function() {
         StrTabExemplaires = JSON.stringify(TabExemplaires);
     }
 
+
+
+
     function cancel_edit_exemplaire() {
         location.reload();
     }
+
+
+    function getCollectionArray($editeur_id){
+        var arrayCollection = [];
+
+        for(var i = 0; i < TabCollections.length; i++){
+            if(TabCollections[i]['editeur_id'] == $editeur_id){
+                arrayCollection.push({
+                    collection_id  : TabCollections[i]['collection_id'],
+                    collection_nom : TabCollections[i]['collection_nom'],
+                    editeur_id : TabCollections[i]['editeur_id']
+                });
+            }
+        }
+
+        return arrayCollection;
+    }
+
+
+
 
     /* AJAX MODIFICATION EXEMPLAIRE */
 
@@ -104,20 +128,32 @@ $(document).ready(function() {
         var $this = $(this);
         var $id_number = getIDNum($this);
 
+        var $exemplaire_editeur_id = $("#exemplaire_"+$id_number+"_editeur").data('id');
+        var $exemplaire_fournisseur_id = $("#exemplaire_"+$id_number+"_fournisseur").data('id');
+        var $exemplaire_collection_id = $("#exemplaire_"+$id_number+"_collection").data('id');
+
+
+        arrayCollection = getCollectionArray($exemplaire_editeur_id);
+
+
+        StrArrayCollection = JSON.stringify(arrayCollection);
+
         $.ajax({
             url : '../views/EditionExemplaires.php',
             type : 'POST',
-            data : { id_number : $id_number,
+            data : { exemplaire_collection_id : $exemplaire_collection_id,
+                     exemplaire_fournisseur_id : $exemplaire_fournisseur_id,
+                     exemplaire_editeur_id : $exemplaire_editeur_id,
+                     id_number : $id_number,
                      editeurs : StrTabEditeurs,
-                     collections : StrTabCollections,
+                     collections : StrArrayCollection,
                      fournisseurs : StrTabFournisseurs,
                      exemplaires : StrTabExemplaires },
             dataType : 'html', // On désire recevoir du HTML
-            success : function(code_html, statut){ // code_html contient le HTML renvoyé
+            success : function(code_html, statut) { // code_html contient le HTML renvoyé
 
                 $('#bodyExemplaires').replaceWith(code_html);
                 // on insère le code html reçu dans le dom
-                console.log("ok");
 
             }
         });
@@ -136,6 +172,39 @@ $(document).ready(function() {
 
 
 
+
+
+
+
+
+    $( document ).ajaxComplete(function( event,request, settings ) {
+        $('#select_editeur').change(switchCollection);
+    });
+
+
+
+    function switchCollection(){
+
+        var selectBox = this;
+        var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+        var $editeur_id = selectedValue.split(" ")[0];
+
+        var newArrayCollection = getCollectionArray($editeur_id);
+
+        var selectCollection = $('#select_collection');
+        console.log(newArrayCollection);
+
+        selectCollection.empty();
+
+        for(var i = 0;  i< newArrayCollection.length;i++){
+            var opt = document.createElement('option');
+            opt.text = newArrayCollection[i]['collection_id']+" - "+newArrayCollection[i]['collection_nom'];
+            opt.value = newArrayCollection[i]['collection_id'];
+            selectCollection.append(opt);
+        }
+
+        selectCollection.material_select();
+    }
 
 
 
