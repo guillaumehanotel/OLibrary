@@ -6,31 +6,14 @@ if(!empty($_POST["auteur"])){
     if(!empty($_POST["auteur_nom"]) && !empty($_POST["auteur_prenom"]) &&
         isset($_POST["auteur_nom"]) && isset($_POST["auteur_prenom"])){
 
-
-        $requete = $bdd -> prepare("INSERT INTO auteur (
-                                                auteur_nom,
-                                                auteur_prenom
-                                              )
-                                              VALUES
-                                              (
-                                                :nom,
-                                                :prenom
-                                              )"
-                                    );
-
+        $requete = $bdd -> prepare("INSERT INTO auteur (auteur_nom,auteur_prenom) VALUES (:nom, :prenom)");
         $param = array(
           'nom' => securify($_POST['auteur_nom']),
           'prenom' => securify($_POST['auteur_prenom'])
         );
-
-
         $requete->execute($param);
-
-
-
-        header('Location: ' . BASE_URL . '/autorites/');
-    }
-    else {
+        header('Location:'.BASE_URL.'/autorites/');
+    } else {
         echo "Merci de remplir tout les champs";
     }
 }
@@ -41,32 +24,19 @@ $requete_auteur = $requeteauteur->fetchAll();
 
 
 
+
+
 // Enregistrer l'éditeur
 if(!empty($_POST["editeur"])){
     if(!empty($_POST["editeur_nom"]) && isset($_POST["editeur_nom"])){
 
-        $requete = $bdd -> prepare("INSERT INTO editeur (
-                                                editeur_nom
-                                                )
-                                                VALUES
-                                                (
-                                                :nom
-                                                )"
-        );
-
+        $requete = $bdd -> prepare("INSERT INTO editeur (editeur_nom) VALUES (:nom)");
         $param = array(
             'nom' => securify($_POST['editeur_nom']),
         );
-
-
         $requete->execute($param);
-
-
-
-
-        header('Location: ' . BASE_URL . '/autorites/');
-    }
-    else {
+        header('Location:' . BASE_URL . '/autorites/');
+    } else {
         echo "Merci de remplir tout les champs";
     }
 }
@@ -82,27 +52,13 @@ $requete_editeur = $requeteediteur->fetchAll();
 //Enregistrer le fournisseur
 if(!empty($_POST["fournisseur"])){
     if(!empty($_POST["fournisseur_nom"]) && isset($_POST["fournisseur_nom"])){
-
-
-        $requete = $bdd -> prepare("INSERT INTO fournisseur (
-                                                fournisseur_nom
-                                                )
-                                                VALUES
-                                                (
-                                                :nom
-                                                )"
-        );
-
+        $requete = $bdd -> prepare("INSERT INTO fournisseur (fournisseur_nom) VALUES (:nom)");
         $param = array(
             'nom' => securify($_POST['fournisseur_nom']),
         );
-
         $requete->execute($param);
-
-
-        header('Location: ' . BASE_URL . '/autorites/');
-    }
-    else {
+        header('Location:' . BASE_URL . '/autorites/');
+    } else {
         echo "Merci de remplir tout les champs";
     }
 }
@@ -118,32 +74,14 @@ if(!empty($_POST["collection"])) {
 
     if (!empty($_POST["collection_nom"]) && !empty($_POST["editeur_id"]) &&
         isset($_POST["collection_nom"]) && isset($_POST["editeur_id"])) {
-
-
-        $requete = $bdd -> prepare("INSERT INTO collection (
-                                                collection_nom,
-                                                editeur_id
-                                                )
-                                                VALUES
-                                                (
-                                                :nom,
-                                                :id
-                                                )"
-        );
-
+        $requete = $bdd -> prepare("INSERT INTO collection (collection_nom,editeur_id) VALUES (:nom,:id)");
         $param = array(
             'nom' => securify($_POST['collection_nom']),
             'id' => securify(explode(" ", $_POST['editeur_id'])[0])
         );
-
-
         $requete->execute($param);
-
-
-
-        header('Location: ' . BASE_URL . '/autorites/');
-    }
-    else {
+        header('Location:' . BASE_URL . '/autorites/');
+    } else {
         echo "Merci de remplir tout les champs";
     }
 }
@@ -221,7 +159,7 @@ if(!empty($_POST["livre"])) {
                               )";
 
         $bdd->query($requete);
-        header('Location: ' . BASE_URL . '/autorites/');
+        header('Location:' . BASE_URL . '/autorites/');
 
 
     }

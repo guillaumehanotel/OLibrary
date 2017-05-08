@@ -29,12 +29,9 @@
         </div>
     </div>
 
-
-
     <table class="centered responsive-table highlight">
         <thead>
         <tr>
-
             <th>Nom</th>
             <th>Prénom</th>
             <th>Modification</th>
@@ -54,7 +51,10 @@
     </table>
 
 
-    <h3>Ajouter un editeur :</h3>
+
+
+
+    <h3>Editeurs</h3>
 
 
     <a class="waves-effect waves-light btn" href="#modal_editeur">Ajouter un éditeur</a>
@@ -74,28 +74,30 @@
     </div>
     </div>
 
-
-
-
-
     <table class="centered responsive-table highlight">
         <thead>
         <tr>
-            <th>Id</th>
             <th>Nom</th>
+            <th>Modification</th>
+            <th>Suppression</th>
         </tr>
         </thead>
         <tbody>
         <?php foreach ($requete_editeur as $req_editeur){ ?>
             <tr>
-                <td><?= $req_editeur['editeur_id']?></td>
                 <td><?= $req_editeur['editeur_nom']?></td>
-            </tr> <?php } ?>
+                <td><i class="material-icons">mode_edit</i></td>
+                <td><a href="<?= BASE_URL."/SupprimerEditeur"; ?>/?id=<?= $req_editeur['editeur_id'] ?>"><i class="material-icons">delete</i></a></td>
+            </tr>
+        <?php } ?>
         </tbody>
     </table>
 
 
-    <h3>Ajouter un fournisseur :</h3>
+
+
+
+    <h3>Fournisseurs :</h3>
 
 
     <a class="waves-effect waves-light btn" href="#modal_fournisseur">Ajouter un fournisseur</a>
