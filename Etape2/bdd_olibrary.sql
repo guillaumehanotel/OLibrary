@@ -193,7 +193,7 @@ INSERT INTO `notice` (`notice_id`, `notice_titre`, `notice_date_parution`, `noti
 DROP TABLE IF EXISTS `editeur`;
 CREATE TABLE IF NOT EXISTS `editeur` (
   `editeur_id` int(11) NOT NULL AUTO_INCREMENT,
-  `editeur_nom` varchar(25) CHARACTER SET latin1 DEFAULT NULL,
+  `editeur_nom` varchar(50) CHARACTER SET latin1 DEFAULT NULL,
   PRIMARY KEY (`editeur_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
@@ -229,7 +229,7 @@ INSERT INTO `editeur` (`editeur_id`, `editeur_nom`) VALUES
 DROP TABLE IF EXISTS `collection`;
 CREATE TABLE IF NOT EXISTS `collection` (
   `collection_id` int(11) NOT NULL AUTO_INCREMENT,
-  `collection_nom` varchar(25) CHARACTER SET latin1 DEFAULT NULL,
+  `collection_nom` varchar(50) CHARACTER SET latin1 DEFAULT NULL,
   `editeur_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`collection_id`),
   KEY `FK_collection_editeur_id` (`editeur_id`)
