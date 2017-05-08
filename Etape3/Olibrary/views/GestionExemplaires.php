@@ -43,9 +43,47 @@
         </div>
 
 
-        <h3></h3>
+        <div class="row" id="show_exemplaire">
+
+            <h3>Exemplaires associés à la notice :</h3>
+
+            <table class="centered striped">
+                <thead>
+                <tr>
+
+                    <th data-field="isbn">ISBN</th>
+                    <th data-field="editeur">Editeur</th>
+                    <th data-field="collection">Collection</th>
+                    <th data-field="fournisseur">Fournisseur</th>
+                    <th data-field="modification">Modification</th>
+                    <th data-field="suppression">Suppression</th>
+                </tr>
+                </thead>
+                <tbody id="bodyExemplaires">
 
 
+                <?php
+                foreach ($resultat_exemplaire as $value){?>
+
+                    <tr class="link_exemplaires">
+
+                        <td class="exemplaire_isbn"><?= $value['exemplaire_ISBN']?></td>
+                        <td id="exemplaire_<?= $value['exemplaire_id'] ?>_editeur" class="exemplaire_editeur" data-id="<?= $value['editeur_id']?>"><?= $value['editeur_nom']?></td>
+                        <td id="exemplaire_<?= $value['exemplaire_id'] ?>_collection" class="exemplaire_collection" data-id="<?= $value['collection_id']?>"><?= $value['collection_nom']?></td>
+                        <td id="exemplaire_<?= $value['exemplaire_id'] ?>_fournisseur" class="exemplaire_fournisseur" data-id="<?= $value['fournisseur_id']?>"><?= $value['fournisseur_nom']?></td>
+                        <td class="exemplaire_edition"><i id="mode_edit_exemplaire_<?= $value['exemplaire_id'] ?>" class="mode_edit_exemplaire small material-icons">mode_edit</i></td>
+                        <td class="exemplaire_suppression"><a href="<?= BASE_URL."/supprExemplaire"; ?>/?id=<?= $value['exemplaire_id'] ?>&notice_id=<?= $value['notice_id'] ?>"><i class="small material-icons">delete</i></a></td>
+                    </tr>
+
+
+                    <?php
+                }
+                ?>
+
+                </tbody>
+            </table>
+
+        </div>
 
 
     </div>
@@ -54,5 +92,12 @@
 <script type="text/javascript">
 
     var TabAuteurs = <?php echo json_encode($auteurs); ?>;
+
+    var TabFournisseurs = <?php echo json_encode($fournisseurs); ?>;
+    var TabEditeurs = <?php echo json_encode($editeurs); ?>;
+    var TabCollections = <?php echo json_encode($collections); ?>;
+    var TabExemplaires = <?php echo json_encode($resultat_exemplaire); ?>;
+
+
 
 </script>

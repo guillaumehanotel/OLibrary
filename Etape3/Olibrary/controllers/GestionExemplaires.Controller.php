@@ -9,7 +9,8 @@ if(!isset($_SESSION["connect"])){
 }
 
 
-if (!empty($_POST)){ // si le formulaire a été envoyé
+
+if (!empty($_POST['submit_notice'])){ // si le formulaire a été envoyé
 
     if(isset($_POST['date']) && !empty($_POST['date']) &&
         isset($_POST['titre']) && !empty($_POST['titre']) &&
@@ -33,13 +34,8 @@ if (!empty($_POST)){ // si le formulaire a été envoyé
             notice_auteur_id      = :auteur
             WHERE notice_id       = :id");
 
-
-
             $date = $_POST['date'].'-01-01';
-
             $date = date ('Y-m-d', strtotime($date));
-
-
 
             $param = array(
                 'titre' => securify($_POST['titre']),
@@ -49,15 +45,50 @@ if (!empty($_POST)){ // si le formulaire a été envoyé
                 'id' => $id
             );
 
-            $bdd->setAttribute(PDO::ATTR_EMULATE_PREPARES,false);
-
+            //$bdd->setAttribute(PDO::ATTR_EMULATE_PREPARES,false);
             $requete->execute($param);
-
 
             header("Refresh:0");
             //header('Location: '.BASE_URL.'/exemplaires/');
-
         }
+    }
+
+
+} elseif(!empty($_POST['submit_exemplaire'])) {
+
+    if(isset($_POST['exemplaire_id']) && !empty($_POST['exemplaire_id']) &&
+        isset($_POST['isbn']) && !empty($_POST['isbn']) &&
+        isset($_POST['editeur_id']) && !empty($_POST['editeur_id']) &&
+        isset($_POST['collection_id']) && !empty($_POST['collection_id']) &&
+        isset($_POST['fournisseur_id']) && !empty($_POST['fournisseur_id'])) {
+
+        $id = securify((int)$_GET['id']);
+
+        $requete_notice = "SELECT * FROM notice n WHERE notice_id = '$id'";
+        $reponse_notice = $bdd->query($requete_notice);
+        $resultat_notice = $reponse_notice->fetch();
+
+
+        $requete =  $bdd->prepare("UPDATE exemplaire SET
+        exemplaire_ISBN             = :isbn,
+        exemplaire_collection_id    = :collection_id,
+        exemplaire_fournisseur_id   = :fournisseur_id
+        WHERE exemplaire_id         = :id");
+
+
+        $param = array(
+
+            'isbn' => securify($_POST['isbn']),
+            'collection_id' => securify($_POST['collection_id']),
+            'fournisseur_id' => securify($_POST['fournisseur_id']),
+            'id' => securify($_POST['exemplaire_id'])
+        );
+
+
+
+        $requete->execute($param);
+        header("Refresh:0");
+
 
     }
 
@@ -79,21 +110,7 @@ if (!empty($_POST)){ // si le formulaire a été envoyé
     $resultat_notice = $reponse_notice->fetch();
 
 
-
-
-/* REQUETE DES EXEMPLAIRES LIES A LA NOTICE */
-    $requete_exemplaire =
-        "SELECT *
-    FROM notice n, exemplaire e
-    WHERE n.notice_id = e.exemplaire_notice_id
-    AND n.notice_id = '$id'";
-
-    $reponse_exemplaire = $bdd->query($requete_exemplaire);
-    $resultat_exemplaire = $reponse_exemplaire->fetchAll();
-
-
-
-/* REQUETE DES AUTEURS POUR LE FORMRULAIRE SELECT */
+    /* REQUETE DES AUTEURS POUR LE FORMRULAIRE SELECT D'EDITION DE NOTICE*/
 
     $requete_auteur = "SELECT * FROM auteur";
     $reponse_auteur = $bdd->query($requete_auteur);
@@ -102,8 +119,41 @@ if (!empty($_POST)){ // si le formulaire a été envoyé
 
 
 
+    /* REQUETE DES EXEMPLAIRES LIES A LA NOTICE */
+    $requete_exemplaire =
+        "SELECT *
+    FROM notice n, exemplaire e, fournisseur f, collection c, editeur ed
+    WHERE n.notice_id = e.exemplaire_notice_id
+    AND e.exemplaire_fournisseur_id = f.fournisseur_id
+    AND e.exemplaire_collection_id = c.collection_id
+    AND c.editeur_id = ed.editeur_id
+    AND n.notice_id = '$id'";
+
+    $reponse_exemplaire = $bdd->query($requete_exemplaire);
+    $resultat_exemplaire = $reponse_exemplaire->fetchAll();
+
+
+
+    /* REQUETE DES FOURNISSEURS POUR LE FORMULAIRE SELECT D'EDITION D'EXEMPLAIRE */
+
+    $requete_fournisseur = "SELECT * FROM fournisseur";
+    $reponse_fournisseur = $bdd->query($requete_fournisseur);
+    $fournisseurs = $reponse_fournisseur->fetchAll();
+
+    /* REQUETE DES EDITEURS POUR LE FORMULAIRE SELECT D'EDITION D'EXEMPLAIRE */
+
+    $requete_editeur = "SELECT * FROM editeur";
+    $reponse_editeur = $bdd->query($requete_editeur);
+    $editeurs = $reponse_editeur->fetchAll();
+
+    /* REQUETE DES COLLECTIONS POUR LE FORMULAIRE SELECT D'EDITION D'EXEMPLAIRE */
+
+    $requete_collection = "SELECT * FROM collection";
+    $reponse_collection = $bdd->query($requete_collection);
+    $collections = $reponse_collection->fetchAll();
+
+
     require $_dir["views"] . "GestionExemplaires.php";
 
 } else {
-
 }
