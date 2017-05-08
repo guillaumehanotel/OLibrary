@@ -9,7 +9,8 @@ if(!isset($_SESSION["connect"])){
 }
 
 
-if (!empty($_POST)){ // si le formulaire a été envoyé
+
+if (!empty($_POST['submit_notice'])){ // si le formulaire a été envoyé
 
     if(isset($_POST['date']) && !empty($_POST['date']) &&
         isset($_POST['titre']) && !empty($_POST['titre']) &&
@@ -33,13 +34,8 @@ if (!empty($_POST)){ // si le formulaire a été envoyé
             notice_auteur_id      = :auteur
             WHERE notice_id       = :id");
 
-
-
             $date = $_POST['date'].'-01-01';
-
             $date = date ('Y-m-d', strtotime($date));
-
-
 
             $param = array(
                 'titre' => securify($_POST['titre']),
@@ -49,15 +45,46 @@ if (!empty($_POST)){ // si le formulaire a été envoyé
                 'id' => $id
             );
 
-            $bdd->setAttribute(PDO::ATTR_EMULATE_PREPARES,false);
-
+            //$bdd->setAttribute(PDO::ATTR_EMULATE_PREPARES,false);
             $requete->execute($param);
-
 
             header("Refresh:0");
             //header('Location: '.BASE_URL.'/exemplaires/');
-
         }
+    }
+
+
+} elseif(!empty($_POST['submit_exemplaire'])) {
+
+    if(isset($_POST['isbn']) && !empty($_POST['isbn']) &&
+        isset($_POST['editeur_id']) && !empty($_POST['editeur_id']) &&
+        isset($_POST['collection_id']) && !empty($_POST['collection_id']) &&
+        isset($_POST['fournisseur_id']) && !empty($_POST['fournisseur_id'])) {
+
+        $id = securify((int)$_GET['id']);
+
+        $requete_notice = "SELECT * FROM notice n WHERE notice_id = '$id'";
+        $reponse_notice = $bdd->query($requete_notice);
+        $resultat_notice = $reponse_notice->fetch();
+
+
+        $requete =  $bdd->prepare("UPDATE exemplaire SET
+        exemplaire_ISBN             = :isbn,
+        exemplaire_collection_id    = :collection_id,
+        exemplaire_fournisseur_id   = :fournisseur_id");
+
+
+        $param = array(
+            'isbn' => securify($_POST['isbn']),
+            'collection_id' => securify($_POST['collection_id']),
+            'fournisseur_id' => securify($_POST['fournisseur_id'])
+        );
+
+        $requete->execute($param);
+
+        header("Refresh:0");
+
+
 
     }
 

@@ -12,11 +12,13 @@ $exemplaire_editeur_id = $_POST['exemplaire_editeur_id'];
 $exemplaire_fournisseur_id = $_POST['exemplaire_fournisseur_id'];
 $exemplaire_collection_id = $_POST['exemplaire_collection_id'];
 
-
-
-
-
 ?>
+
+
+
+
+
+
 
 
 
@@ -53,10 +55,12 @@ foreach ($exemplaires as $value){
 
         <tr class="link_exemplaires">
 
-            <form action="">
+            <form action="" method="post" name="submit_exemplaire">
+
+                <div class="row">
 
                 <td class="exemplaire_isbn">
-                    <input type="text" value="<?= $value['exemplaire_ISBN']?>" class="validate" id="isbn" name="isbn">
+                    <input type="text" value="<?= $value['exemplaire_ISBN']?>" id="isbn" name="isbn">
                 </td>
 
 
@@ -66,9 +70,9 @@ foreach ($exemplaires as $value){
                         <?php
                         foreach($editeurs as $editeur){
                             if($editeur['editeur_id'] == $exemplaire_editeur_id){
-                                echo "<option selected>".$editeur['editeur_id']." - ".$editeur['editeur_nom']."</option>";
+                                echo "<option value='".$editeur['editeur_id']."' selected>".$editeur['editeur_id']." - ".$editeur['editeur_nom']."</option>";
                             } else {
-                                echo "<option>".$editeur['editeur_id']." - ".$editeur['editeur_nom']."</option>";
+                                echo "<option value='".$editeur['editeur_id']."'>".$editeur['editeur_id']." - ".$editeur['editeur_nom']."</option>";
                             }
                         } ?>
                     </select>
@@ -97,9 +101,9 @@ foreach ($exemplaires as $value){
                         <?php
                         foreach($fournisseurs as $fournisseur){
                             if($fournisseur['fournisseur_id'] == $exemplaire_fournisseur_id){
-                                echo "<option selected>".$fournisseur['fournisseur_id']." - ".$fournisseur['fournisseur_nom']."</option>";
+                                echo "<option value='".$fournisseur['fournisseur_id']."' selected>".$fournisseur['fournisseur_id']." - ".$fournisseur['fournisseur_nom']."</option>";
                             } else {
-                                echo "<option>".$fournisseur['fournisseur_id']." - ".$fournisseur['fournisseur_nom']."</option>";
+                                echo "<option value='".$fournisseur['fournisseur_id']."' >".$fournisseur['fournisseur_id']." - ".$fournisseur['fournisseur_nom']."</option>";
                             }
                         } ?>
                     </select>
@@ -109,8 +113,9 @@ foreach ($exemplaires as $value){
                     <label for="submit_exemplaire">
                         <i id="check_exemplaire" class="black-text fa fa-check fa-3x" aria-hidden="true"></i>
                     </label>
+                    <input type="submit" value="go" id="submit_exemplaire" name="submit_exemplaire" class="validate">
                 </td>
-                <input type="submit" value="go" id="submit_exemplaire" hidden>
+                </div>
 
             </form>
 
