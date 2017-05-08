@@ -16,13 +16,30 @@ $exemplaire_collection_id = $_POST['exemplaire_collection_id'];
 
 
 
+<form id="form_exemplaire" action="" method="post" name="submit_exemplaire">
+</form>
 
 
 
 
 
+<div class="row" id="show_exemplaire">
 
-<tbody id="bodyExemplaires">
+    <h3>Exemplaires associés à la notice :</h3>
+
+    <table class="centered striped">
+        <thead>
+        <tr>
+
+            <th data-field="isbn">ISBN</th>
+            <th data-field="editeur">Editeur</th>
+            <th data-field="collection">Collection</th>
+            <th data-field="fournisseur">Fournisseur</th>
+            <th data-field="modification">Modification</th>
+            <th data-field="suppression">Suppression</th>
+        </tr>
+        </thead>
+        <tbody id="bodyExemplaires">
 
 
 <?php
@@ -55,17 +72,18 @@ foreach ($exemplaires as $value){
 
         <tr class="link_exemplaires">
 
-            <form action="" method="post" name="submit_exemplaire">
 
-                <div class="row">
+            <div class="row">
+
+                <input type="text" name="exemplaire_id" value="<?= $value['exemplaire_id']?>" form="form_exemplaire" hidden>
 
                 <td class="exemplaire_isbn">
-                    <input type="text" value="<?= $value['exemplaire_ISBN']?>" id="isbn" name="isbn">
+                    <input type="text" value="<?= $value['exemplaire_ISBN']?>" id="isbn" name="isbn" form="form_exemplaire">
                 </td>
 
 
                 <td class="exemplaire_editeur">
-                    <select name="editeur_id" id="select_editeur">
+                    <select name="editeur_id" id="select_editeur" form="form_exemplaire">
                         <option disabled >Editeur</option>
                         <?php
                         foreach($editeurs as $editeur){
@@ -81,7 +99,7 @@ foreach ($exemplaires as $value){
 
 
                 <td class="exemplaire_collection">
-                    <select name="collection_id" id="select_collection">
+                    <select name="collection_id" id="select_collection" form="form_exemplaire">
                         <option disabled >Collection</option>
                         <?php
                         foreach($collections as $collection){
@@ -96,7 +114,7 @@ foreach ($exemplaires as $value){
 
 
                 <td class="exemplaire_fournisseur">
-                    <select name="fournisseur_id" id="select_fournisseur">
+                    <select name="fournisseur_id" id="select_fournisseur" form="form_exemplaire">
                         <option disabled >Fournisseur</option>
                         <?php
                         foreach($fournisseurs as $fournisseur){
@@ -113,11 +131,10 @@ foreach ($exemplaires as $value){
                     <label for="submit_exemplaire">
                         <i id="check_exemplaire" class="black-text fa fa-check fa-3x" aria-hidden="true"></i>
                     </label>
-                    <input type="submit" value="go" id="submit_exemplaire" name="submit_exemplaire" class="validate">
+                    <input type="submit" value="go" id="submit_exemplaire" name="submit_exemplaire" hidden form="form_exemplaire">
                 </td>
-                </div>
+            </div>
 
-            </form>
 
             <td class="exemplaire_suppression"><i id="cancel_edit_exemplaire" class=" black-text fa fa-times fa-3x" aria-hidden="true"></i></a></td>
 
@@ -134,8 +151,9 @@ foreach ($exemplaires as $value){
 }
 ?>
 
-</tbody>
-
+        </tbody>
+    </table>
+</div>
 
 <script>
 

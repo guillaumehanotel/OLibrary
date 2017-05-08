@@ -152,7 +152,7 @@ $(document).ready(function() {
             dataType : 'html', // On désire recevoir du HTML
             success : function(code_html, statut) { // code_html contient le HTML renvoyé
 
-                $('#bodyExemplaires').replaceWith(code_html);
+                $('#show_exemplaire').replaceWith(code_html);
                 // on insère le code html reçu dans le dom
 
             }

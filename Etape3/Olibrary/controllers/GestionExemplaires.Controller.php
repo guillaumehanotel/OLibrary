@@ -56,7 +56,8 @@ if (!empty($_POST['submit_notice'])){ // si le formulaire a été envoyé
 
 } elseif(!empty($_POST['submit_exemplaire'])) {
 
-    if(isset($_POST['isbn']) && !empty($_POST['isbn']) &&
+    if(isset($_POST['exemplaire_id']) && !empty($_POST['exemplaire_id']) &&
+        isset($_POST['isbn']) && !empty($_POST['isbn']) &&
         isset($_POST['editeur_id']) && !empty($_POST['editeur_id']) &&
         isset($_POST['collection_id']) && !empty($_POST['collection_id']) &&
         isset($_POST['fournisseur_id']) && !empty($_POST['fournisseur_id'])) {
@@ -71,19 +72,22 @@ if (!empty($_POST['submit_notice'])){ // si le formulaire a été envoyé
         $requete =  $bdd->prepare("UPDATE exemplaire SET
         exemplaire_ISBN             = :isbn,
         exemplaire_collection_id    = :collection_id,
-        exemplaire_fournisseur_id   = :fournisseur_id");
+        exemplaire_fournisseur_id   = :fournisseur_id
+        WHERE exemplaire_id         = :id");
 
 
         $param = array(
+
             'isbn' => securify($_POST['isbn']),
             'collection_id' => securify($_POST['collection_id']),
-            'fournisseur_id' => securify($_POST['fournisseur_id'])
+            'fournisseur_id' => securify($_POST['fournisseur_id']),
+            'id' => securify($_POST['exemplaire_id'])
         );
 
+
+
         $requete->execute($param);
-
         header("Refresh:0");
-
 
 
     }
@@ -149,13 +153,7 @@ if (!empty($_POST['submit_notice'])){ // si le formulaire a été envoyé
     $collections = $reponse_collection->fetchAll();
 
 
-
-
-
-
-
     require $_dir["views"] . "GestionExemplaires.php";
 
 } else {
-
 }
