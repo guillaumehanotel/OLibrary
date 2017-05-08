@@ -16,31 +16,31 @@ $reqnot=$requete_notice->fetchAll();
 
 /* REQUETE TOTAL EXEMPLAIRE */
 
-$requete_exemplaire="SELECT COUNT(*) as total FROM notice n JOIN exemplaire ex ON n.notice_id = ex.exemplaire_notice_id WHERE n.notice_auteur_id=$auteur_id";
-$reponse_exemplaire = $bdd->query($requete_exemplaire);
-$resultat_exemplaire=$reponse_exemplaire->fetch();
+$requete_exemplaire_cpt="SELECT COUNT(*) as total FROM notice n JOIN exemplaire ex ON n.notice_id = ex.exemplaire_notice_id WHERE n.notice_auteur_id=$auteur_id";
+$reponse_exemplaire_cpt = $bdd->query($requete_exemplaire_cpt);
+$resultat_exemplaire_cpt=$reponse_exemplaire_cpt->fetch();
 
 /* REQUETE TOTAL RESERVATION */
 
-$requete_emprunt="SELECT COUNT(*) as total FROM notice n JOIN exemplaire ex ON n.notice_id = ex.exemplaire_notice_id JOIN emprunte e ON e.exemplaire_id = ex.exemplaire_id WHERE n.notice_auteur_id=$auteur_id";
-$reponse_emprunt = $bdd->query($requete_emprunt);
-$resultat_emprunt=$reponse_emprunt->fetch();
+$requete_emprunt_cpt="SELECT COUNT(*) as total FROM notice n JOIN exemplaire ex ON n.notice_id = ex.exemplaire_notice_id JOIN emprunte e ON e.exemplaire_id = ex.exemplaire_id WHERE n.notice_auteur_id=$auteur_id";
+$reponse_emprunt_cpt = $bdd->query($requete_emprunt_cpt);
+$resultat_emprunt_cpt=$reponse_emprunt_cpt->fetch();
 
+
+/* REQUETE TOTAL NOTICE */
+
+$requete_notice_cpt="SELECT COUNT(*) as total FROM notice n WHERE n.notice_auteur_id=$auteur_id";
+$reponse_notice_cpt = $bdd->query($requete_notice_cpt);
+$resultat_notice_cpt=$reponse_notice_cpt->fetch();
 
 
 
 if(!empty($_POST["delete_aut"])){
-    $requete_aut=$bdd->query("DELETE FROM auteur WHERE auteur_id=$auteur_id");
-    $reqnot=$requete_notice->fetchAll();
 
-   /* DELETE FROM emprunte
-WHERE exemplaire_id IN
-    (SELECT em.exemplaire_id FROM notice n JOIN exemplaire ex ON n.notice_id = ex.exemplaire_notice_id
-                              JOIN emprunte em ON ex.exemplaire_id=em.exemplaire_id WHERE n.notice_auteur_id=$auteur_id)*/
+    $delete_aut=$bdd->query("DELETE FROM auteur WHERE auteur_id=$auteur_id");
 
-
+    header("Location:".BASE_URL."/autorites/");
 }
 
-//SELECT * FROM notice n JOIN exemplaire ex ON n.notice_id = ex.exemplaire_notice_id WHERE notice_auteur_id=1
 
 require $_dir["views"]."SupprimerAuteur.php";
