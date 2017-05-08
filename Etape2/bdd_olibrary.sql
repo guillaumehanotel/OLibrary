@@ -25,6 +25,17 @@ USE `bdd_olibrary`;
 -- --------------------------------------------------------
 
 
+DROP TABLE IF EXISTS `emprunte`;
+DROP TABLE IF EXISTS `utilisateur`;
+DROP TABLE IF EXISTS `exemplaire`;
+DROP TABLE IF EXISTS `collection`;
+DROP TABLE IF EXISTS `editeur`;
+DROP TABLE IF EXISTS `fournisseur`;
+DROP TABLE IF EXISTS `notice`;
+DROP TABLE IF EXISTS `auteur`;
+
+
+
 
 
 
@@ -32,7 +43,6 @@ USE `bdd_olibrary`;
 -- Structure de la table `utilisateur`
 --
 
-DROP TABLE IF EXISTS `utilisateur`;
 CREATE TABLE IF NOT EXISTS `utilisateur` (
   `user_num` int(11) NOT NULL AUTO_INCREMENT,
   `user_nom` varchar(50) CHARACTER SET latin1 DEFAULT NULL,
@@ -42,6 +52,112 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   `is_admin` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`user_num`)
 ) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8;
+
+
+
+--
+-- Structure de la table `auteur`
+--
+
+CREATE TABLE IF NOT EXISTS `auteur` (
+  `auteur_id` int(11) NOT NULL AUTO_INCREMENT,
+  `auteur_nom` varchar(25) CHARACTER SET latin1 DEFAULT NULL,
+  `auteur_prenom` varchar(25) CHARACTER SET latin1 DEFAULT NULL,
+  PRIMARY KEY (`auteur_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+
+
+
+--
+-- Structure de la table `notice`
+--
+
+CREATE TABLE IF NOT EXISTS `notice` (
+  `notice_id` int(10) NOT NULL AUTO_INCREMENT,
+  `notice_titre` varchar(100) CHARACTER SET latin1 NOT NULL,
+  `notice_date_parution` date NOT NULL,
+  `notice_synopsis` text CHARACTER SET latin1 NOT NULL,
+  `notice_auteur_id` int(3) NOT NULL,
+  PRIMARY KEY (`notice_id`),
+  KEY `FK_notice_auteur_id` (`notice_auteur_id`)
+  
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8;
+
+
+
+--
+-- Structure de la table `editeur`
+--
+
+CREATE TABLE IF NOT EXISTS `editeur` (
+  `editeur_id` int(11) NOT NULL AUTO_INCREMENT,
+  `editeur_nom` varchar(50) CHARACTER SET latin1 DEFAULT NULL,
+  PRIMARY KEY (`editeur_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+
+
+--
+-- Structure de la table `collection`
+--
+
+CREATE TABLE IF NOT EXISTS `collection` (
+  `collection_id` int(11) NOT NULL AUTO_INCREMENT,
+  `collection_nom` varchar(50) CHARACTER SET latin1 DEFAULT NULL,
+  `editeur_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`collection_id`),
+  KEY `FK_collection_editeur_id` (`editeur_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+
+
+--
+-- Structure de la table `fournisseur`
+--
+
+CREATE TABLE IF NOT EXISTS `fournisseur` (
+  `fournisseur_id` int(11) NOT NULL AUTO_INCREMENT,
+  `fournisseur_nom` varchar(25) CHARACTER SET latin1 DEFAULT NULL,
+  PRIMARY KEY (`fournisseur_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
+
+--
+-- Structure de la table `exemplaire`
+--
+
+CREATE TABLE IF NOT EXISTS `exemplaire` (
+  `exemplaire_id` int(11) NOT NULL AUTO_INCREMENT,
+  `exemplaire_ISBN` varchar(13) CHARACTER SET latin1 NOT NULL,
+  `exemplaire_notice_id` int(11) NOT NULL,
+  `exemplaire_collection_id` int(11) NOT NULL,
+  `exemplaire_fournisseur_id` int(11) NOT NULL,
+  PRIMARY KEY (`exemplaire_id`),
+  KEY `FK_exemplaire_collection_id` (`exemplaire_collection_id`),
+  KEY `FK_exemplaire_fournisseur_id` (`exemplaire_fournisseur_id`),
+  KEY `FK_exemplaire_notice_id` (`exemplaire_notice_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=106 DEFAULT CHARSET=utf8;
+
+
+--
+-- Structure de la table `emprunte`
+--
+
+CREATE TABLE IF NOT EXISTS `emprunte` (
+  `emprunt_date` date DEFAULT NULL,
+  `emprunt_retour` date DEFAULT NULL,
+  `is_reservation` tinyint(1) DEFAULT NULL,
+  `user_num` int(11) NOT NULL,
+  `exemplaire_id` int(11) NOT NULL,
+  PRIMARY KEY (`user_num`,`exemplaire_id`),
+  KEY `FK_emprunte_exemplaire_id` (`exemplaire_id`),
+  KEY `FK_emprunte_user_num` (`user_num`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+
+
+
+
 
 --
 -- Vider la table avant d'insérer `utilisateur`
@@ -81,17 +197,7 @@ INSERT INTO `utilisateur` (`user_num`, `user_nom`, `user_prenom`, `user_mail`, `
 
 
 
---
--- Structure de la table `auteur`
---
 
-DROP TABLE IF EXISTS `auteur`;
-CREATE TABLE IF NOT EXISTS `auteur` (
-  `auteur_id` int(11) NOT NULL AUTO_INCREMENT,
-  `auteur_nom` varchar(25) CHARACTER SET latin1 DEFAULT NULL,
-  `auteur_prenom` varchar(25) CHARACTER SET latin1 DEFAULT NULL,
-  PRIMARY KEY (`auteur_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 --
 -- Vider la table avant d'insérer `auteur`
@@ -118,21 +224,6 @@ INSERT INTO `auteur` (`auteur_id`, `auteur_nom`, `auteur_prenom`) VALUES
 
 
 
---
--- Structure de la table `notice`
---
-
-DROP TABLE IF EXISTS `notice`;
-CREATE TABLE IF NOT EXISTS `notice` (
-  `notice_id` int(10) NOT NULL AUTO_INCREMENT,
-  `notice_titre` varchar(100) CHARACTER SET latin1 NOT NULL,
-  `notice_date_parution` date NOT NULL,
-  `notice_synopsis` text CHARACTER SET latin1 NOT NULL,
-  `notice_auteur_id` int(3) NOT NULL,
-  PRIMARY KEY (`notice_id`),
-  KEY `FK_notice_auteur_id` (`notice_auteur_id`)
-  
-) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8;
 
 --
 -- Vider la table avant d'insérer `notice`
@@ -186,16 +277,6 @@ INSERT INTO `notice` (`notice_id`, `notice_titre`, `notice_date_parution`, `noti
 
 
 
---
--- Structure de la table `editeur`
---
-
-DROP TABLE IF EXISTS `editeur`;
-CREATE TABLE IF NOT EXISTS `editeur` (
-  `editeur_id` int(11) NOT NULL AUTO_INCREMENT,
-  `editeur_nom` varchar(50) CHARACTER SET latin1 DEFAULT NULL,
-  PRIMARY KEY (`editeur_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 --
 -- Vider la table avant d'insérer `editeur`
@@ -222,18 +303,6 @@ INSERT INTO `editeur` (`editeur_id`, `editeur_nom`) VALUES
 
 
 
---
--- Structure de la table `collection`
---
-
-DROP TABLE IF EXISTS `collection`;
-CREATE TABLE IF NOT EXISTS `collection` (
-  `collection_id` int(11) NOT NULL AUTO_INCREMENT,
-  `collection_nom` varchar(50) CHARACTER SET latin1 DEFAULT NULL,
-  `editeur_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`collection_id`),
-  KEY `FK_collection_editeur_id` (`editeur_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 --
 -- Vider la table avant d'insérer `collection`
@@ -262,16 +331,6 @@ INSERT INTO `collection` (`collection_id`, `collection_nom`, `editeur_id`) VALUE
 
 
 
---
--- Structure de la table `fournisseur`
---
-
-DROP TABLE IF EXISTS `fournisseur`;
-CREATE TABLE IF NOT EXISTS `fournisseur` (
-  `fournisseur_id` int(11) NOT NULL AUTO_INCREMENT,
-  `fournisseur_nom` varchar(25) CHARACTER SET latin1 DEFAULT NULL,
-  PRIMARY KEY (`fournisseur_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 --
 -- Vider la table avant d'insérer `fournisseur`
@@ -296,22 +355,6 @@ INSERT INTO `fournisseur` (`fournisseur_id`, `fournisseur_nom`) VALUES
 
 
 
---
--- Structure de la table `exemplaire`
---
-
-DROP TABLE IF EXISTS `exemplaire`;
-CREATE TABLE IF NOT EXISTS `exemplaire` (
-  `exemplaire_id` int(11) NOT NULL AUTO_INCREMENT,
-  `exemplaire_ISBN` varchar(13) CHARACTER SET latin1 NOT NULL,
-  `exemplaire_notice_id` int(11) NOT NULL,
-  `exemplaire_collection_id` int(11) NOT NULL,
-  `exemplaire_fournisseur_id` int(11) NOT NULL,
-  PRIMARY KEY (`exemplaire_id`),
-  KEY `FK_exemplaire_collection_id` (`exemplaire_collection_id`),
-  KEY `FK_exemplaire_fournisseur_id` (`exemplaire_fournisseur_id`),
-  KEY `FK_exemplaire_notice_id` (`exemplaire_notice_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=106 DEFAULT CHARSET=utf8;
 
 --
 -- Vider la table avant d'insérer `exemplaire`
@@ -438,21 +481,6 @@ INSERT INTO `exemplaire` (`exemplaire_id`, `exemplaire_ISBN`, `exemplaire_notice
 
 
 
---
--- Structure de la table `emprunte`
---
-
-DROP TABLE IF EXISTS `emprunte`;
-CREATE TABLE IF NOT EXISTS `emprunte` (
-  `emprunt_date` date DEFAULT NULL,
-  `emprunt_retour` date DEFAULT NULL,
-  `is_reservation` tinyint(1) DEFAULT NULL,
-  `user_num` int(11) NOT NULL,
-  `exemplaire_id` int(11) NOT NULL,
-  PRIMARY KEY (`user_num`,`exemplaire_id`),
-  KEY `FK_emprunte_exemplaire_id` (`exemplaire_id`),
-  KEY `FK_emprunte_user_num` (`user_num`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Vider la table avant d'insérer `emprunte`
