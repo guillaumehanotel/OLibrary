@@ -29,7 +29,7 @@
         </div>
     </div>
 
-    <table class="centered responsive-table highlight">
+    <table class="centered striped responsive-table">
         <thead>
         <tr>
             <th>Nom</th>
@@ -74,7 +74,7 @@
     </div>
     </div>
 
-    <table class="centered responsive-table highlight">
+    <table class="centered striped  responsive-table">
         <thead>
         <tr>
             <th>Nom</th>
@@ -121,7 +121,7 @@
     </div>
 
 
-    <table class="centered responsive-table highlight">
+    <table class="centered striped  responsive-table">
         <thead>
         <tr>
             <th>Nom</th>
@@ -143,7 +143,7 @@
 
 
 
-    <h3>Ajouter une collection :</h3>
+    <h3>Collections :</h3>
 
 
     <a class="waves-effect waves-light btn" href="#modal_collection">Ajouter une collection</a>
@@ -171,21 +171,24 @@
 
 
 
-    <table class="centered responsive-table highlight">
+    <table class="centered striped responsive-table">
         <thead>
         <tr>
-            <th>Id</th>
             <th>Nom</th>
-            <th>Id de l'éditeur</th>
+            <th>Nom de l'éditeur</th>
+            <th>Modification</th>
+            <th>Suppression</th>
         </tr>
         </thead>
         <tbody>
         <?php foreach ($requete_collection as $req_collection){ ?>
             <tr>
-                <td><?= $req_collection['collection_id']?></td>
                 <td><?= $req_collection['collection_nom']?></td>
-                <td><?= $req_collection['editeur_id']?></td>
-            </tr> <?php } ?>
+                <td><?= $req_collection['editeur_nom']?></td>
+                <td><i class="material-icons">mode_edit</i></td>
+                <td><a href="<?= BASE_URL."/SupprimerCollection"; ?>/?id=<?= $req_collection['collection_id'] ?>"><i class="material-icons">delete</i></a></td>
+            </tr>
+        <?php } ?>
         </tbody>
     </table>
 

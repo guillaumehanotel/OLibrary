@@ -86,7 +86,7 @@ if(!empty($_POST["collection"])) {
     }
 }
 
-$requetecollection=$bdd->query("SELECT * FROM collection");
+$requetecollection=$bdd->query("SELECT * FROM collection c, editeur e WHERE e.editeur_id = c.editeur_id");
 $requete_collection = $requetecollection->fetchAll();
 
 

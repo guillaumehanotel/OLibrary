@@ -61,4 +61,5 @@ RewriteRule ^SupprimerEditeur/$        index.php?page=SupprimerEditeur&%{QUERY_S
 ## Suppression Fournisseur  ##
 RewriteRule ^SupprimerFournisseur/$        index.php?page=SupprimerFournisseur&%{QUERY_STRING} [L]
 
-
+## Suppression Collection  ##
+RewriteRule ^SupprimerCollection/$        index.php?page=SupprimerCollection&%{QUERY_STRING} [L]
