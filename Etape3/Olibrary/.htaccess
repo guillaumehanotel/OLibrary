@@ -58,6 +58,7 @@ RewriteRule ^SupprimerAuteur/$        index.php?page=SupprimerAuteur&%{QUERY_STR
 ## Suppression Editeur  ##
 RewriteRule ^SupprimerEditeur/$        index.php?page=SupprimerEditeur&%{QUERY_STRING} [L]
 
-
+## Suppression Fournisseur  ##
+RewriteRule ^SupprimerFournisseur/$        index.php?page=SupprimerFournisseur&%{QUERY_STRING} [L]
 
 

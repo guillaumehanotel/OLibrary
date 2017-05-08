@@ -124,16 +124,19 @@
     <table class="centered responsive-table highlight">
         <thead>
         <tr>
-            <th>Id</th>
             <th>Nom</th>
+            <th>Modification</th>
+            <th>Suppression</th>
         </tr>
         </thead>
         <tbody>
         <?php foreach ($requete_fournisseur as $req_fournisseur){ ?>
             <tr>
-                <td><?= $req_fournisseur['fournisseur_id']?></td>
                 <td><?= $req_fournisseur['fournisseur_nom']?></td>
-            </tr> <?php } ?>
+                <td><i class="material-icons">mode_edit</i></td>
+                <td><a href="<?= BASE_URL."/SupprimerFournisseur"; ?>/?id=<?= $req_fournisseur['fournisseur_id'] ?>"><i class="material-icons">delete</i></a></td>
+            </tr>
+        <?php } ?>
         </tbody>
     </table>
 
