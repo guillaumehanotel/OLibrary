@@ -97,6 +97,8 @@
 
 
 
+
+
     <h3>Fournisseurs :</h3>
 
 
@@ -163,8 +165,9 @@
                             <option disabled selected>Editeur id </option>
                             <?php
                             foreach($editeur_id as $edit_id){
-                                echo "<option>".$edit_id['editeur_id']." - ".$edit_id['editeur_nom'];?> </option><?php } ?>
-                        </select
+                                echo "<option>".$edit_id['editeur_id']." - ".$edit_id['editeur_nom']."</option>"; ?>
+                            <?php } ?>
+                        </select>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -186,7 +189,7 @@
         </tr>
         </thead>
         <tbody>
-        dfghjk
+
         <?php foreach ($requete_collection as $req_collection){ ?>
             <tr>
                 <td><?= $req_collection['collection_nom']?></td>
@@ -197,101 +200,6 @@
         <?php } ?>
         </tbody>
     </table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <h3>Ajouter un livre :</h3>
-
-
-    <a class="waves-effect waves-light btn" href="#modal_livre">Ajouter un livre</a>
-
-    <!-- Modal Structure -->
-    <div id="modal_livre" class="modal">
-
-
-        <div class="modal-content">
-
-            <h4>Ajouter un livre</h4>
-            <form action="" method="post">
-
-                <div class="row center">
-                    <div class="col l2 s12">
-                        <input type="text" name="livre_ISBN" placeholder="ISBN">
-                    </div>
-                    <div class="col l2 s12">
-                        <input type="text" name="livre_titre" placeholder="Titre">
-                    </div>
-
-                    <div class="col l2 s10">
-                        <input type="date" name="date" placeholder="Date parution">
-                    </div>
-
-                    <div class="col l2 s12">
-
-                        <select name="auteur_id">
-
-                            <option disabled selected>Auteur id </option>
-                            <?php
-                            foreach($auteur_id as $aut_id){
-                                echo "<option>".$aut_id['auteur_id']." - ".$aut_id['auteur_nom'];?> </option>
-                            <?php }
-                            ?>
-                        </select>
-
-                    </div>
-
-                    <div class="col l2 s12">
-
-                        <select name="collection_id">
-                            <option disabled selected>Collection id </option>
-                            <?php
-                            foreach($collection_id as $coll_id){
-                                echo "<option placeholder='Collection'>".$coll_id['collection_id']." - ".$coll_id['collection_nom'];?> </option>
-                            <?php }
-                            ?>
-                        </select>
-
-                    </div>
-
-                    <div class="col l2 s12"><select name="fournisseur_id">
-                            <option disabled selected>Fournisseur id </option>
-                            <?php
-                            foreach($fournisseur_id as $fourn_id){
-                                echo "<option>".$fourn_id['fournisseur_id']." - ".$fourn_id['fournisseur_nom'];?> </option>
-                            <?php } ?>
-                        </select>
-                    </div>
-                </div>
-
-
-                <div class="row center">
-                    <div class="col l2 s4">
-                        <input type="text" name="nb_exemplaire" placeholder="Nombre d'exemplaires">
-                    </div>
-
-                    <div class="col l8 s12">
-                        <textarea name="synopsis" placeholder="Synopsis"></textarea>
-                    </div>
-                </div>
-
-                <div class="modal-footer">
-                    <input type="submit" class="btn waves-effect waves-light blue modal-action modal-close" name="livre">
-                </div>
-
-            </form>
-        </div>
-    </div>
 
 
 
