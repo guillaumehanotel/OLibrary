@@ -12,7 +12,7 @@
     <div id="modal_auteur" class="modal">
         <div class="modal-content">
             <h4>Ajouter un auteur</h4>
-            <form class="col s12" action="/projetolibrary/OLibrary/Etape3/Olibrary/autorites/" method="post">
+            <form class="col s12" action="" method="post">
 
                 <div class="row center">
                     <div class="input col l5 s12">
@@ -64,7 +64,7 @@
 
         <div class="modal-content">
             <h4>Ajouter un éditeur</h4>
-            <form action="/projetolibrary/OLibrary/Etape3/Olibrary/autorites/" method="post">
+            <form action="" method="post">
                 <div class="row center"><div class="input col l10 s12"><input type="text" name="editeur_nom" placeholder="Nom de l'éditeur"></div>
                 </div>
                 <div class="modal-footer">
@@ -107,7 +107,7 @@
 
         <div class="modal-content">
             <h4>Ajouter un fournisseur</h4>
-            <form action="/projetolibrary/OLibrary/Etape3/Olibrary/autorites/" method="post">
+            <form action="" method="post">
                 <div class="row center">
                     <div class="input col l10 s12">
                         <input type="text" name="fournisseur_nom" placeholder="Nom du fournisseur">
@@ -153,14 +153,19 @@
 
         <div class="modal-content">
             <h4>Ajouter une collection</h4>
-            <form class="col s12" action="/projetolibrary/OLibrary/Etape3/Olibrary/autorites/" method="post">
-                <div class="row center"><div class="input col l5 s12"><input type="text" name="collection_nom" placeholder="Nom de la collection"></div>
-                    <div class="col l5 s12>"> <select name="editeur_id">
+            <form class="col s12" action="" method="post">
+                <div class="row center">
+                    <div class="input col l5 s12">
+                        <input type="text" name="collection_nom" placeholder="Nom de la collection">
+                    </div>
+                    <div class="col l5 s12>">
+                        <select name="editeur_id">
                             <option disabled selected>Editeur id </option>
                             <?php
                             foreach($editeur_id as $edit_id){
                                 echo "<option>".$edit_id['editeur_id']." - ".$edit_id['editeur_nom'];?> </option><?php } ?>
-                        </select></div>
+                        </select
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <input type="submit" class="btn waves-effect waves-light blue modal-action modal-close" name="collection">
@@ -181,6 +186,7 @@
         </tr>
         </thead>
         <tbody>
+        dfghjk
         <?php foreach ($requete_collection as $req_collection){ ?>
             <tr>
                 <td><?= $req_collection['collection_nom']?></td>
@@ -191,6 +197,16 @@
         <?php } ?>
         </tbody>
     </table>
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -207,7 +223,7 @@
         <div class="modal-content">
 
             <h4>Ajouter un livre</h4>
-            <form action="/projetolibrary/OLibrary/Etape3/Olibrary/autorites/" method="post">
+            <form action="" method="post">
 
                 <div class="row center">
                     <div class="col l2 s12">

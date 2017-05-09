@@ -11,8 +11,9 @@ if(!empty($_POST["auteur"])){
           'nom' => securify($_POST['auteur_nom']),
           'prenom' => securify($_POST['auteur_prenom'])
         );
+
         $requete->execute($param);
-        header('Location:'.BASE_URL.'/autorites/');
+        header('Location: '.BASE_URL.'/autorites/');
     } else {
         echo "Merci de remplir tout les champs";
     }
@@ -57,7 +58,7 @@ if(!empty($_POST["fournisseur"])){
             'nom' => securify($_POST['fournisseur_nom']),
         );
         $requete->execute($param);
-        header('Location:' . BASE_URL . '/autorites/');
+        header('Location: ' . BASE_URL . '/autorites/');
     } else {
         echo "Merci de remplir tout les champs";
     }
@@ -74,13 +75,15 @@ if(!empty($_POST["collection"])) {
 
     if (!empty($_POST["collection_nom"]) && !empty($_POST["editeur_id"]) &&
         isset($_POST["collection_nom"]) && isset($_POST["editeur_id"])) {
+
         $requete = $bdd -> prepare("INSERT INTO collection (collection_nom,editeur_id) VALUES (:nom,:id)");
+
         $param = array(
             'nom' => securify($_POST['collection_nom']),
             'id' => securify(explode(" ", $_POST['editeur_id'])[0])
         );
         $requete->execute($param);
-        header('Location:' . BASE_URL . '/autorites/');
+        header('Location: ' . BASE_URL . '/autorites/');
     } else {
         echo "Merci de remplir tout les champs";
     }
