@@ -28,6 +28,9 @@ RewriteRule ^espaceperso/$      index.php?page=EspacePerso&%{QUERY_STRING} [L]
 ## Gestion Autorités ##
 RewriteRule ^autorites/$        index.php?page=GestionAutorites&%{QUERY_STRING} [L]
 
+## Supprimer un auteur
+RewriteRule ^supprimerauteur/$        index.php?page=SupprimerAuteur&%{QUERY_STRING} [L]
+
 ## Gestion Documents ##
 RewriteRule ^documents/$        index.php?page=GestionDocuments&%{QUERY_STRING} [L]
 

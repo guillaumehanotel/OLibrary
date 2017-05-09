@@ -56,7 +56,7 @@
                             <p><?=$req_livre['notice_synopsis']?></p>
                         </div>
                         <div class="card-action">
-                            <a href="#">Voir le livre</a>
+                            <a href="<?php echo BASE_URL."/descriptionlivre/?id=".$req_livre['notice_id']?>">Voir le livre</a>
                         </div>
                     </div>
                 </div><br>

@@ -39,6 +39,11 @@ $requeteauteur=$bdd->query("SELECT * FROM auteur");
 $requete_auteur = $requeteauteur->fetchAll();
 
 
+//Supprimer l'auteur
+if (!empty($_POST["delete_aut"])){
+
+}
+
 
 
 // Enregistrer l'éditeur

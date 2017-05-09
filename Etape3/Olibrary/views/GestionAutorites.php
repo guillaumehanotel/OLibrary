@@ -16,7 +16,7 @@
 
                 <div class="row center">
                     <div class="input col l5 s12">
-                        <input ctype="text" name="auteur_nom" placeholder="Nom">
+                        <input type="text" name="auteur_nom" placeholder="Nom">
                     </div>
                     <div class="input col l5 s12">
                         <input type="text" name="auteur_prenom" placeholder="Prénom">
@@ -37,6 +37,7 @@
             <th>Id</th>
             <th>Nom</th>
             <th>Prénom</th>
+            <th>Action</th>
         </tr>
         </thead>
         <tbody>
@@ -45,10 +46,20 @@
                 <td><?= $req_auteur['auteur_id']?></td>
                 <td><?= $req_auteur['auteur_nom']?></td>
                 <td><?= $req_auteur['auteur_prenom']?></td>
-            </tr> <?php } ?>
+               <td><a href="tonphp.php"  onclick="open('../supprimerauteur/?id=<?= $req_auteur['auteur_id'] ?>', 'Popup', 'scrollbars=1,resizable=1,height=560,width=770'); return false;" >le choix</a></td>
+            </tr>
+        <?php } ?>
         </tbody>
     </table>
 
+
+
+
+
+    <form action="" method="post">
+        <input type="hidden" name="auteur_id" value="<?= $req_auteur['auteur_id']?>">
+        <input type="submit" name="delete_aut" value="X">
+    </form>
 
     <h3>Ajouter un editeur :</h3>
 
