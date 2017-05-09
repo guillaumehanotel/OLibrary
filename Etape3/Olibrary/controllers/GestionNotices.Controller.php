@@ -10,7 +10,6 @@ if(!isset($_SESSION["connect"])){
     header('Location: '.BASE_URL.'/connexion/');
 }
 
-
 $requete_livre =
     "SELECT notice_titre, notice_id, auteur_nom, auteur_prenom, count(notice_id) AS cpt
     FROM notice n, auteur a, exemplaire e
@@ -25,6 +24,16 @@ $resultat_livre = $reponse_livre->fetchAll();
 $requete_auteur = "SELECT * FROM auteur";
 $reponse_auteur = $bdd->query($requete_auteur);
 $resultat_auteur = $reponse_auteur->fetchAll();
+
+/*
+if(!empty($_POST['submit_notice'])){
+    if(isset($_POST['livre_titre']) && !empty($_POST['livre_titre']) &&
+       isset($_POST['livre_date'])    )
+
+}*/
+
+
+
 
 
 
