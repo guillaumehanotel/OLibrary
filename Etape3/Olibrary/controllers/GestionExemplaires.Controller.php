@@ -54,6 +54,58 @@ if (!empty($_POST['submit_notice'])){ // si le formulaire a été envoyé
     }
 
 
+} elseif(!empty($_POST['create_exemplaire'])){
+
+
+    if(isset($_POST['livre_ISBN']) && !empty($_POST['livre_ISBN']) &&
+        isset($_POST['editeur_id']) && !empty($_POST['editeur_id']) &&
+        isset($_POST['collection_id']) && !empty($_POST['collection_id']) &&
+        isset($_POST['fournisseur_id']) && !empty($_POST['fournisseur_id'])) {
+
+        $id = securify((int)$_GET['id']);
+
+        $requete_notice = "SELECT * FROM notice n WHERE notice_id = '$id'";
+        $reponse_notice = $bdd->query($requete_notice);
+        $resultat_notice = $reponse_notice->fetch();
+
+
+        $requete =  $bdd->prepare("INSERT INTO exemplaire (
+                                                exemplaire_ISBN,
+                                                exemplaire_notice_id,
+                                                exemplaire_collection_id,
+                                                exemplaire_fournisseur_id
+                                                )
+                                                VALUES
+                                                (
+                                                :isbn,
+                                                :id,
+                                                :collection_id,
+                                                :fournisseur_id
+                                                )
+                                                ");
+
+
+        $param = array(
+            'isbn' => securify($_POST['livre_ISBN']),
+            'id' => $id,
+            'collection_id' => securify($_POST['collection_id']),
+            'fournisseur_id' => securify(explode(" ",$_POST['fournisseur_id'])[0])
+        );
+
+
+        $requete->execute($param);
+
+/*
+        print_r($requete);
+        print_r($param);
+
+*/
+        header("Refresh:0");
+
+
+
+    }
+
 } elseif(!empty($_POST['submit_exemplaire'])) {
 
     if(isset($_POST['exemplaire_id']) && !empty($_POST['exemplaire_id']) &&

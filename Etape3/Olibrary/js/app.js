@@ -175,7 +175,7 @@ $(document).ready(function() {
 
 
 
-
+    $('#select_editeur').change(switchCollection);
 
     $( document ).ajaxComplete(function( event,request, settings ) {
         $('#select_editeur').change(switchCollection);
@@ -192,7 +192,7 @@ $(document).ready(function() {
         var newArrayCollection = getCollectionArray($editeur_id);
 
         var selectCollection = $('#select_collection');
-        console.log(newArrayCollection);
+        //console.log(newArrayCollection);
 
         selectCollection.empty();
 
