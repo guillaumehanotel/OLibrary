@@ -14,7 +14,7 @@ $(document).ready(function() {
     /* Materialize Select */
     $('select').material_select();
 
-
+    $('.modal').modal();
 
 
 
