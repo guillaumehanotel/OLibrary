@@ -38,7 +38,7 @@
 
                         <div class="col m6 s10">
 
-                            <select class="input-field" name="auteur_id">
+                            <select class="input-field" name="livre_auteur">
 
                                 <option disabled selected>Auteur</option>
                                 <?php
@@ -56,7 +56,7 @@
 
                     <div class="row">
                         <div class=" input-field col s10 s12">
-                            <textarea name="synopsis" id="textarea_synopsis" class="materialize-textarea"></textarea>
+                            <textarea name="synopsis" id="textarea_synopsis"  class="materialize-textarea"></textarea>
                             <label for=textarea_synopsis">Synopsis</label>
                         </div>
                     </div>
