@@ -58,16 +58,10 @@ if(!empty($_POST["editeur"])){
                                                 :nom
                                                 )"
         );
-
         $param = array(
             'nom' => securify($_POST['editeur_nom']),
         );
-
-
         $requete->execute($param);
-
-
-
 
         header('Location: ' . BASE_URL . '/autorites/');
     }
