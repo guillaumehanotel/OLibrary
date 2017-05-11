@@ -35,12 +35,96 @@
                     <div id="notice_synopsis" class="card-action white-text">
                         <?=  $synopsis ?>
                     </div>
-
                 </div>
             </div>
-
-
         </div>
+
+
+
+
+
+
+
+        <div class="row">
+            <a href="<?= BASE_URL."/supprNotice"; ?>/?id=<?= $resultat_notice['notice_id'] ?>" class="waves-effect waves-light btn">Supprimer la notice et tous les exemplaires associés</a>
+        </div>
+
+
+
+
+
+        <div class="row">
+            <a class="waves-effect waves-light btn" href="#modal_livre">Ajouter un exemplaire</a>
+        </div>
+
+        <!-- Modal Structure -->
+        <div id="modal_livre" class="modal">
+
+
+            <div class="modal-content">
+
+                <h4>Ajouter un exemplaire</h4>
+                <form action="" method="post">
+
+                    <div class="row">
+
+
+                        <div class="col m6 s12">
+                            <input type="text" name="livre_ISBN" placeholder="ISBN">
+                        </div>
+
+                        <div class="col m6 s12">
+                            <select name="editeur_id" id="select_editeur">
+                                <option disabled selected >Editeur</option>
+                                <?php
+                                foreach($editeurs as $editeur){
+                                        echo "<option placeholder='Editeur'>".$editeur['editeur_id']." - ".$editeur['editeur_nom']."</option>";
+                                } ?>
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col m6 s12">
+                            <select name="collection_id" id="select_collection">
+                                <option disabled selected>Collection</option>
+                                <?php
+                                foreach($collections as $collection){
+                                    echo "<option placeholder='Collection'>".$collection['collection_id']." - ".$collection['collection_nom']."</option>";
+                                 }
+                                ?>
+                            </select>
+                        </div>
+
+                        <div class="col m6 s12">
+                            <select name="fournisseur_id">
+                                <option disabled selected>Fournisseur</option>
+                                <?php
+                                foreach($fournisseurs as $fournisseur){
+                                    echo "<option>".$fournisseur['fournisseur_id']." - ".$fournisseur['fournisseur_nom'];?> </option>
+                                <?php } ?>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <input type="submit" class="btn waves-effect waves-light blue modal-action modal-close" name="create_exemplaire">
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
 
 
         <div class="row" id="show_exemplaire">
@@ -72,7 +156,11 @@
                         <td id="exemplaire_<?= $value['exemplaire_id'] ?>_collection" class="exemplaire_collection" data-id="<?= $value['collection_id']?>"><?= $value['collection_nom']?></td>
                         <td id="exemplaire_<?= $value['exemplaire_id'] ?>_fournisseur" class="exemplaire_fournisseur" data-id="<?= $value['fournisseur_id']?>"><?= $value['fournisseur_nom']?></td>
                         <td class="exemplaire_edition"><i id="mode_edit_exemplaire_<?= $value['exemplaire_id'] ?>" class="mode_edit_exemplaire small material-icons">mode_edit</i></td>
-                        <td class="exemplaire_suppression"><a href="<?= BASE_URL."/supprExemplaire"; ?>/?id=<?= $value['exemplaire_id'] ?>&notice_id=<?= $value['notice_id'] ?>"><i class="small material-icons">delete</i></a></td>
+                        <td class="exemplaire_suppression">
+                            <a href="<?= BASE_URL."/supprExemplaire"; ?>/?id=<?= $value['exemplaire_id'] ?>&notice_id=<?= $value['notice_id'] ?>">
+                                <i class="small material-icons">delete</i>
+                            </a>
+                        </td>
                     </tr>
 
 

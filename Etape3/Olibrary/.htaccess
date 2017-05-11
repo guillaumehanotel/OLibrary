@@ -54,3 +54,6 @@ RewriteRule ^pageresultats/$        index.php?page=PageResultats&%{QUERY_STRING}
 
 ## PageResultats ##
 RewriteRule ^supprExemplaire/$        index.php?page=supprExemplaire&%{QUERY_STRING} [L]
+
+## PageResultats ##
+RewriteRule ^supprNotice/$        index.php?page=supprNotice&%{QUERY_STRING} [L]
