@@ -78,7 +78,7 @@ $default_date = new DateTime('2000-01-01');
             <!--<label for="submit_notice"><i id="check_edit"  class="medium material-icons right">done</i></label>-->
             <label for="submit_notice"><i id="check_notice" class="white-text fa fa-check fa-4x" aria-hidden="true"></i></label>
 
-            <input type="submit" value="go" id="submit_notice" hidden>
+            <input type="submit" value="go" id="submit_notice" name="submit_notice" hidden>
 
 
         </div>
