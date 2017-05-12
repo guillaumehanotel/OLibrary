@@ -7,8 +7,9 @@ if(!isset($_SESSION["connect"]))
 }
     $requete_emprunt =
     "SELECT *
-    FROM emprunte e, exemplaire ex, notice n
-    Where e.exemplaire_id = ex.exemplaire_id
+    FROM utilisateur u, emprunte e, exemplaire ex, notice n
+    where u.user_num = e.user_num
+    AND e.exemplaire_id = ex.exemplaire_id
     AND ex.exemplaire_notice_id = n.notice_id
     ORDER BY emprunt_retour";
 

@@ -9,10 +9,11 @@
         <thead>
         <tr>
 
-            <th class="emprunt_retour">Date retour</th>
-            <th class="user_mail">Date emprunt</th>
-            <th class="user_mail">réservé ?</th>
-            <th class="user_mail">Titre</th>
+            <th>Titre</th>
+            <th>Utiliseur</th>
+            <th>Type</th>
+            <th>Date emprunt</th>
+            <th>Date retour</th>
 
         </tr>
         </thead>
@@ -20,13 +21,17 @@
             <?php foreach ($resultat_emprunt as $emprunt)
             { ?>
 
-            <td> <?= $emprunt['emprunt_retour']; ?> </td>
-            <td> <?= $emprunt['emprunt_date']; ?> </td>   
-            <td><?php if($emprunt['is_reservation']==true){
-                    echo "oui";
-                } ?></td>
-            <td> <?= $emprunt['user_num']; ?> </td>
             <td> <?= $emprunt['notice_titre']; ?> </td>
+            <td> <?= $emprunt['user_prenom']; ?> <?= $emprunt['user_nom']; ?> </td>
+            <td><?php if($emprunt['is_reservation']){
+                    echo "Réservation";
+                } else {
+                    echo "Emprunt";
+                }
+                ?>
+            </td>
+            <td> <?= $emprunt['emprunt_date']; ?> </td>   
+            <td> <?= $emprunt['emprunt_retour']; ?> </td>
 
         </tr>
         <?php
