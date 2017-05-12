@@ -361,30 +361,44 @@ footer.page-footer {
 #gestionExemplaires #mode_edit {
     position: relative;
     cursor : pointer;
-
 }
 
 #gestionExemplaires .card {
     background-color: #777;
 }
 
-
-#check_notice {
+#gestionExemplaires #check_notice {
     position: absolute;
     top: 20px;
     right: 70px;
     cursor: pointer;
 }
 
-
-#cancel_edit {
+#gestionExemplaires #cancel_edit {
     cursor: pointer;
 }
 
+
+#gestionExemplaires .mode_edit_exemplaire {
+    cursor: pointer;
+}
+
+
 /**** GESTION UTILISATEUR ****/
 #gestionUtilisateurs #admin{
-    postion : relative;
+    position : relative;
     top: 5px;
     right: 15px;
 
 }
+
+#gestionExemplaires #check_exemplaire {
+    cursor: pointer;
+}
+
+
+#gestionExemplaires #cancel_edit_exemplaire {
+    cursor: pointer;
+}
+
+
