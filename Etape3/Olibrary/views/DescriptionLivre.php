@@ -61,13 +61,9 @@ $auteur_id = $resultat_notice['auteur_id'];
 
                                     $reservation = $resultat_emprunt['is_reservation'];
 
-
                                     $minDateResa=$resultat_emprunt['emprunt_retour'];
-
                                     $maxDateResa = strtotime(date("Y-m-d", strtotime($minDateResa)) . " +3 week");
                                     $maxDateResa=date("Y-m-d",$maxDateResa);
-
-
 
                                     if ($reservation == 1) {
                                         //Si le livre est réservé
@@ -94,16 +90,15 @@ $auteur_id = $resultat_notice['auteur_id'];
                                         <a href="<?= BASE_URL . "/inscription/" ?>" class="waves-effect waves-green btn-flat">Inscription</a>
                                     </div>
                                     <div class="modal-footer">
-                                        <a href="#!"
+                                        <a href=""
                                            class="modal-action modal-close waves-effect waves-green btn-flat">Fermer</a>
                                     </div>
                                 </div>
 
                             <?php } else {
-                                if ($bouton == "EMPRUNTER") {
-                                    ?>
-                                    <div id="<?= $bouton ?>/?idex=<?=$res_exemplaire['exemplaire_id']?>" class="modal">
+                                if ($bouton == "EMPRUNTER") { ?>
 
+                                    <div id="<?= $bouton ?>/?idex=<?=$res_exemplaire['exemplaire_id']?>" class="modal">
                                         <div class="modal-content row">
                                             <h4>EMPRUNTER</h4>
                                             <p>L'emprunt d'un exemplaire signifie que ce dernier devra être rendu à la
@@ -114,28 +109,25 @@ $auteur_id = $resultat_notice['auteur_id'];
                                                     <input type="date" class="validate" name="date" min="<?= $dateJour ?>" max="<?= $maxDateEmprunt ?>">
                                                 </div>
 
-                                                    <input type="hidden" name="exemplaireid" class="validate" value="<?= $res_exemplaire['exemplaire_id'] ?>">
+                                                <input type="hidden" name="exemplaireid" class="validate" value="<?= $res_exemplaire['exemplaire_id'] ?>">
 
                                                 <div class="input-field col s6">
-                                                    <input type="submit" value="Emprunter" name="valideremprunt">
+                                                    <input type="submit" class="btn" value="Emprunter" name="valideremprunt">
                                                 </div>
 
                                             </form>
-
                                         </div>
 
                                         <div class="modal-footer">
                                             <a href=""
                                                class="modal-action modal-close waves-effect waves-green btn-flat">Annuler</a>
                                         </div>
-
                                     </div>
                                 <?php } elseif ($bouton == "RESERVER") { ?>
 
                                     <div id="<?= $bouton ?>/?idex=<?=$res_exemplaire['exemplaire_id']?>" class="modal">
                                         <div class="modal-content">
                                             <h4>RESERVER</h4>
-                                            <p><?=  $alert ?></p>
                                             <p>Le livre que vous êtes sur le point de réservé sera disponible à partir du <?= $minDateResa ?></p>
 
                                             <form method="post">
@@ -146,33 +138,23 @@ $auteur_id = $resultat_notice['auteur_id'];
                                                 <input type="hidden" name="date_emprunt" value="<?= $minDateResa ?>">
                                                 <input type="hidden" name="exemplaireid" class="validate" value="<?= $res_exemplaire['exemplaire_id'] ?>">
                                                 <div class="input-field col s6">
-                                                    <input type="submit" value="Reserver" name="validerresa">
+                                                    <input type="submit" class="btn" value="Reserver" name="validerresa">
                                                 </div>
                                             </form>
-
                                         </div>
                                         <div class="modal-footer">
-                                            <a href="#!"
-                                               class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+                                            <a href=""
+                                               class="modal-action modal-close waves-effect waves-green btn-flat">Annuler</a>
                                         </div>
                                     </div>
-
                                     <?php
                                 }
-
                             }
                         }?>
-
                         </tbody>
                     </table>
-
-
-
-
                 </div>
             </div>
-
-
         </div>
     </div>
 
@@ -180,11 +162,6 @@ $auteur_id = $resultat_notice['auteur_id'];
         $(document).ready(function(){
             // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
             $('.modal').modal();
-        });
-
-        $('.datepicker').pickadate({
-            selectMonths: true, // Creates a dropdown to control month
-            selectYears: 15 // Creates a dropdown of 15 years to control year
         });
     </script>
 </main>
