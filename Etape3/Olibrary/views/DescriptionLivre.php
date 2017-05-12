@@ -55,12 +55,19 @@ $auteur_id = $resultat_notice['auteur_id'];
                                 <td>
                                     <?php
                                     $exemplaire_id = $res_exemplaire['exemplaire_id'];
-
-                                    $requeteemprunt = "SELECT * FROM emprunte WHERE exemplaire_id=$exemplaire_id";
+                                    $requeteemprunt = "SELECT * FROM emprunte WHERE exemplaire_id=$exemplaire_id ORDER BY emprunt_retour DESC";
                                     $reponse_emprunt = $bdd->query($requeteemprunt);
                                     $resultat_emprunt = $reponse_emprunt->fetch();
 
                                     $reservation = $resultat_emprunt['is_reservation'];
+
+
+                                    $minDateResa=$resultat_emprunt['emprunt_retour'];
+
+                                    $maxDateResa = strtotime(date("Y-m-d", strtotime($minDateResa)) . " +3 week");
+                                    $maxDateResa=date("Y-m-d",$maxDateResa);
+
+
 
                                     if ($reservation == 1) {
                                         //Si le livre est réservé
@@ -104,7 +111,7 @@ $auteur_id = $resultat_notice['auteur_id'];
                                             <form method="post">
                                                 <h5>Date de rendu : </h5>
                                                 <div class="input-field col s6">
-                                                    <input type="date" class="validate" name="date">
+                                                    <input type="date" class="validate" name="date" min="<?= $dateJour ?>" max="<?= $maxDateEmprunt ?>">
                                                 </div>
 
                                                     <input type="hidden" name="exemplaireid" class="validate" value="<?= $res_exemplaire['exemplaire_id'] ?>">
@@ -119,16 +126,30 @@ $auteur_id = $resultat_notice['auteur_id'];
 
                                         <div class="modal-footer">
                                             <a href=""
-                                               class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+                                               class="modal-action modal-close waves-effect waves-green btn-flat">Annuler</a>
                                         </div>
 
                                     </div>
                                 <?php } elseif ($bouton == "RESERVER") { ?>
 
-                                    <div id="<?= $bouton ?>" class="modal">
+                                    <div id="<?= $bouton ?>/?idex=<?=$res_exemplaire['exemplaire_id']?>" class="modal">
                                         <div class="modal-content">
                                             <h4>RESERVER</h4>
-                                            <p>A bunch of text</p>
+                                            <p><?=  $alert ?></p>
+                                            <p>Le livre que vous êtes sur le point de réservé sera disponible à partir du <?= $minDateResa ?></p>
+
+                                            <form method="post">
+                                                <h5>Date de rendu : </h5>
+                                                <div class="input-field col s6">
+                                                    <input type="date" class="validate" name="date" min="<?= $minDateResa ?>" max="<?= $maxDateResa ?>">
+                                                </div>
+                                                <input type="hidden" name="date_emprunt" value="<?= $minDateResa ?>">
+                                                <input type="hidden" name="exemplaireid" class="validate" value="<?= $res_exemplaire['exemplaire_id'] ?>">
+                                                <div class="input-field col s6">
+                                                    <input type="submit" value="Reserver" name="validerresa">
+                                                </div>
+                                            </form>
+
                                         </div>
                                         <div class="modal-footer">
                                             <a href="#!"

@@ -32,10 +32,13 @@ $reponse_exemplaire = $bdd->query($requete_exemplaire);
 $resultat_exemplaire = $reponse_exemplaire->fetchAll();
 
 date_default_timezone_set('UTC');
-/*$dateJour = date("Y-m-d");
+$dateJour = date("Y-m-d");
 
-$dateJour = date('Y-m-d', strtotime($dateJour));
-*/
+$maxDateEmprunt = strtotime(date("Y-m-d", strtotime($dateJour)) . " +3 week");
+$maxDateEmprunt=date("Y-m-d",$maxDateEmprunt);
+echo $maxDateEmprunt;
+
+
 $user_num = $_SESSION['user_num'];
 
 if(!empty($_POST['valideremprunt'])){
@@ -49,6 +52,38 @@ if(!empty($_POST['valideremprunt'])){
         $requete = "INSERT INTO emprunte(emprunt_date, emprunt_retour, is_reservation, user_num, exemplaire_id) 
                     VALUES(NOW(),'$dateRetour',FALSE ,$user_num,$idexemplaire)";
         $req=$bdd->query($requete);
+    }
+}
+
+$alert=" ";
+
+if(!empty($_POST['validerresa'])){
+
+    $idexemplaire = $_POST['exemplaireid'];
+    $dateEmprunt=$_POST['date_emprunt'];
+    $dateRetour = $_POST['date'];
+
+    if (!empty($dateRetour) && isset($dateRetour) &&
+        !empty($idexemplaire) && isset($idexemplaire)) {
+
+        if(strtotime($dateEmprunt) < strtotime($dateRetour))
+        {
+            $requete = "INSERT INTO emprunte(emprunt_date, emprunt_retour, is_reservation, user_num, exemplaire_id) 
+                    VALUES('$dateEmprunt','$dateRetour',TRUE ,$user_num,$idexemplaire)";
+            $req=$bdd->query($requete);
+            echo "OKKKK";
+        }
+        else {
+            $alert = "Veuillez entrer une date superieur";
+            ?>
+            <script>alert("ça marche pas wala")</script>
+            <?php
+        }
+
+        $requete = "INSERT INTO emprunte(emprunt_date, emprunt_retour, is_reservation, user_num, exemplaire_id) 
+                    VALUES('$dateEmprunt','$dateRetour',TRUE ,$user_num,$idexemplaire)";
+        $req=$bdd->query($requete);
+
     }
 }
 
