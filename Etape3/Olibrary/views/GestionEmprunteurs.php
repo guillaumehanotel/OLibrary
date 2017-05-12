@@ -5,7 +5,7 @@
     <div class="container">
 
     	 <table class="centered striped">
-    	 <thread>
+    	 <thead>
     	 <tr>
     	 	<tr>
                 <th data-field="utilisateur"><a id="utilisateur" href="#" class="asc">Utilisateur</a></th>
@@ -15,7 +15,7 @@
                 
 
          </tr>
-    	 </thread>
+    	 </thead>
     	 <tbody id="bodyEmprunts">
     	 	
 
@@ -50,7 +50,7 @@
     	<br>
 
     	 <table class="centered striped">
-    	 <thread>
+    	 <thead>
     	 <tr>
     	 	<tr>
                 <th data-field="utilisateur"><a id="utilisateur" href="#" class="asc">Utilisateur</a></th>
@@ -60,7 +60,7 @@
                 
 
          </tr>
-    	 </thread>
+    	 </thead>
     	 <tbody id="bodyEmprunts">
     	 	
 
