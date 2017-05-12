@@ -32,7 +32,10 @@ $reponse_exemplaire = $bdd->query($requete_exemplaire);
 $resultat_exemplaire = $reponse_exemplaire->fetchAll();
 
 date_default_timezone_set('UTC');
-$dateJour = date("Y-m-d");
+/*$dateJour = date("Y-m-d");
+
+$dateJour = date('Y-m-d', strtotime($dateJour));
+*/
 $user_num = $_SESSION['user_num'];
 
 if(!empty($_POST['valideremprunt'])){
@@ -43,8 +46,9 @@ if(!empty($_POST['valideremprunt'])){
     if (!empty($dateRetour) && isset($dateRetour) &&
         !empty($idexemplaire) && isset($idexemplaire)) {
 
-        $requete = $bdd->query("INSERT INTO emprunte VALUES($dateJour,$dateRetour,0,$user_num,$idexemplaire)");
-        var_dump($requete);
+        $requete = "INSERT INTO emprunte(emprunt_date, emprunt_retour, is_reservation, user_num, exemplaire_id) 
+                    VALUES(NOW(),'$dateRetour',FALSE ,$user_num,$idexemplaire)";
+        $req=$bdd->query($requete);
     }
 }
 

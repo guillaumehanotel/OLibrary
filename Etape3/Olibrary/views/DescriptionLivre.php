@@ -61,13 +61,16 @@ $auteur_id = $resultat_notice['auteur_id'];
                                     $resultat_emprunt = $reponse_emprunt->fetch();
 
                                     $reservation = $resultat_emprunt['is_reservation'];
-                                    $bouton;
+
                                     if ($reservation == 1) {
                                         //Si le livre est réservé
                                         $bouton = "RESERVER";
-                                    } elseif ($reservation == 0) {
+                                    } elseif ($reservation == NULL){
                                         $bouton = "EMPRUNTER";
+                                    } elseif ($reservation == 0) {
+                                        $bouton = "RESERVER";
                                     } ?>
+
                                     <a class="waves-effect waves-light btn" href="#<?= $bouton ?>/?idex=<?=$res_exemplaire['exemplaire_id']?>"><?= $bouton ?></a>
                                 </td>
                             </tr>
@@ -107,7 +110,7 @@ $auteur_id = $resultat_notice['auteur_id'];
                                                     <input type="hidden" name="exemplaireid" class="validate" value="<?= $res_exemplaire['exemplaire_id'] ?>">
 
                                                 <div class="input-field col s6">
-                                                    <input type="submit" class="waves-effect waves-green btn-flat" value="Emprunter" name="valideremprunt">
+                                                    <input type="submit" value="Emprunter" name="valideremprunt">
                                                 </div>
 
                                             </form>
