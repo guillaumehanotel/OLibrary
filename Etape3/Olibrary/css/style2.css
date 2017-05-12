@@ -383,6 +383,15 @@ footer.page-footer {
     cursor: pointer;
 }
 
+
+/**** GESTION UTILISATEUR ****/
+#gestionUtilisateurs #admin{
+    position : relative;
+    top: 5px;
+    right: 15px;
+
+}
+
 #gestionExemplaires #check_exemplaire {
     cursor: pointer;
 }
@@ -391,4 +400,5 @@ footer.page-footer {
 #gestionExemplaires #cancel_edit_exemplaire {
     cursor: pointer;
 }
+
 
