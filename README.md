@@ -26,10 +26,6 @@ GARDIN Kélian
 
 ### Gestion des notices et des exemplaires
 
-* Liste des livres en BDD 
-* Modification des champs d'une livre(notice) -> si un exemplaire est modifié, les autres le sont aussi
-* Bouton pour ajouter un nouvel exemplaire à partir d'une notice sélectionné ( plus qu'à changer la collection, le fournisseur)
-* Suppression de tous les exemplaires d'un livre, ou seulement d'un exemplaire
 * Option pour trier la liste 
   * par auteur
   * par année
@@ -50,12 +46,7 @@ GARDIN Kélian
 
 ### Gestion des Autorités
 
-* Liste des fournisseurs 
-* Ajouter une collection / éditeur / fournisseur
-* Suppression si aucun document ne dépend d'eux/ sinon bouton grisé
-* Modification des champs des autorités
-
-
+* Vérifier l'input utilisateur / clean le controller
 
 ### Gestion/Circulation des Documents
 
