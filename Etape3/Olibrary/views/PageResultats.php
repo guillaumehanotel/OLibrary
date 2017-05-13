@@ -7,7 +7,7 @@
             <div class="nav-wrapper">
                 <form action="<?php echo BASE_URL."/pageresultats/"; ?>" method="get">
                     <div class="input-field" id="inputsearch">
-                        <input id="search" type="search" name="recherche" required>
+                        <input id="search" type="search" name="recherche" value="<?= $recherche ?>" required>
                         <label class="label-icon" for="search"><i id="loupe" class="material-icons">search</i></label>
                         <i class="material-icons">close</i>
                     </div>
@@ -56,7 +56,7 @@
                             <p><?=$req_livre['notice_synopsis']?></p>
                         </div>
                         <div class="card-action">
-                            <a href="#">Voir le livre</a>
+                            <a href="<?php echo BASE_URL."/descriptionlivre/?id=".$req_livre['notice_id']?>">Voir le livre</a>
                         </div>
                     </div>
                 </div><br>
