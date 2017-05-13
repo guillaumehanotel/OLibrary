@@ -301,10 +301,42 @@ $(document).ready(function() {
 
     });
 
+    //Modification Utilisateur
+
+    $(".link_edit_user").click(function(){
+
+        // $("#modal_edit_auteur").openModal();
+        var $this = $(this);
+        var $user_nom = $this.data('user_nom');
+        var $user_prenom = $this.data('user_prenom');
+        var $user_id = $this.data('user_id');
+        var $user_mail = $this.data('user_mail');
+        var $user_admin = $this.data('user_admin');
+
+        $("#modal_edit_user #user_prenom").val($user_prenom);
+        $("#modal_edit_user #user_nom").val($user_nom);
+        $("#modal_edit_user #user_id").val($user_id);
+        $("#modal_edit_user #user_mail").val($user_mail);
+
+        if($user_admin==1){
+            console.log("admin");
+            $("#modal_edit_user #user_admin").click();
+        }
+        if($user_admin==0) {
+            console.log("hiu");
+            $("#modal_edit_user #user_admin").attr('checked',false);
+        }
+        console.log($user_admin);
+
+
+        Materialize.updateTextFields();
+
+
+    });
 
 
 
-    /* modification auteur */
+    /* modification editeur */
 
     $(".link_edit_editeur").click(function(){
 
