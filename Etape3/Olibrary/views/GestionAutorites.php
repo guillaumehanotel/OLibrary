@@ -3,7 +3,7 @@
 
 
 
-    <h3>Ajouter un auteur :</h3>
+    <h3>Auteurs :</h3>
 
     <!-- Modal Trigger -->
     <a class="waves-effect waves-light btn" href="#modal_auteur">Ajouter un auteur</a>
@@ -12,7 +12,7 @@
     <div id="modal_auteur" class="modal">
         <div class="modal-content">
             <h4>Ajouter un auteur</h4>
-            <form class="col s12" action="/projetolibrary/OLibrary/Etape3/Olibrary/autorites/" method="post">
+            <form class="col s12" action="" method="post">
 
                 <div class="row center">
                     <div class="input col l5 s12">
@@ -29,24 +29,34 @@
         </div>
     </div>
 
-
-
-    <table class="centered responsive-table highlight">
+    <table class="centered striped responsive-table">
         <thead>
         <tr>
-            <th>Id</th>
             <th>Nom</th>
             <th>Prénom</th>
-            <th>Action</th>
+
+            <th>Modification</th>
+            <th>Suppression</th>
+
         </tr>
         </thead>
         <tbody>
         <?php foreach ($requete_auteur as $req_auteur){ ?>
             <tr>
-                <td><?= $req_auteur['auteur_id']?></td>
                 <td><?= $req_auteur['auteur_nom']?></td>
                 <td><?= $req_auteur['auteur_prenom']?></td>
-               <td><a href="tonphp.php"  onclick="open('../supprimerauteur/?id=<?= $req_auteur['auteur_id'] ?>', 'Popup', 'scrollbars=1,resizable=1,height=560,width=770'); return false;" >le choix</a></td>
+
+                <td >
+                    <a class="link_edit_auteur modal-trigger" href="#modal_edit_auteur"
+                       data-auteur_id="<?= $req_auteur['auteur_id']?>"
+                       data-auteur_nom="<?= $req_auteur['auteur_nom']?>"
+                       data-auteur_prenom="<?= $req_auteur['auteur_prenom']?>"
+                    >
+                        <i  class="material-icons">mode_edit</i>
+                    </a>
+                </td>
+                <td><a href="<?= BASE_URL."/SupprimerAuteur"; ?>/?id=<?= $req_auteur['auteur_id'] ?>"><i class="material-icons">delete</i></a></td>
+
             </tr>
         <?php } ?>
         </tbody>
@@ -56,12 +66,47 @@
 
 
 
-    <form action="" method="post">
-        <input type="hidden" name="auteur_id" value="<?= $req_auteur['auteur_id']?>">
-        <input type="submit" name="delete_aut" value="X">
-    </form>
-
     <h3>Ajouter un editeur :</h3>
+
+    <!-- Modal Structure -->
+    <div id="modal_edit_auteur" class="modal modal-fixed-footer">
+
+        <div class="modal-content">
+            <h4>Modification Auteur</h4>
+
+
+            <div class="row">
+                <form class="col s12" action="" method="post">
+
+                    <input type="text" id="auteur_id" name="auteur_id" hidden>
+
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input id="first_name" type="text" name="auteur_prenom" class="validate">
+                            <label  class="active" for="first_name">Prénom</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input id="last_name" type="text" name="auteur_nom" class="validate">
+                            <label class="active" for="last_name">Nom</label>
+                        </div>
+                    </div>
+                    <div class="input_field">
+                        <input type="submit" value="Modifier" class="btn waves-effect waves-light blue" name="edit_auteur">
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="modal-footer">
+            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Annuler</a>
+        </div>
+
+
+    </div>
+
+
+    <h3>Editeurs</h3>
+
 
 
     <a class="waves-effect waves-light btn" href="#modal_editeur">Ajouter un éditeur</a>
@@ -71,38 +116,94 @@
 
         <div class="modal-content">
             <h4>Ajouter un éditeur</h4>
-            <form action="/projetolibrary/OLibrary/Etape3/Olibrary/autorites/" method="post">
-                <div class="row center"><div class="input col l10 s12"><input type="text" name="editeur_nom" placeholder="Nom de l'éditeur"></div>
+
+            <form action="" method="post">
+                <div class="row center">
+                    <div class="input col l10 s12">
+                        <input type="text" name="editeur_nom" placeholder="Nom de l'éditeur">
+                    </div>
                 </div>
+
                 <div class="modal-footer">
-                    <input type="submit" class="btn waves-effect waves-light blue modal-action modal-close" name="editeur"></div>
+                    <input type="submit" class="btn waves-effect waves-light blue modal-action modal-close" name="editeur">
+                </div>
+            </form>
         </div>
-        </form>
-    </div>
     </div>
 
 
 
-
-
-    <table class="centered responsive-table highlight">
+    <table class="centered striped  responsive-table">
         <thead>
         <tr>
-            <th>Id</th>
             <th>Nom</th>
+            <th>Modification</th>
+            <th>Suppression</th>
         </tr>
         </thead>
         <tbody>
         <?php foreach ($requete_editeur as $req_editeur){ ?>
             <tr>
-                <td><?= $req_editeur['editeur_id']?></td>
                 <td><?= $req_editeur['editeur_nom']?></td>
-            </tr> <?php } ?>
+                <td><a class="link_edit_editeur modal-trigger" href="#modal_edit_editeur"
+                       data-editeur_id="<?= $req_editeur['editeur_id']?>"
+                       data-editeur_nom="<?= $req_editeur['editeur_nom']?>"
+                    >
+                        <i  class="material-icons">mode_edit</i>
+                    </a></td>
+                <td><a href="<?= BASE_URL."/SupprimerEditeur"; ?>/?id=<?= $req_editeur['editeur_id'] ?>"><i class="material-icons">delete</i></a></td>
+            </tr>
+        <?php } ?>
         </tbody>
     </table>
 
 
-    <h3>Ajouter un fournisseur :</h3>
+    <!-- Modal Structure -->
+    <div id="modal_edit_editeur" class="modal modal-fixed-footer">
+
+        <div class="modal-content">
+            <h4>Modification Editeur</h4>
+
+
+            <div class="row">
+                <form class="col s12" action="" method="post">
+
+                    <input type="text" id="editeur_id" name="editeur_id" hidden>
+
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input id="editeur_nom" type="text" name="editeur_nom" class="validate">
+                            <label class="active" for="editeur_nom">Nom</label>
+                        </div>
+                    </div>
+                    <div class="input_field">
+                        <input type="submit" value="Modifier" class="btn waves-effect waves-light blue" name="edit_editeur">
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="modal-footer">
+            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Annuler</a>
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h3>Fournisseurs :</h3>
 
 
     <a class="waves-effect waves-light btn" href="#modal_fournisseur">Ajouter un fournisseur</a>
@@ -112,7 +213,7 @@
 
         <div class="modal-content">
             <h4>Ajouter un fournisseur</h4>
-            <form action="/projetolibrary/OLibrary/Etape3/Olibrary/autorites/" method="post">
+            <form action="" method="post">
                 <div class="row center">
                     <div class="input col l10 s12">
                         <input type="text" name="fournisseur_nom" placeholder="Nom du fournisseur">
@@ -126,26 +227,81 @@
     </div>
 
 
-    <table class="centered responsive-table highlight">
+    <table class="centered striped  responsive-table">
         <thead>
         <tr>
-            <th>Id</th>
             <th>Nom</th>
+            <th>Modification</th>
+            <th>Suppression</th>
         </tr>
         </thead>
         <tbody>
         <?php foreach ($requete_fournisseur as $req_fournisseur){ ?>
             <tr>
-                <td><?= $req_fournisseur['fournisseur_id']?></td>
                 <td><?= $req_fournisseur['fournisseur_nom']?></td>
-            </tr> <?php } ?>
+                <td><a class="link_edit_fournisseur modal-trigger" href="#modal_edit_fournisseur"
+                       data-fournisseur_id="<?= $req_fournisseur['fournisseur_id']?>"
+                       data-fournisseur_nom="<?= $req_fournisseur['fournisseur_nom']?>"
+                    >
+                        <i  class="material-icons">mode_edit</i>
+                    </a></td>
+                <td><a href="<?= BASE_URL."/SupprimerFournisseur"; ?>/?id=<?= $req_fournisseur['fournisseur_id'] ?>"><i class="material-icons">delete</i></a></td>
+            </tr>
+        <?php } ?>
         </tbody>
     </table>
 
 
 
+    <!-- Modal Structure -->
+    <div id="modal_edit_fournisseur" class="modal modal-fixed-footer">
 
-    <h3>Ajouter une collection :</h3>
+        <div class="modal-content">
+            <h4>Modification Fournisseur</h4>
+
+
+            <div class="row">
+                <form class="col s12" action="" method="post">
+
+                    <input type="text" id="fournisseur_id" name="fournisseur_id" hidden>
+
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input id="fournisseur_nom" type="text" name="fournisseur_nom" class="validate">
+                            <label class="active" for="fournisseur_nom">Nom</label>
+                        </div>
+                    </div>
+                    <div class="input_field">
+                        <input type="submit" value="Modifier" class="btn waves-effect waves-light blue" name="edit_fournisseur">
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="modal-footer">
+            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Annuler</a>
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h3>Collections :</h3>
 
 
     <a class="waves-effect waves-light btn" href="#modal_collection">Ajouter une collection</a>
@@ -155,126 +311,124 @@
 
         <div class="modal-content">
             <h4>Ajouter une collection</h4>
-            <form class="col s12" action="/projetolibrary/OLibrary/Etape3/Olibrary/autorites/" method="post">
-                <div class="row center"><div class="input col l5 s12"><input type="text" name="collection_nom" placeholder="Nom de la collection"></div>
-                    <div class="col l5 s12>"> <select name="editeur_id">
+
+            <form class="col s12" action="" method="post">
+                <div class="row center">
+                    <div class="input col l5 s12">
+                        <input type="text" name="collection_nom" placeholder="Nom de la collection">
+                    </div>
+                    <div class="col l5 s12>">
+                        <select name="editeur_id">
                             <option disabled selected>Editeur id </option>
                             <?php
                             foreach($editeur_id as $edit_id){
-                                echo "<option>".$edit_id['editeur_id']." - ".$edit_id['editeur_nom'];?> </option><?php } ?>
-                        </select></div>
+                                echo "<option>".$edit_id['editeur_id']." - ".$edit_id['editeur_nom']."</option>"; ?>
+                            <?php } ?>
+                        </select>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <input type="submit" class="btn waves-effect waves-light blue modal-action modal-close" name="collection">
                 </div>
             </form>
+
         </div>
     </div>
 
 
 
-    <table class="centered responsive-table highlight">
+    <table class="centered striped responsive-table">
         <thead>
         <tr>
-            <th>Id</th>
             <th>Nom</th>
-            <th>Id de l'éditeur</th>
+            <th>Nom de l'éditeur</th>
+            <th>Modification</th>
+            <th>Suppression</th>
         </tr>
         </thead>
         <tbody>
+
         <?php foreach ($requete_collection as $req_collection){ ?>
             <tr>
-                <td><?= $req_collection['collection_id']?></td>
                 <td><?= $req_collection['collection_nom']?></td>
-                <td><?= $req_collection['editeur_id']?></td>
-            </tr> <?php } ?>
+                <td><?= $req_collection['editeur_nom']?></td>
+                <td><a class="link_edit_collection modal-trigger" href="#modal_edit_collection"
+                       data-collection_id="<?= $req_collection['collection_id']?>"
+                       data-collection_nom="<?= $req_collection['collection_nom']?>"
+                       data-editeur_id="<?= $req_collection['editeur_id']?>"
+                    >
+                        <i  class="material-icons">mode_edit</i>
+                    </a></td>
+                <td><a href="<?= BASE_URL."/SupprimerCollection"; ?>/?id=<?= $req_collection['collection_id'] ?>"><i class="material-icons">delete</i></a></td>
+            </tr>
+        <?php } ?>
         </tbody>
     </table>
 
 
-
-
-    <h3>Ajouter un livre :</h3>
-
-
-    <a class="waves-effect waves-light btn" href="#modal_livre">Ajouter un livre</a>
-
     <!-- Modal Structure -->
-    <div id="modal_livre" class="modal">
-
+    <div id="modal_edit_collection" class="modal modal-fixed-footer">
 
         <div class="modal-content">
+            <h4>Modification Collection</h4>
 
-            <h4>Ajouter un livre</h4>
-            <form action="/projetolibrary/OLibrary/Etape3/Olibrary/autorites/" method="post">
+            <div class="row">
 
-                <div class="row center">
-                    <div class="col l2 s12">
-                        <input type="text" name="livre_ISBN" placeholder="ISBN">
-                    </div>
-                    <div class="col l2 s12">
-                        <input type="text" name="livre_titre" placeholder="Titre">
-                    </div>
 
-                    <div class="col l2 s10">
-                        <input type="date" name="date" placeholder="Date parution">
-                    </div>
+                <form class="col s12" action="" method="post">
 
-                    <div class="col l2 s12">
+                    <input type="text" id="collection_id" name="collection_id" hidden>
 
-                        <select name="auteur_id">
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input id="collection_nom" type="text" name="collection_nom" class="validate">
+                            <label class="active" for="collection_nom">Nom</label>
+                        </div>
 
-                            <option disabled selected>Auteur id </option>
-                            <?php
-                            foreach($auteur_id as $aut_id){
-                                echo "<option>".$aut_id['auteur_id']." - ".$aut_id['auteur_nom'];?> </option>
-                            <?php }
-                            ?>
-                        </select>
-
+                        <div class="input-field col s6>">
+                            <select name="editeur_id" id="select_editeur">
+                                <option disabled selected>Editeur</option>
+                                <?php
+                                foreach($editeur_id as $edit_id){
+                                    echo "<option value='".$edit_id['editeur_id']."'>".$edit_id['editeur_id']." - ".$edit_id['editeur_nom']."</option>"; ?>
+                                <?php } ?>
+                            </select>
+                        </div>
                     </div>
 
-                    <div class="col l2 s12">
-
-                        <select name="collection_id">
-                            <option disabled selected>Collection id </option>
-                            <?php
-                            foreach($collection_id as $coll_id){
-                                echo "<option placeholder='Collection'>".$coll_id['collection_id']." - ".$coll_id['collection_nom'];?> </option>
-                            <?php }
-                            ?>
-                        </select>
-
+                    <div class="input_field">
+                        <input type="submit" value="Modifier" class="btn waves-effect waves-light blue" name="edit_collection">
                     </div>
-
-                    <div class="col l2 s12"><select name="fournisseur_id">
-                            <option disabled selected>Fournisseur id </option>
-                            <?php
-                            foreach($fournisseur_id as $fourn_id){
-                                echo "<option>".$fourn_id['fournisseur_id']." - ".$fourn_id['fournisseur_nom'];?> </option>
-                            <?php } ?>
-                        </select>
-                    </div>
-                </div>
+                </form>
 
 
-                <div class="row center">
-                    <div class="col l2 s4">
-                        <input type="text" name="nb_exemplaire" placeholder="Nombre d'exemplaires">
-                    </div>
 
-                    <div class="col l8 s12">
-                        <textarea name="synopsis" placeholder="Synopsis"></textarea>
-                    </div>
-                </div>
 
-                <div class="modal-footer">
-                    <input type="submit" class="btn waves-effect waves-light blue modal-action modal-close" name="livre">
-                </div>
 
-            </form>
+            </div>
         </div>
+
+        <div class="modal-footer">
+            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Annuler</a>
+        </div>
+
+
     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -284,5 +438,6 @@
     $(document).ready(function() {
         $('select').material_select();
         $('.modal').modal();
+
     });
 </script>

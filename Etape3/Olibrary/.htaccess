@@ -54,3 +54,27 @@ RewriteRule ^mentionslegales/$        index.php?page=MentionsLegales&%{QUERY_STR
 
 ## PageResultats ##
 RewriteRule ^pageresultats/$        index.php?page=PageResultats&%{QUERY_STRING} [L]
+
+
+## SupprUser Controller ##
+RewriteRule ^supprUser/$        index.php?page=supprUser&%{QUERY_STRING} [L]
+
+## Suppression Auteur ##
+RewriteRule ^SupprimerAuteur/$        index.php?page=SupprimerAuteur&%{QUERY_STRING} [L]
+
+## Suppression Editeur  ##
+RewriteRule ^SupprimerEditeur/$        index.php?page=SupprimerEditeur&%{QUERY_STRING} [L]
+
+## Suppression Fournisseur  ##
+RewriteRule ^SupprimerFournisseur/$        index.php?page=SupprimerFournisseur&%{QUERY_STRING} [L]
+
+## Suppression Collection  ##
+RewriteRule ^SupprimerCollection/$        index.php?page=SupprimerCollection&%{QUERY_STRING} [L]
+
+## PageResultats ##
+RewriteRule ^supprExemplaire/$        index.php?page=supprExemplaire&%{QUERY_STRING} [L]
+
+## PageResultats ##
+RewriteRule ^supprNotice/$        index.php?page=supprNotice&%{QUERY_STRING} [L]
+
+
