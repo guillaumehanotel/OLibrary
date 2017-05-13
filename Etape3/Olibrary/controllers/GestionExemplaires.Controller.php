@@ -94,12 +94,6 @@ if (!empty($_POST['submit_notice'])){ // si le formulaire a été envoyé
 
 
         $requete->execute($param);
-
-/*
-        print_r($requete);
-        print_r($param);
-
-*/
         header("Refresh:0");
 
 
@@ -203,6 +197,13 @@ if (!empty($_POST['submit_notice'])){ // si le formulaire a été envoyé
     $requete_collection = "SELECT * FROM collection";
     $reponse_collection = $bdd->query($requete_collection);
     $collections = $reponse_collection->fetchAll();
+
+
+    /* REQUETE NB EXEMPLAIRE */
+    $requete_nb_exemplaire = "SELECT COUNT(exemplaire_id) AS cpt FROM notice n, exemplaire e WHERE e.exemplaire_notice_id = n.notice_id AND n.notice_id = '$id'";
+    $reponse_nb_exemplaire = $bdd->query($requete_nb_exemplaire);
+    $resultat_nb_exemplaire = $reponse_nb_exemplaire->fetch();
+
 
 
     require $_dir["views"] . "GestionExemplaires.php";

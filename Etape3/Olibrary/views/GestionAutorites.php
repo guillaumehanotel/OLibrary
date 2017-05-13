@@ -1,12 +1,17 @@
 <main id="gestionAutorites" class="content container">
-    <h2 class="soustitre">Gestion des autorités</h2>
+
+    <div class="row">
+        <a href="<?= BASE_URL."/menugestion/"; ?>"><i id="arrowBack" class="black-text fa fa-arrow-left fa-2x" aria-hidden="true"></i></a>
+        <h2 class="soustitre">GESTION DES AUTORITES</h2>
+    </div>
 
 
 
-    <h3>Auteurs :</h3>
+        <h3>AUTEURS</h3>
+
 
     <!-- Modal Trigger -->
-    <a class="waves-effect waves-light btn" href="#modal_auteur">Ajouter un auteur</a>
+    <a class="green waves-effect waves-light btn" href="#modal_auteur">Ajouter un auteur</a>
 
     <!-- Modal Structure -->
     <div id="modal_auteur" class="modal">
@@ -99,14 +104,14 @@
 
 
 
+    <div class="divider"></div>
 
 
 
+    <h3>EDITEURS</h3>
 
-    <h3>Editeurs</h3>
 
-
-    <a class="waves-effect waves-light btn" href="#modal_editeur">Ajouter un éditeur</a>
+    <a class="green waves-effect waves-light btn" href="#modal_editeur">Ajouter un éditeur</a>
 
     <!-- Modal Structure -->
     <div id="modal_editeur" class="modal">
@@ -191,6 +196,7 @@
 
 
 
+    <div class="divider"></div>
 
 
 
@@ -199,11 +205,10 @@
 
 
 
+    <h3>FOURNISSEURS</h3>
 
-    <h3>Fournisseurs :</h3>
 
-
-    <a class="waves-effect waves-light btn" href="#modal_fournisseur">Ajouter un fournisseur</a>
+    <a class="green waves-effect waves-light btn" href="#modal_fournisseur">Ajouter un fournisseur</a>
 
     <!-- Modal Structure -->
     <div id="modal_fournisseur" class="modal">
@@ -291,17 +296,17 @@
 
 
 
+    <div class="divider"></div>
 
 
 
 
 
 
+    <h3>COLLECTIONS</h3>
 
-    <h3>Collections :</h3>
 
-
-    <a class="waves-effect waves-light btn" href="#modal_collection">Ajouter une collection</a>
+    <a class="green waves-effect waves-light btn" href="#modal_collection">Ajouter une collection</a>
 
     <!-- Modal Structure -->
     <div id="modal_collection" class="modal">
@@ -419,7 +424,7 @@
 
 
 
-
+    <div class="divider"></div>
 
 
 
