@@ -2,7 +2,7 @@
 
     <h2 class="soustitre">Gestion des Emprunteurs</h2>
 
-    <div class="container">
+
 
     	 <table class="centered striped">
     	 <thead>
@@ -12,6 +12,7 @@
                 <th data-field="notice"><a id="notice" href="#" class="asc">Nom des Livres</a></th>
                 <th data-field="dateEmprunt"><a id="dateEmprunt" href="#" class="asc">Emprunt date début</a></th>
                 <th data-field="dateEmpruntRetour"><a id="dateEmpruntRetour" href="#" class="asc">Emprunt date retour</a></th>
+                <th>Retard</th>
                 
 
 
@@ -32,9 +33,19 @@
 
                         <td class="notice_name"><?= $value['notice_titre'];?></td>
 
-                        <td class="emprunt_date"><?= $value['emprunt_date'];?></td>
+                        <td class="emprunt_date"><?= date('d/m/Y', strtotime($value['emprunt_date'])); ?> </td>
 
-                        <td class="emprunt_retour"><?= $value['emprunt_retour'];?></td>
+                        <td class="emprunt_retour"><?= date('d/m/Y', strtotime($value['emprunt_retour'])); ?></td>
+
+                        <td>
+                            <?php
+                                if(isEnRetard($value['emprunt_retour'])){
+                                    echo "<i class='red-text fa fa-exclamation-triangle fa-3x' aria-hidden='true'></i>";
+                                } else {
+                                    //echo "à l'heure";
+                                }
+                            ?>
+                        </td>
 
                         
                         
@@ -77,9 +88,9 @@
 
                         <td class="notice_name"><?= $value['notice_titre'];?></td>
 
-                        <td class="emprunt_date"><?= $value['emprunt_date'];?></td>
+                        <td class="emprunt_date"><?=  date('d/m/Y', strtotime($value['emprunt_date'])) ?></td>
 
-                        <td class="emprunt_retour"><?= $value['emprunt_retour'];?></td>
+                        <td class="emprunt_retour"><?=  date('d/m/Y', strtotime($value['emprunt_retour'])); ?></td>
 
                         
                         
@@ -99,7 +110,6 @@
             var $base_url = <?php echo json_encode(BASE_URL); ?>;
         </script>
 
-</div>
 
 
   

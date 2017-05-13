@@ -36,3 +36,33 @@ function securify($str){
     return htmlspecialchars($string);
 }
 
+function isEnRetard($date){
+
+    // comparer date du jour et date en paramètre et renvoie vrai si la date passée en paramètre est supérieur à la date du jour
+    $today = date("Y-m-d");
+
+    $today_time = strtotime($today);
+    $date_time = strtotime($date);
+
+    if ($today_time > $date_time) {
+        return true;
+    } else {
+        return false;
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
