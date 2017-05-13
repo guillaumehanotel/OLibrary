@@ -12,27 +12,32 @@
 
 <main id="gestionExemplaires"  class="content">
 
-    <!-- <h2 class="soustitre">Gestion des exemplaires</h2> -->
-    <h2 class="soustitre">GESTION DES EXEMPLAIRES</h2>
+
 
     <div class="container">
+    <h2 class="soustitre">GESTION DES EXEMPLAIRES</h2>
+
 
         <div class="row" id="notice_edit">
 
-
             <div class="col s12 m10 offset-m1">
                 <div class="card">
-                    <div class="card-content white-text">
+                    <div class="card-content ">
 
-                        <i id="mode_edit"  class="small material-icons right">mode_edit</i>
+                        <i id="mode_edit"  class=" myblue small material-icons right btn-floating btn-large ">mode_edit</i>
 
-                        <h5 class="center">NOTICE</h5>
-                        <span id="notice_titre" class="card-title"><?= $titre ?></span>
-                        <p id="notice_auteur" data-id="<?= $auteur_id ?>"><?= $auteur ?></p>
-                        <p id="notice_date"><?= $date ?></p>
+                        <div class="row ">
+                            <div class=" blue-text center">
+                                <span id="notice_titre" class="card-title"><?= $titre ?></span>
+                            </div>
+                        </div>
+
+
+                        <p id="notice_auteur" data-id="<?= $auteur_id ?>"><?= $auteur ?>
+                        <span id="notice_date"><?= $date ?></span></p>
                     </div>
 
-                    <div id="notice_synopsis" class="card-action white-text">
+                    <div id="notice_synopsis" class="card-action">
                         <?=  $synopsis ?>
                     </div>
                 </div>
@@ -49,6 +54,8 @@
             <a href="<?= BASE_URL."/supprNotice"; ?>/?id=<?= $resultat_notice['notice_id'] ?>" class="waves-effect waves-light btn">Supprimer la notice et tous les exemplaires associés</a>
         </div>
 
+
+        <div class="divider"></div>
 
 
 
@@ -131,7 +138,7 @@
 
             <h3>Exemplaires associés à la notice :</h3>
 
-            <table class="centered striped">
+            <table class="centered striped responsive-table">
                 <thead>
                 <tr>
 
