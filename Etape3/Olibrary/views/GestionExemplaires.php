@@ -51,7 +51,8 @@
 
 
         <div class="row">
-            <a href="<?= BASE_URL."/supprNotice"; ?>/?id=<?= $resultat_notice['notice_id'] ?>" class="waves-effect waves-light btn">Supprimer la notice et tous les exemplaires associés</a>
+
+            <a href="<?= BASE_URL."/supprNotice"; ?>/?id=<?= $resultat_notice['notice_id'] ?>" class="red waves-effect waves-light btn" id="deleteNotice"> Supprimer la notice et tous les exemplaires associés</a>
         </div>
 
 
@@ -61,7 +62,7 @@
 
 
         <div class="row">
-            <a class="waves-effect waves-light btn" href="#modal_livre">Ajouter un exemplaire</a>
+            <a class="green waves-effect waves-light btn center-align" href="#modal_livre">Ajouter un exemplaire</a>
         </div>
 
         <!-- Modal Structure -->
