@@ -49,16 +49,74 @@ function isEnRetard($date){
     } else {
         return false;
     }
-
-
 }
 
 
 
+function getResultatsRequete($bdd, $requete){
+    $reponse_requete = $bdd->query($requete);
+    if($reponse_requete != false) {
+        $resultat_requete = $reponse_requete->fetchAll();
+        return $resultat_requete;
+    } else {
+        printErrorInfo($bdd);
+        return array();
+    }
+}
 
 
+function getResultatRequete($bdd, $requete){
+
+    $bdd->setAttribute(PDO::ATTR_EMULATE_PREPARES,false);
+    $reponse_requete = $bdd->query($requete);
+    if($reponse_requete != false) {
+        $resultat_requete = $reponse_requete->fetch();
+        return $resultat_requete;
+    } else {
+        printErrorInfo($bdd);
+        return array();
+    }
+}
+
+function printErrorInfo($bdd){
+
+    echo "<br><strong style='text-align: center'>PDO::errorInfo():</strong>";
+
+    echo "<table border='1' style='border:1px solid; margin-left: auto ; margin-right : auto ; width: 60%'>"
+    ,"<thead>"
+    ,"<tr>"
+    ,"<th>SQL STATE</th>"
+    ,"<th>DRIVER ERROR CODE</th>"
+    ,"<th>MESSAGE</th>"
+    ,"</tr>"
+    ,"</thead>"
+
+    ,"<tbody>"
+    ,"<tr>";
+    foreach($bdd->errorInfo() as $key => $element){
+        $str ="";
+        switch($key){
+            case 0 :
+                $str.=$element;
+                break;
+            case 1 :
+                $str.=$element;
+                break;
+            case 2 :
+                $str.=$element;
+                break;
+            default :
+                $str.="Undefined";
+                break;
+        }
+        echo "<td><a target='_blank' href='http://www.google.com/search?q=".urlencode($str)."'>$str</a></td>";
+    }
+    echo "</tr>"
+    ,"</tbody>"
+    ,"</table>";
 
 
+}
 
 
 

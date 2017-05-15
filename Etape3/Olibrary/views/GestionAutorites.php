@@ -323,7 +323,7 @@
                         <select name="editeur_id">
                             <option disabled selected>Editeur id </option>
                             <?php
-                            foreach($editeur_id as $edit_id){
+                            foreach($requete_editeur as $edit_id){
                                 echo "<option>".$edit_id['editeur_id']." - ".$edit_id['editeur_nom']."</option>"; ?>
                             <?php } ?>
                         </select>
@@ -391,7 +391,7 @@
                             <select name="editeur_id" id="select_editeur">
                                 <option disabled selected>Editeur</option>
                                 <?php
-                                foreach($editeur_id as $edit_id){
+                                foreach($requete_editeur as $edit_id){
                                     echo "<option value='".$edit_id['editeur_id']."'>".$edit_id['editeur_id']." - ".$edit_id['editeur_nom']."</option>"; ?>
                                 <?php } ?>
                             </select>
