@@ -11,7 +11,7 @@
 
         <link rel="stylesheet" href="<?= BASE_URL."/css/materialize.min.css" ?>"/>
        
-        <link href="<?php echo BASE_URL."/css/style2.css"; ?>" rel="stylesheet" type="text/css" />
+        <link href="<?php echo BASE_URL."/css/style.css"; ?>" rel="stylesheet" type="text/css" />
 
         <!-- ICONES -->
         <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
