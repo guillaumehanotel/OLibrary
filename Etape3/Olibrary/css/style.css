@@ -222,7 +222,9 @@ footer.page-footer {
 
 #arrowBack {
     position: relative;
-    top : 55px;
+    top: 55px;
+
+}
 
     .brand-logo {
         margin-left: 100px;
@@ -280,6 +282,8 @@ footer.page-footer {
 
     font-weight: 500;
     font-size: 20px;
+
+}
 
 /* label color */
 .input-field label {
@@ -487,6 +491,7 @@ footer.page-footer {
 #connexion .btn:hover {
     background-color: #FF7F50;
     color: white;
+}
 
 #contact {
     margin-top: 50px;
