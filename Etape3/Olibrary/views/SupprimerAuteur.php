@@ -1,8 +1,16 @@
-<main id="supprimerAuteur" class="content container">
-    <h2 class="soustitre">Supprimer un auteur</h2>
+<main id="supprimerAuteur" class="content container supprimerAutorité">
+
+
+    <div class="row">
+        <a href="<?= BASE_URL."/autorites/"; ?>"><i id="arrowBack" class="black-text fa fa-arrow-left fa-2x" aria-hidden="true"></i></a>
+        <h2 class="red-text soustitre">SUPPRESSION AUTEUR</h2>
+    </div>
+
+
 
     <p>Vous êtes sur le point de supprimer l'auteur <strong><?= $reqaut["auteur_prenom"]." ".$reqaut["auteur_nom"]?></strong>.</p>
 
+    <div class="divider"></div>
 
     <?php if($resultat_notice_cpt['total'] != 0) { ?>
         <p><?= $resultat_notice_cpt['total'] ?> notice(s) sont associés à cet auteur.</p>
@@ -50,13 +58,15 @@
 
 
 
+    <div class="divider"></div>
 
 
-
-        Êtes vous sûr de vouloir supprimer cet auteur ?
+    <p>Êtes vous vraiment sûr de vouloir supprimer cet auteur ?</p>
     <form action="" method="post">
-        <input type="submit" name="delete_aut" value="X">
+        <input type="submit" name="delete_aut" class="btn red" value="SUPPRIMER">
     </form>
 
-    </p>
+    <div class="divider"></div>
+
+
 </main>

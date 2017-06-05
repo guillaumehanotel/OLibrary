@@ -4,8 +4,9 @@ if(isset($_SESSION['connect'])){
 
     $num = $_SESSION['user_num'];
 
-    $requeteuser=$bdd->query("SELECT * FROM utilisateur WHERE user_num = '$num'");
-    $requete_user = $requeteuser->fetchAll();
+    $requeteuser = "SELECT * FROM utilisateur WHERE user_num = '$num'";
+    $requete_user = getResultatsRequete($bdd, $requeteuser);
+
 
     if(!empty($_POST['utilisateur'])){
 
@@ -20,9 +21,11 @@ if(isset($_SESSION['connect'])){
         header('Location: ' . $_SERVER['HTTP_REFERER']);
     }
 
-    $requeteemprunt=$bdd->query("SELECT * FROM emprunte em JOIN exemplaire ex ON em.exemplaire_id=ex.exemplaire_id JOIN notice n 
-    ON ex.exemplaire_notice_id = n.notice_id WHERE em.user_num = '$num' AND em.is_reservation='0' ");
-    $requete_emprunt = $requeteemprunt->fetchAll();
+
+    $requeteemprunt = "SELECT * FROM emprunte em JOIN exemplaire ex ON em.exemplaire_id=ex.exemplaire_id JOIN notice n
+    ON ex.exemplaire_notice_id = n.notice_id WHERE em.user_num = '$num' AND em.is_reservation='0' ";
+    $requete_emprunt = getResultatsRequete($bdd, $requeteemprunt);
+
 
     if(!empty($_POST['rendre'])){
 
@@ -35,9 +38,9 @@ if(isset($_SESSION['connect'])){
 
 
 
-    $requeteresa=$bdd->query("SELECT * FROM emprunte em JOIN exemplaire ex ON em.exemplaire_id=ex.exemplaire_id JOIN notice n 
-    ON ex.exemplaire_notice_id = n.notice_id WHERE em.user_num = '$num' AND em.is_reservation='1' ");
-    $requete_resa = $requeteresa->fetchAll();
+    $requeteresa = "SELECT * FROM emprunte em JOIN exemplaire ex ON em.exemplaire_id=ex.exemplaire_id JOIN notice n
+    ON ex.exemplaire_notice_id = n.notice_id WHERE em.user_num = '$num' AND em.is_reservation='1' ";
+    $requete_resa = getResultatsRequete($bdd, $requeteresa);
 
     if(!empty($_POST['annuler'])){
 

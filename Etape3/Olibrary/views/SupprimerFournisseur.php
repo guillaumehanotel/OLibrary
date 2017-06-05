@@ -1,8 +1,12 @@
-<main id="supprimerFournisseur" class="content container">
-    <h2 class="soustitre">Supprimer un fournisseur</h2>
+<main id="supprimerFournisseur" class="content container supprimerAutorité">
+    <div class="row">
+        <a href="<?= BASE_URL."/autorites/"; ?>"><i id="arrowBack" class="black-text fa fa-arrow-left fa-2x" aria-hidden="true"></i></a>
+        <h2 class="red-text soustitre">SUPPRESSION FOURNISSEUR</h2>
+    </div>
 
     <p>Vous êtes sur le point de supprimer le fournisseur <strong><?= $resultat_fournisseur["fournisseur_nom"]?></strong>.</p>
 
+    <div class="divider"></div>
 
 
         <?php if ($resultat_exemplaire_cpt['total'] != 0) { ?>
@@ -31,12 +35,13 @@
         }
     ?>
 
+    <div class="divider"></div>
 
 
 
-    Êtes vous sûr de vouloir supprimer ce fournisseur ?
+    <p>Êtes vous sûr de vouloir supprimer ce fournisseur ?</p>
     <form action="" method="post">
-        <input type="submit" name="delete_fournisseur" value="X">
+        <input type="submit" name="delete_fournisseur" class="btn red" value="SUPPRIMER">
     </form>
 
     </p>

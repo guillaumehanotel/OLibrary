@@ -1,8 +1,15 @@
-<main id="supprimerCollection" class="content container">
-    <h2 class="soustitre">Supprimer un collection</h2>
+<main id="supprimerCollection" class="content container supprimerAutorité">
+
+
+    <div class="row">
+        <a href="<?= BASE_URL."/autorites/"; ?>"><i id="arrowBack" class="black-text fa fa-arrow-left fa-2x" aria-hidden="true"></i></a>
+        <h2 class="red-text soustitre">SUPPRESSION COLLECTION</h2>
+    </div>
+
 
     <p>Vous êtes sur le point de supprimer la collection <strong><?= $resultat_collection["collection_nom"]?></strong>.</p>
 
+    <div class="divider"></div>
 
 
     <?php if ($resultat_exemplaire_cpt['total'] != 0) { ?>
@@ -32,11 +39,12 @@
     ?>
 
 
+    <div class="divider"></div>
 
 
-    Êtes vous sûr de vouloir supprimer cette collection ?
+    <p>Êtes vous sûr de vouloir supprimer cette collection ?</p>
     <form action="" method="post">
-        <input type="submit" name="delete_collection" value="X">
+        <input type="submit" name="delete_collection" class="btn red" value="SUPPRIMER">
     </form>
 
     </p>

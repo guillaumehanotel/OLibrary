@@ -30,8 +30,8 @@
                 }
                 ?>
             </td>
-            <td> <?= $emprunt['emprunt_date']; ?> </td>   
-            <td> <?= $emprunt['emprunt_retour']; ?> </td>
+            <td> <?=    date('d/m/Y', strtotime($emprunt['emprunt_date']))      ; ?> </td>   
+            <td> <?= date('d/m/Y', strtotime($emprunt['emprunt_retour'])); ?> </td>
 
         </tr>
         <?php

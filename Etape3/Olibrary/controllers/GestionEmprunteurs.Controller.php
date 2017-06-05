@@ -10,32 +10,44 @@ if(!isset($_SESSION["connect"])){
     header('Location: '.BASE_URL.'/connexion/');
 }
 
-$requete_commande=
+$requete_pret=
 	"SELECT *
 	FROM utilisateur u, emprunte em, exemplaire ex, notice n
 	WHERE u.user_num = em.user_num
 	AND em.exemplaire_id = ex.exemplaire_id
-	AND ex.exemplaire_notice_id = n.notice_id
-	AND is_reservation =0 ";
+	AND ex.exemplaire_notice_id = n.notice_id ";
 
-$reponse_commande = $bdd->query($requete_commande);
-$resultat_commande = $reponse_commande->fetchAll();
+$resultat_pret = getResultatsRequete($bdd, $requete_pret);
 
-$requete_reservation=
-	"SELECT *
+
+
+$requete_emprunt = $requete_pret." AND is_reservation = 0";
+$resultat_emprunt = getResultatsRequete($bdd,$requete_emprunt);
+
+
+$requete_reservation = $requete_pret . " AND is_reservation = 1";
+$resultat_reservation = getResultatsRequete($bdd,$requete_reservation);
+
+
+$requete_emprunt_ok = $requete_emprunt . " AND em.emprunt_retour > now()";
+$resultat_emprunt_ok = getResultatsRequete($bdd, $requete_emprunt_ok);
+
+
+$requete_emprunt_retard = $requete_emprunt . " AND em.emprunt_retour < now()";
+$resultat_emprunt_retard = getResultatsRequete($bdd, $requete_emprunt_retard);
+
+
+
+$requete_cpt_retard=
+    "SELECT COUNT(ex.exemplaire_id) AS cpt
 	FROM utilisateur u, emprunte em, exemplaire ex, notice n
 	WHERE u.user_num = em.user_num
 	AND em.exemplaire_id = ex.exemplaire_id
 	AND ex.exemplaire_notice_id = n.notice_id
-	AND is_reservation =1";
+	AND is_reservation = 0
+	AND em.emprunt_retour < now()";
 
-$reponse_reservation = $bdd->query($requete_reservation);
-$resultat_reservation = $reponse_reservation->fetchAll();
-
-
-
-
-
+$resultat_cpt_retard = getResultatRequete($bdd, $requete_cpt_retard);
 
 
 require $_dir["views"]."GestionEmprunteurs.php";
