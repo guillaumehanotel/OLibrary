@@ -218,55 +218,20 @@ if(!empty($_POST['edit_collection'])){
 
 
 
-
-
-
-
-
-
-
-
-
 $requete_sql = "SELECT * FROM collection c, editeur e WHERE e.editeur_id = c.editeur_id";
-$requetecollection=$bdd->query($requete_sql);
-$requete_collection = $requetecollection->fetchAll();
-
+$requete_collection = getResultatsRequete($bdd, $requete_sql);
 
 
 $requete_sql = "SELECT * FROM auteur";
-$requeteauteur=$bdd->query($requete_sql);
-$requete_auteur = $requeteauteur->fetchAll();
+$requete_auteur = getResultatsRequete($bdd, $requete_sql);
 
 
 $requete_sql = "SELECT * FROM editeur";
-$requeteediteur=$bdd->query($requete_sql);
-$requete_editeur = $requeteediteur->fetchAll();
-
+$requete_editeur = getResultatsRequete($bdd, $requete_sql);
 
 
 $requete_sql = "SELECT * FROM fournisseur";
-$requetefournisseur=$bdd->query($requete_sql);
-$requete_fournisseur = $requetefournisseur->fetchAll();
-
-
-
-
-
-
-
-$editid= $bdd->query("SELECT * FROM editeur");
-$editeur_id=$editid->fetchAll();
-
-$autid= $bdd->query("SELECT * FROM auteur");
-$auteur_id=$autid->fetchAll();
-
-$collid= $bdd->query("SELECT * FROM collection ORDER BY collection_id");
-$collection_id=$collid->fetchAll();
-
-$fournid= $bdd->query("SELECT * FROM fournisseur");
-$fournisseur_id=$fournid->fetchAll();
-
-
+$requete_fournisseur = getResultatsRequete($bdd, $requete_sql);
 
 
 

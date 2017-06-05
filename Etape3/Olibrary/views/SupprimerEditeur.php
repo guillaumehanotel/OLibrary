@@ -1,7 +1,14 @@
-<main id="supprimerEditeur" class="content container">
-    <h2 class="soustitre">Supprimer un éditeur</h2>
+<main id="supprimerEditeur" class="content container supprimerAutorité">
+
+    <div class="row">
+        <a href="<?= BASE_URL."/autorites/"; ?>"><i id="arrowBack" class="black-text fa fa-arrow-left fa-2x" aria-hidden="true"></i></a>
+        <h2 class="red-text soustitre">SUPPRESSION EDITEUR</h2>
+    </div>
+
 
     <p>Vous êtes sur le point de supprimer l'éditeur <strong><?= $resultat_editeur["editeur_nom"]?></strong>.</p>
+
+    <div class="divider"></div>
 
 
     <?php if($resultat_collection_cpt['total'] != 0) { ?>
@@ -48,11 +55,12 @@
     }?>
 
 
+    <div class="divider"></div>
 
 
-    Êtes vous sûr de vouloir supprimer cet éditeur ?
+    <p>Êtes vous sûr de vouloir supprimer cet éditeur ?</p>
     <form action="" method="post">
-        <input type="submit" name="delete_editeur" value="X">
+        <input type="submit" name="delete_editeur" class="btn red" value="SUPPRIMER">
     </form>
 
     </p>

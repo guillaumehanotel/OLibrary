@@ -20,8 +20,7 @@ if (!empty($_POST['submit_notice'])){ // si le formulaire a été envoyé
         $id = securify((int)$_GET['id']);
 
         $requete_notice = "SELECT * FROM notice n WHERE notice_id = '$id'";
-        $reponse_notice = $bdd->query($requete_notice);
-        $resultat_notice = $reponse_notice->fetch();
+        $resultat_notice = getResultatRequete($bdd, $requete_notice);
 
 
 
@@ -65,8 +64,7 @@ if (!empty($_POST['submit_notice'])){ // si le formulaire a été envoyé
         $id = securify((int)$_GET['id']);
 
         $requete_notice = "SELECT * FROM notice n WHERE notice_id = '$id'";
-        $reponse_notice = $bdd->query($requete_notice);
-        $resultat_notice = $reponse_notice->fetch();
+        $resultat_notice = getResultatRequete($bdd, $requete_notice);
 
 
         $requete =  $bdd->prepare("INSERT INTO exemplaire (
@@ -94,12 +92,6 @@ if (!empty($_POST['submit_notice'])){ // si le formulaire a été envoyé
 
 
         $requete->execute($param);
-
-/*
-        print_r($requete);
-        print_r($param);
-
-*/
         header("Refresh:0");
 
 
@@ -117,8 +109,7 @@ if (!empty($_POST['submit_notice'])){ // si le formulaire a été envoyé
         $id = securify((int)$_GET['id']);
 
         $requete_notice = "SELECT * FROM notice n WHERE notice_id = '$id'";
-        $reponse_notice = $bdd->query($requete_notice);
-        $resultat_notice = $reponse_notice->fetch();
+        $resultat_notice = getResultatRequete($bdd, $requete_notice);
 
 
         $requete =  $bdd->prepare("UPDATE exemplaire SET
@@ -152,23 +143,20 @@ if (!empty($_POST['submit_notice'])){ // si le formulaire a été envoyé
     $id = securify((int)$_GET['id']);
 
 /* REQUETE DE LA NOTICE ATCUELLE */
+
     $requete_notice =
         "SELECT *
         FROM notice n, auteur a
         WHERE n.notice_auteur_id = a.auteur_id
         AND notice_id = '$id'";
 
-    $reponse_notice = $bdd->query($requete_notice);
-    $resultat_notice = $reponse_notice->fetch();
+    $resultat_notice = getResultatRequete($bdd, $requete_notice);
 
 
     /* REQUETE DES AUTEURS POUR LE FORMRULAIRE SELECT D'EDITION DE NOTICE*/
 
     $requete_auteur = "SELECT * FROM auteur";
-    $reponse_auteur = $bdd->query($requete_auteur);
-    $auteurs = $reponse_auteur->fetchAll();
-
-
+    $auteurs =  getResultatsRequete($bdd, $requete_auteur);
 
 
     /* REQUETE DES EXEMPLAIRES LIES A LA NOTICE */
@@ -181,28 +169,30 @@ if (!empty($_POST['submit_notice'])){ // si le formulaire a été envoyé
     AND c.editeur_id = ed.editeur_id
     AND n.notice_id = '$id'";
 
-    $reponse_exemplaire = $bdd->query($requete_exemplaire);
-    $resultat_exemplaire = $reponse_exemplaire->fetchAll();
+    $resultat_exemplaire =  getResultatsRequete($bdd, $requete_exemplaire);
 
 
 
     /* REQUETE DES FOURNISSEURS POUR LE FORMULAIRE SELECT D'EDITION D'EXEMPLAIRE */
 
     $requete_fournisseur = "SELECT * FROM fournisseur";
-    $reponse_fournisseur = $bdd->query($requete_fournisseur);
-    $fournisseurs = $reponse_fournisseur->fetchAll();
+    $fournisseurs = getResultatsRequete($bdd, $requete_fournisseur);
 
     /* REQUETE DES EDITEURS POUR LE FORMULAIRE SELECT D'EDITION D'EXEMPLAIRE */
 
     $requete_editeur = "SELECT * FROM editeur";
-    $reponse_editeur = $bdd->query($requete_editeur);
-    $editeurs = $reponse_editeur->fetchAll();
+    $editeurs = getResultatsRequete($bdd, $requete_editeur);
 
     /* REQUETE DES COLLECTIONS POUR LE FORMULAIRE SELECT D'EDITION D'EXEMPLAIRE */
 
     $requete_collection = "SELECT * FROM collection";
-    $reponse_collection = $bdd->query($requete_collection);
-    $collections = $reponse_collection->fetchAll();
+    $collections = getResultatsRequete($bdd, $requete_collection);
+
+    /* REQUETE NB EXEMPLAIRE */
+    $requete_nb_exemplaire = "SELECT COUNT(exemplaire_id) AS cpt FROM notice n, exemplaire e WHERE e.exemplaire_notice_id = n.notice_id AND n.notice_id = '$id'";
+    $resultat_nb_exemplaire =  getResultatRequete($bdd, $requete_nb_exemplaire);
+
+
 
 
     require $_dir["views"] . "GestionExemplaires.php";

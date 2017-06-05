@@ -13,10 +13,7 @@ if(!isset($_SESSION["connect"]))
     AND ex.exemplaire_notice_id = n.notice_id
     ORDER BY emprunt_retour";
 
-$reponse_emprunt = $bdd->query($requete_emprunt);
-$resultat_emprunt = $reponse_emprunt->fetchAll();
-
-
+$resultat_emprunt = getResultatsRequete($bdd, $requete_emprunt);
 
 
 require $_dir["views"]."GestionDocuments.php";

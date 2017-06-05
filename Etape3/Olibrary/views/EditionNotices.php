@@ -20,13 +20,12 @@ $default_date = new DateTime('2000-01-01');
         <div class="card row">
 
 
-            <div class="card-content white-text">
+            <div class="card-content ">
 
 
-                <!--<i id="clear_edit"  class="small material-icons right">mode_edit</i>-->
-                <i id="cancel_edit" class="white-text fa fa-times fa-3x right" aria-hidden="true"></i>
+                <i id="cancel_edit" class="red-text fa fa-times fa-3x right" aria-hidden="true"></i>
 
-                <h5 class="center">NOTICE</h5>
+
 
                 <div class="row">
                     <div class="input-field col m6">
@@ -65,7 +64,7 @@ $default_date = new DateTime('2000-01-01');
             </div>
 
 
-            <div class="card-action white-text">
+            <div class="card-action ">
                 <div class="row">
                     <div class="input-field">
                         <textarea id="synopsis" name="synopsis" type="text" class="materialize-textarea"><?= $synopsis ?></textarea>
@@ -76,7 +75,7 @@ $default_date = new DateTime('2000-01-01');
 
 
             <!--<label for="submit_notice"><i id="check_edit"  class="medium material-icons right">done</i></label>-->
-            <label for="submit_notice"><i id="check_notice" class="white-text fa fa-check fa-4x" aria-hidden="true"></i></label>
+            <label for="submit_notice"><i id="check_notice" class="green-text fa fa-check fa-4x" aria-hidden="true"></i></label>
 
             <input type="submit" value="go" id="submit_notice" name="submit_notice" hidden>
 

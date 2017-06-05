@@ -1,13 +1,23 @@
 <main id="gestionNotices"  class="content">
 
-    <h2 class="soustitre">Gestion des notices et des exemplaires</h2>
 
     <div class="container">
 
-        <h3>Notices :</h3>
+        <div class="row">
+
+            <a href="<?= BASE_URL."/menugestion/"; ?>"><i id="arrowBack" class="black-text fa fa-arrow-left fa-2x" aria-hidden="true"></i></a>
+            <h2 class="soustitre">GESTION DES NOTICES ET DES EXEMPLAIRES</h2>
 
 
-        <a class="waves-effect waves-light btn" href="#modal_livre">Ajouter une notice</a>
+        </div>
+        <!-- <h2 class="soustitre">Gestion des notices et des exemplaires</h2> -->
+
+
+        <div class="center">
+            <a class="green waves-effect waves-light btn" href="#modal_livre">Ajouter une notice</a>
+            <div class="divider"></div>
+            <h3>Liste des notices :</h3>
+        </div>
 
         <!-- Modal Structure -->
         <div id="modal_livre" class="modal">
@@ -20,26 +30,18 @@
                 <form action="" method="post">
 
                     <div class="row">
-
-
                         <div class=" input-field col m9 s10">
                             <input type="text" id="livre_titre" name="livre_titre"  class="validate">
                             <label for="livre_titre">Titre</label>
                         </div>
-
                     </div>
 
                     <div class="row">
-
                         <div class="input-field col m6 s10">
                             <input type="date" name="date" id="livre_date" class="validate">
-
                         </div>
-
                         <div class="col m6 s10">
-
                             <select class="input-field" name="livre_auteur">
-
                                 <option disabled selected>Auteur</option>
                                 <?php
                                 foreach($resultat_auteur as $auteur){
@@ -47,9 +49,7 @@
                                 <?php }
                                 ?>
                             </select>
-
                         </div>
-
                     </div>
 
 
@@ -68,7 +68,7 @@
                     </div>
 
                 </form>
-            </div>
+                </div>
             </div>
         </div>
 
