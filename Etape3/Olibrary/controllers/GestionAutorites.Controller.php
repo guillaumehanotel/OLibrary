@@ -20,11 +20,17 @@ if(!empty($_POST["auteur"])){
 }
 
 
+//Supprimer l'auteur
+if (!empty($_POST["delete_aut"])){
+
+}
+
 
 
 // Enregistrer l'éditeur
 if(!empty($_POST["editeur"])){
     if(!empty($_POST["editeur_nom"]) && isset($_POST["editeur_nom"])){
+
 
         $requete = $bdd -> prepare("INSERT INTO editeur (editeur_nom) VALUES (:nom)");
         $param = array(
@@ -46,6 +52,7 @@ if(!empty($_POST["fournisseur"])){
         $param = array(
             'nom' => securify($_POST['fournisseur_nom']),
         );
+
         $requete->execute($param);
         header('Location: ' . BASE_URL . '/autorites/');
     } else {
@@ -68,6 +75,7 @@ if(!empty($_POST["collection"])) {
             'id' => securify(explode(" ", $_POST['editeur_id'])[0])
         );
         $requete->execute($param);
+
         header('Location: ' . BASE_URL . '/autorites/');
     } else {
         $_SESSION["erreur"] = "Merci de remplir tout les champs";

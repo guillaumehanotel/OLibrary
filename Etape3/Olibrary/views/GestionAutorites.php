@@ -21,7 +21,7 @@
 
                 <div class="row center">
                     <div class="input col l5 s12">
-                        <input ctype="text" name="auteur_nom" placeholder="Nom">
+                        <input type="text" name="auteur_nom" placeholder="Nom">
                     </div>
                     <div class="input col l5 s12">
                         <input type="text" name="auteur_prenom" placeholder="Prénom">
@@ -39,8 +39,10 @@
         <tr>
             <th>Nom</th>
             <th>Prénom</th>
+
             <th>Modification</th>
             <th>Suppression</th>
+
         </tr>
         </thead>
         <tbody>
@@ -48,6 +50,7 @@
             <tr>
                 <td><?= $req_auteur['auteur_nom']?></td>
                 <td><?= $req_auteur['auteur_prenom']?></td>
+
                 <td >
                     <a class="link_edit_auteur modal-trigger" href="#modal_edit_auteur"
                        data-auteur_id="<?= $req_auteur['auteur_id']?>"
@@ -58,12 +61,17 @@
                     </a>
                 </td>
                 <td><a href="<?= BASE_URL."/SupprimerAuteur"; ?>/?id=<?= $req_auteur['auteur_id'] ?>"><i class="material-icons">delete</i></a></td>
+
             </tr>
         <?php } ?>
         </tbody>
     </table>
 
 
+
+
+
+    <h3>Ajouter un editeur :</h3>
 
     <!-- Modal Structure -->
     <div id="modal_edit_auteur" class="modal modal-fixed-footer">
@@ -104,6 +112,7 @@
 
 
 
+
     <div class="divider"></div>
 
 
@@ -112,6 +121,7 @@
 
 
     <a class="green waves-effect waves-light btn" href="#modal_editeur">Ajouter un éditeur</a>
+
 
     <!-- Modal Structure -->
     <div id="modal_editeur" class="modal">
