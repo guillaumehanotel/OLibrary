@@ -1,3 +1,4 @@
+
 * {
     margin: 0;
     padding: 0;
@@ -48,9 +49,31 @@ main {
 
 
 
-
 /** NAVIGATION **/
 
+
+nav {
+    background-color: #3498DB; /* bleu */
+}
+
+#mobile-demo {
+    width: 150px;
+    text-align: center;
+}
+
+h1 {
+    font-size: inherit;
+    margin: inherit;
+    line-height: inherit;
+    font-family: 'Black Olives', sans-serif;
+    font-size: 44px;
+    font-weight: 800;
+}
+
+footer.page-footer {
+    background-color: #3498DB;
+    color: white;
+}
 nav {
     background-color: #3498DB; /* bleu */
 }
@@ -85,6 +108,7 @@ footer.page-footer {
 
 #accueil #searchbar {
     padding: 0;
+
 }
 
 #accueil input {
@@ -95,6 +119,10 @@ footer.page-footer {
     color: #c1c1c1;
 }
 
+
+
+/**** ACCUEIL *****/
+
 #accueil #backsearch {
     height: 90px;
 }
@@ -102,33 +130,29 @@ footer.page-footer {
 
 
 
-/**** SOUS TITRE MENU GESTION ***/
-
-#arrowBack {
-    position: relative;
-    top : 55px;
-}
-
 .soustitre {
     text-align: center;
     font-family: 'Roboto', sans-serif;
-
-
-
-    border-bottom: solid 1px black;
-
-
-
-    margin-top: 2px;
+    background-color: #e1e1e1;
+    margin-top: 0px;
     padding-top: 20px;
     padding-bottom: 20px;
     font-size: 35px;
     font-weight: 500;
+}
 
+#accueil {
+    margin-top: 120px;
 }
 
 
+#accueil #searchbar {
+    padding: 0;
+}
 
+#accueil input {
+    background-color: white;
+}
 
 
 
@@ -159,9 +183,17 @@ footer.page-footer {
 
 #menuGestion .row .col{
     padding: 0px;
+
+}
+
+#accueil #loupe {
+    color: #c1c1c1;
 }
 
 
+#accueil #backsearch {
+    height: 90px;
+}
 #menuGestion #elem_left .elem_gestion {
     margin-bottom : 15px;
     line-height: 200px;
@@ -171,12 +203,179 @@ footer.page-footer {
     line-height: normal;
     display: inline-block;
     padding-top: 80px;
+
 }
 
 
 #menuGestion #elem_right .elem_gestion {
     line-height: 415px;
     height: 415px;
+
+}
+
+
+
+@media screen and (min-width: 1092px) and (max-width: 1092px) {
+
+
+/**** SOUS TITRE MENU GESTION ***/
+
+#arrowBack {
+    position: relative;
+    top : 55px;
+
+    .brand-logo {
+        margin-left: 100px;
+    }
+
+
+}
+
+.soustitre {
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+
+
+
+    border-bottom: solid 1px black;
+
+
+
+
+    margin-top: 2px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 35px;
+    font-weight: 500;
+
+
+}
+
+/***** INSCRIPTION ****/
+
+
+#inscription {
+    margin-top: 50px;
+}
+
+
+#inscription .card-panel {
+    background-color: #3498DB;
+}
+
+
+/**** MENU GESTION ***/
+
+#menuGestion .elem_gestion {
+    background-color: #3498DB;
+    /*
+    border: 5px black solid;
+    border-color: #FF7F50;
+    */
+    box-shadow: 2px 2px 5px black;
+
+    height: 200px;
+    margin-right: 4%;
+    color: white;
+
+    font-weight: 500;
+    font-size: 20px;
+
+/* label color */
+.input-field label {
+    color: #FF7F50;
+}
+/* label focus color */
+.input-field input[type=text]:focus + label {
+    color: #FF7F50;
+}
+/* label underline focus color */
+.input-field input[type=text]:focus {
+    border-bottom: 1px solid #FF7F50;
+    box-shadow: 0 1px 0 0 #FF7F50;
+}
+
+#menuGestion .row {
+    margin-bottom: 0px;
+}
+/* valid color */
+.input-field input[type=text].valid {
+    border-bottom: 1px solid #FF7F50;
+    box-shadow: 0 1px 0 0 #FF7F50;
+}
+/* invalid color */
+.input-field input[type=text].invalid {
+    border-bottom: 1px solid #FF7F50;
+    box-shadow: 0 1px 0 0 #FF7F50;
+}
+/* icon prefix focus color */
+.input-field .prefix.active {
+    color: #FF7F50;
+
+}
+
+#menuGestion .row .col{
+    padding: 0px;
+}
+
+
+
+#menuGestion #elem_left .elem_gestion {
+    margin-bottom : 15px;
+    line-height: 200px;
+}
+/* label focus color */
+.input-field input[type=email]:focus + label {
+    color: #FF7F50;
+}
+/* label underline focus color */
+.input-field input[type=email]:focus {
+    border-bottom: 1px solid #FF7F50;
+    box-shadow: 0 1px 0 0 #FF7F50;
+}
+/* valid color */
+.input-field input[type=email].valid {
+    border-bottom: 1px solid #FF7F50;
+    box-shadow: 0 1px 0 0 #FF7F50;
+}
+/* invalid color */
+.input-field input[type=email].invalid {
+    border-bottom: 1px solid #FF7F50;
+    box-shadow: 0 1px 0 0 #FF7F50;
+
+}
+
+#menuGestion #elem_left .elem_gestion:first-child{
+    line-height: normal;
+    display: inline-block;
+    padding-top: 80px;
+}
+
+
+
+#menuGestion #elem_right .elem_gestion {
+    line-height: 415px;
+    height: 415px;
+}
+/* label focus color */
+.input-field input[type=password]:focus + label {
+    color: #FF7F50;
+}
+/* label underline focus color */
+.input-field input[type=password]:focus {
+    border-bottom: 1px solid #FF7F50;
+    box-shadow: 0 1px 0 0 #FF7F50;
+}
+/* valid color */
+.input-field input[type=password].valid {
+    border-bottom: 1px solid #FF7F50;
+    box-shadow: 0 1px 0 0 #FF7F50;
+}
+/* invalid color */
+.input-field input[type=password].invalid {
+    border-bottom: 1px solid #FF7F50;
+    box-shadow: 0 1px 0 0 #FF7F50;
+
 }
 
 @media screen and (min-width: 1092px) and (max-width: 1092px) {
@@ -185,15 +384,60 @@ footer.page-footer {
         margin-left: 100px;
     }
 
+/* label focus color */
+.input-field textarea[class=materialize-textarea]:focus + label {
+    color: #FF7F50;
+}
+/* label underline focus color */
+.input-field textarea[class=materialize-textarea]:focus {
+    border-bottom: 1px solid #FF7F50;
+    box-shadow: 0 1px 0 0 #FF7F50;
+}
+/* valid color */
+.input-field textarea[class=materialize-textarea].valid {
+    border-bottom: 1px solid #FF7F50;
+    box-shadow: 0 1px 0 0 #FF7F50;
+}
+/* invalid color */
+.input-field textarea[class=materialize-textarea].invalid {
+    border-bottom: 1px solid #FF7F50;
+    box-shadow: 0 1px 0 0 #FF7F50;
 }
 
 
+#connexion .btn {
+    background-color: white;
+    color: #3498DB;
+}
 
 
+#connexion .btn:hover {
+    background-color: #FF7F50;
+    color: white;
+}
+
+#inscription .btn {
+    background-color: white;
+    color: #3498DB;
+}
 
 
+#inscription .btn:hover {
+    background-color: #FF7F50;
+    color: white;
+}
 
 
+#contact .btn {
+    background-color: white;
+    color: #3498DB;
+}
+
+
+#contact .btn:hover {
+    background-color: #FF7F50;
+    color: white;
+}
 
 
 
@@ -210,8 +454,14 @@ footer.page-footer {
 }
 
 
-#inscription {
+
+#connexion {
+
     margin-top: 50px;
+}
+
+#connexion .card-panel {
+    background-color: #3498DB;
 }
 
 
@@ -220,7 +470,9 @@ footer.page-footer {
 }
 
 
+
 /** CONNEXION **/
+
 
 #connexion {
     margin-top: 50px;
@@ -235,9 +487,13 @@ footer.page-footer {
 #connexion .btn:hover {
     background-color: #FF7F50;
     color: white;
+
+#contact {
+    margin-top: 50px;
 }
 
 /** CONTACT */
+
 
 #contact {
     margin-top: 50px;
@@ -252,6 +508,12 @@ footer.page-footer {
 #contact .btn:hover {
     background-color: #FF7F50;
     color: white;
+}
+
+
+
+#contact .card-panel {
+    background-color: #3498DB;
 }
 
 
@@ -272,6 +534,7 @@ footer.page-footer {
 #gestionExemplaires #mode_edit {
     position: relative;
     cursor : pointer;
+
     line-height: 1.8;
 }
 
@@ -357,15 +620,36 @@ footer.page-footer {
 
 .supprimerAutorité p , form {
     text-align: center;
+
+}
+
+#gestionExemplaires .card {
+    background-color: #777;
+}
+
+#gestionExemplaires #check_notice {
+    position: absolute;
+    top: 20px;
+    right: 70px;
+    cursor: pointer;
+}
+
+#gestionExemplaires #cancel_edit {
+    cursor: pointer;
 }
 
 
+#gestionExemplaires .mode_edit_exemplaire {
+    cursor: pointer;
+}
 
 
-
-
-
-
+/**** GESTION UTILISATEUR ****/
+#gestionUtilisateurs #admin{
+    position : relative;
+    top: 5px;
+    right: 15px;
+}
 
 
 /* label color */
@@ -382,6 +666,7 @@ footer.page-footer {
     box-shadow: 0 1px 0 0 #FF7F50;
 }
 
+
 /* valid color */
 .input-field input[type=text].valid {
     border-bottom: 1px solid #FF7F50;
@@ -395,6 +680,10 @@ footer.page-footer {
 /* icon prefix focus color */
 .input-field .prefix.active {
     color: #FF7F50;
+}
+
+#gestionExemplaires #check_exemplaire {
+    cursor: pointer;
 }
 
 
@@ -420,6 +709,7 @@ footer.page-footer {
 
 
 
+
 /* label focus color */
 .input-field input[type=password]:focus + label {
     color: #FF7F50;
@@ -438,6 +728,10 @@ footer.page-footer {
 .input-field input[type=password].invalid {
     border-bottom: 1px solid #FF7F50;
     box-shadow: 0 1px 0 0 #FF7F50;
+}
+#gestionExemplaires #cancel_edit_exemplaire {
+    cursor: pointer;
+
 }
 
 
@@ -461,3 +755,4 @@ footer.page-footer {
     border-bottom: 1px solid #FF7F50;
     box-shadow: 0 1px 0 0 #FF7F50;
 }
+
