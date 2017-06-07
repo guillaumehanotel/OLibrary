@@ -158,7 +158,7 @@ footer.page-footer {
 
 
 @media screen and (min-width: 1092px) and (max-width: 1092px) {
-
+    
     .brand-logo {
         margin-left: 100px;
     }
@@ -274,8 +274,9 @@ footer.page-footer {
 #connexion .btn:hover {
     background-color: #FF7F50;
     color: white;
-
 }
+
+
 
 
 /** CONTACT */
