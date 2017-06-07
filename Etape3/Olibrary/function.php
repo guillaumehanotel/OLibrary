@@ -51,6 +51,20 @@ function isEnRetard($date){
     }
 }
 
+function getEmprunt($bdd, $id){
+    $requeteemprunt = "SELECT * FROM emprunte WHERE exemplaire_id=$id ORDER BY emprunt_retour DESC";
+    return getResultatRequete($bdd, $requeteemprunt);
+}
+
+function isReservation($bdd, $id){
+    return ( getEmprunt($bdd, $id)['is_reservation'] == 1 ) ? true : false;
+}
+
+function getDateRetour($bdd, $id){
+    return getEmprunt($bdd, $id)['emprunt_retour'];
+}
+
+
 
 
 function getResultatsRequete($bdd, $requete){

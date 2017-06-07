@@ -8,10 +8,12 @@
         <strong>Prénom : </strong><?= $req_user['user_prenom'];?><br>
         <strong>Adresse de messagerie : </strong><?= $req_user['user_mail'];?><br/>
 
+        <div class="divider"></div>
 
+        <div class="row center">
+            <a class="blue waves-effect waves-light btn" href="#modal1">Modifier les informations</a>
+        </div>
 
-
-        <a class="waves-effect waves-light btn" href="#modal1">Modifier les informations</a>
 
         <!-- Modal Structure -->
         <div id="modal1" class="modal">
@@ -51,9 +53,9 @@
         </div>
 
 
-
-        <a class="waves-effect waves-light btn" href="#modal2">Supprimer le compte</a>
-
+        <div class="row center">
+            <a class="red waves-effect waves-light btn" href="#modal2">Supprimer le compte</a>
+        </div>
         <!-- Modal Structure -->
         <div id="modal2" class="modal">
             <div class="modal-content">
@@ -73,6 +75,9 @@
         </div>
         <?php
     } ?>
+
+
+    <div class="divider"></div>
 
     <?php
     if(!empty($requete_emprunt)){ ?>
@@ -115,12 +120,12 @@
         <h4>Livres réservés :</h4>
 
 
-        <table class="highlight">
+        <table class="highlight centered striped responsive-table"">
             <thead>
             <tr>
                 <th>Titre du livre</th>
-                <th>Date d'emprunt</th>
-                <th>Date de retour</th>
+                <th>Date de réservation</th>
+                <th>Date de disponibilité</th>
                 <th>Action</th>
             </tr>
             </thead>
@@ -135,7 +140,7 @@
                     <td>
                         <form action="" method="post">
                             <input type="hidden" name="exemplaire_id" value="<?= $req_resa['exemplaire_id']?>">
-                            <input type="submit" name="annuler" value="Annuler">
+                            <input type="submit" class="red btn" name="annuler" value="Annuler">
                         </form>
                     </td>
                 </tr>

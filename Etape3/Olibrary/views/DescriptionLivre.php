@@ -55,26 +55,16 @@ $auteur_id = $resultat_notice['auteur_id'];
                                 <td>
                                     <?php
                                     $exemplaire_id = $res_exemplaire['exemplaire_id'];
-                                    $requeteemprunt = "SELECT * FROM emprunte WHERE exemplaire_id=$exemplaire_id ORDER BY emprunt_retour DESC";
-                                    $reponse_emprunt = $bdd->query($requeteemprunt);
-                                    $resultat_emprunt = $reponse_emprunt->fetch();
 
-                                    $reservation = $resultat_emprunt['is_reservation'];
-
-                                    $minDateResa=$resultat_emprunt['emprunt_retour'];
+                                    $minDateResa = getDateRetour($bdd, $exemplaire_id);
                                     $maxDateResa = strtotime(date("Y-m-d", strtotime($minDateResa)) . " +3 week");
-                                    $maxDateResa=date("Y-m-d",$maxDateResa);
+                                    $maxDateResa = date("Y-m-d",$maxDateResa);
 
-                                    if ($reservation == 1) {
-                                        //Si le livre est réservé
-                                        $bouton = "RESERVER";
-                                    } elseif ($reservation == NULL){
-                                        $bouton = "EMPRUNTER";
-                                    } elseif ($reservation == 0) {
-                                        $bouton = "RESERVER";
-                                    } ?>
+                                    $bouton = ( isReservation($bdd, $exemplaire_id) == 1 ) ? "RESERVER" : "EMPRUNTER";
 
-                                    <a class="waves-effect waves-light btn" href="#<?= $bouton ?>/?idex=<?=$res_exemplaire['exemplaire_id']?>"><?= $bouton ?></a>
+                                    ?>
+
+                                    <a class="blue waves-effect waves-light btn" href="#<?= $bouton ?>/?idex=<?=$res_exemplaire['exemplaire_id']?>"><?= $bouton ?></a>
                                 </td>
                             </tr>
 
@@ -112,15 +102,14 @@ $auteur_id = $resultat_notice['auteur_id'];
                                                 <input type="hidden" name="exemplaireid" class="validate" value="<?= $res_exemplaire['exemplaire_id'] ?>">
 
                                                 <div class="input-field col s6">
-                                                    <input type="submit" class="btn" value="Emprunter" name="valideremprunt">
+                                                    <input type="submit" class="blue btn" value="Emprunter" name="valideremprunt">
                                                 </div>
 
                                             </form>
                                         </div>
 
                                         <div class="modal-footer">
-                                            <a href=""
-                                               class="modal-action modal-close waves-effect waves-green btn-flat">Annuler</a>
+                                            <a href="" class="red white-text modal-action modal-close waves-effect waves-green btn-flat">Annuler</a>
                                         </div>
                                     </div>
                                 <?php } elseif ($bouton == "RESERVER") { ?>
@@ -138,13 +127,13 @@ $auteur_id = $resultat_notice['auteur_id'];
                                                 <input type="hidden" name="date_emprunt" value="<?= $minDateResa ?>">
                                                 <input type="hidden" name="exemplaireid" class="validate" value="<?= $res_exemplaire['exemplaire_id'] ?>">
                                                 <div class="input-field col s6">
-                                                    <input type="submit" class="btn" value="Reserver" name="validerresa">
+                                                    <input type="submit" class="blue btn" value="Reserver" name="validerresa">
                                                 </div>
                                             </form>
                                         </div>
                                         <div class="modal-footer">
                                             <a href=""
-                                               class="modal-action modal-close waves-effect waves-green btn-flat">Annuler</a>
+                                               class="red white-text modal-action modal-close waves-effect waves-green btn-flat">Annuler</a>
                                         </div>
                                     </div>
                                     <?php

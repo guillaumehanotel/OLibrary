@@ -1,23 +1,37 @@
 <?php
 
-$notice_id=$_GET['id'];
-$description=$bdd->query("SELECT * FROM notice n left outer JOIN exemplaire ex ON n.notice_id=ex.exemplaire_notice_id 
-                                                         left outer JOIN emprunte em ON ex.exemplaire_id=em.exemplaire_id 
-                                  WHERE n.notice_id=$notice_id ");
-$description_livre = $description->fetch();
+$notice_id=securify($_GET['id']);
+
+
+/** récupère la notice  */
+$requete_livre = "SELECT * FROM notice n
+                  left outer JOIN exemplaire ex ON n.notice_id=ex.exemplaire_notice_id
+                  left outer JOIN emprunte em ON ex.exemplaire_id=em.exemplaire_id
+                  WHERE n.notice_id=$notice_id ";
+
+$description_livre = getResultatRequete($bdd, $requete_livre);
+
+
 
 $requete_notice =
     "SELECT *
         FROM notice n, auteur a
         WHERE n.notice_auteur_id = a.auteur_id
         AND notice_id = '$notice_id'";
+$resultat_notice = getResultatRequete($bdd, $requete_notice);
 
-$reponse_notice = $bdd->query($requete_notice);
-$resultat_notice = $reponse_notice->fetch();
 
-$requeteresa=$bdd->query("SELECT * FROM emprunte em right outer JOIN exemplaire ex ON em.exemplaire_id=ex.exemplaire_id 
-                                  WHERE ex.exemplaire_notice_id=$notice_id");
-$requete_resa=$requeteresa->fetchAll();
+
+
+$requete_resa = "SELECT * FROM emprunte em
+                 right outer JOIN exemplaire ex ON em.exemplaire_id=ex.exemplaire_id
+                 WHERE ex.exemplaire_notice_id=$notice_id";
+$requete_resa = getResultatsRequete($bdd, $requete_resa);
+
+
+
+
+
 
 $requete_exemplaire =
     "SELECT *
@@ -28,8 +42,10 @@ $requete_exemplaire =
     AND c.editeur_id = ed.editeur_id
     AND n.notice_id = '$notice_id'";
 
-$reponse_exemplaire = $bdd->query($requete_exemplaire);
-$resultat_exemplaire = $reponse_exemplaire->fetchAll();
+$resultat_exemplaire = getResultatsRequete($bdd, $requete_exemplaire);
+
+
+
 
 date_default_timezone_set('UTC');
 $dateJour = date("Y-m-d");

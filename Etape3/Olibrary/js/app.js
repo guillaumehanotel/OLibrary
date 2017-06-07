@@ -18,6 +18,9 @@ $(document).ready(function() {
 
 
 
+    $("#close").click(function(){
+        $("#search").val('');
+    });
 
 
     // BARRE DE RECHERCHE
