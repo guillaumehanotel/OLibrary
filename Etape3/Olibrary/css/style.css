@@ -201,47 +201,6 @@ footer.page-footer {
     background-color: #3498DB;
 }
 
-
-
-#connexion .btn {
-    background-color: white;
-    color: #3498DB;
-}
-
-
-#connexion .btn:hover {
-    background-color: #FF7F50;
-    color: white;
-}
-
-#inscription .btn {
-    background-color: white;
-    color: #3498DB;
-}
-
-
-#inscription .btn:hover {
-    background-color: #FF7F50;
-    color: white;
-}
-
-
-#contact .btn {
-    background-color: white;
-    color: #3498DB;
-}
-
-
-#contact .btn:hover {
-    background-color: #FF7F50;
-    color: white;
-}
-
-
-
-
-/** INSCRIPTION **/
-
 #inscription .btn {
     background-color: white;
     color: #3498DB;
@@ -252,11 +211,9 @@ footer.page-footer {
     color: white;
 }
 
-
-#inscription .card-panel {
-    background-color: #3498DB;
+#inscription .input-field.col label {
+    left: 0rem;
 }
-
 
 
 /** CONNEXION **/
@@ -276,6 +233,11 @@ footer.page-footer {
     background-color: #FF7F50;
     color: white;
 }
+
+#connexion .input-field.col label {
+    left: 0rem;
+}
+
 
 
 
@@ -297,8 +259,6 @@ footer.page-footer {
     background-color: #FF7F50;
     color: white;
 }
-
-
 
 #contact .card-panel {
     background-color: #3498DB;
@@ -353,10 +313,6 @@ footer.page-footer {
     font-size: 20px;
 }
 
-#gestionExemplaires .card {
-    /* background-color: #777;*/
-}
-
 #gestionExemplaires #check_notice {
     position: absolute;
     top: 20px;
@@ -399,45 +355,21 @@ footer.page-footer {
 }
 
 
+
+
 /** GESTION AUTORITES **/
 #gestionAutorites h3{
     text-align: center;
 }
-
-
 
 .supprimerAutorité p , form {
     text-align: center;
 
 }
 
-#gestionExemplaires .card {
-    background-color: #777;
-}
-
-#gestionExemplaires #check_notice {
-    position: absolute;
-    top: 20px;
-    right: 70px;
-    cursor: pointer;
-}
-
-#gestionExemplaires #cancel_edit {
-    cursor: pointer;
-}
 
 
-#gestionExemplaires .mode_edit_exemplaire {
-    cursor: pointer;
-}
 
-
-/**** GESTION UTILISATEUR ****/
-#gestionUtilisateurs #admin{
-    position : relative;
-    top: 5px;
-    right: 15px;
-}
 
 
 /* label color */

@@ -1,7 +1,7 @@
 <main id="connexion" class="container">
 
     <div class="row">
-        <div id="carte" class="card-panel hoverable col s12 m8 l6 offset-l3 offset-m2 ">
+        <div id="carte" class="card-panel col s12 m8 l6 offset-l3 offset-m2 ">
             <h2 class=" white-text center">Connexion</h2>
 
 
@@ -16,7 +16,7 @@
 
 
                         <div class="row">
-                            <div class="input-field col m6 s10 offset-m3 offset-s1 white-text">
+                            <div class=" center input-field col m6 s10 offset-m3 offset-s1 white-text">
                                 <input id="email" name="email" type="text" class="validate">
                                 <label class="white-text" for="email">Adresse Mail</label>
                             </div>
