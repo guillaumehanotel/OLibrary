@@ -7,58 +7,43 @@ PITAULT Cyriaque
 GARDIN Kélian
 
 
-*réservation : un utilisateur réserve un livre si il n'y a plus d'exemplaires en stock -> livres présent dans la table emprunte avec is_reservation à 1*
-
-*emprunt : un utilisateur emprunte un exemplaire d'un livre pour une période donnée -> livres présent dans la table emprunte avec is_reservation à 0*
 
 ## Espace perso utilisateur :
 
-* Voir son nom, prénom, mail
-* Modifier mail, mdp (nom, prénom ?)
-* Voir les livres qu'il a emprunté 
-* Voir à quelle date se fini chacun de ses emprunts (nom livre, dates, bouton rendre ?)
+
 * Affichage d'un message d'alerte l'informant qu'il n'a pas rendu un livre à temps
-* Voir les livres qu'il a réservés (bouton pour annuler la réservation)
-* Suppression de son compte ?
+* Voir les livres qu'il a réservés (bouton pour annuler la réservation) corriger intitulé tableau
+
 
 
 ## Espace admin
 
 ### Gestion des notices et des exemplaires
 
-* Option pour trier la liste 
-  * par auteur
-  * par année
-  * afficher tous les exemplaires d'un livre ou seulement une notice 
-  * par collection 
-  * par founisseur
-  
 
+ * corriger CSS notice
 
 ### Gestion des Emprunteurs
 
-* Liste des users qui ont empruntés (liste des livres empruntés, durées)
-* Mise en avant des utilisateurs qui n'ont pas rendu à temps un livre
-* Liste des users ayant fait des réservations( en attente qu'un exemplaire se libère( avec un compte à rebours ? ))
-
-
+* Une fois que le livre réservé a été rendu par l'utilisateur, il faut que la personne ayant réservé soit informé qu'un exemplaire est libre et qu'il peut le réserver.
 
 
 ### Gestion des Autorités
 
+* aligner les btn au centre, ajouter des espaces
 * Vérifier l'input utilisateur / clean le controller
 
 ### Gestion/Circulation des Documents
 
-* Liste des exemplaires empruntés et réservés
+* Liste des exemplaires empruntés et réservés (séparer les deux ?)
+* Liste des documents en retard/ devant être rendus
+* flèche retour
 
 
 
 ### Gestion des Utilisateurs
 
-* Liste de tous utilisateurs
-* Modif des users (nom/prénom/mdp/mail?/passer en admin)
-* Delete user ?
+
 
 
 
