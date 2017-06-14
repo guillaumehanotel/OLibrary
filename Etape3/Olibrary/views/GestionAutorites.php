@@ -11,7 +11,9 @@
 
 
     <!-- Modal Trigger -->
-    <a class="green waves-effect waves-light btn" href="#modal_auteur">Ajouter un auteur</a>
+    <div class="row center">
+        <a class="green waves-effect waves-light btn" href="#modal_auteur">Ajouter un auteur</a>
+    </div>
 
     <!-- Modal Structure -->
     <div id="modal_auteur" class="modal">
@@ -70,9 +72,6 @@
 
 
 
-
-    <h3>Ajouter un editeur :</h3>
-
     <!-- Modal Structure -->
     <div id="modal_edit_auteur" class="modal modal-fixed-footer">
 
@@ -120,9 +119,9 @@
 
     <h3>EDITEURS</h3>
 
-
-    <a class="green waves-effect waves-light btn" href="#modal_editeur">Ajouter un éditeur</a>
-
+    <div class="row center">
+        <a class="green waves-effect waves-light btn" href="#modal_editeur">Ajouter un éditeur</a>
+    </div>
 
     <!-- Modal Structure -->
     <div id="modal_editeur" class="modal">
@@ -218,8 +217,9 @@
 
     <h3>FOURNISSEURS</h3>
 
-
-    <a class="green waves-effect waves-light btn" href="#modal_fournisseur">Ajouter un fournisseur</a>
+    <div class="row center">
+        <a class="green waves-effect waves-light btn" href="#modal_fournisseur">Ajouter un fournisseur</a>
+    </div>
 
     <!-- Modal Structure -->
     <div id="modal_fournisseur" class="modal">
@@ -316,8 +316,9 @@
 
     <h3>COLLECTIONS</h3>
 
-
-    <a class="green waves-effect waves-light btn" href="#modal_collection">Ajouter une collection</a>
+    <div class="row center">
+        <a class="green waves-effect waves-light btn" href="#modal_collection">Ajouter une collection</a>
+    </div>
 
     <!-- Modal Structure -->
     <div id="modal_collection" class="modal">

@@ -1,6 +1,10 @@
 <main id="gestionEmprunteurs"  class="content container">
 
-    <h2 class="soustitre">Gestion des Emprunteurs</h2>
+
+    <div class="row">
+        <a href="<?= BASE_URL."/menugestion/"; ?>"><i id="arrowBack" class="black-text fa fa-arrow-left fa-2x" aria-hidden="true"></i></a>
+        <h2 class="soustitre">GESTION DES EMPRUNTEURS</h2>
+    </div>
 
 
 
@@ -8,13 +12,13 @@
     if($resultat_cpt_retard['cpt'] != 0) {
         ?>
 
-        <h3>Liste des retards</h3>
+        <h3 class="center">Liste des retards</h3>
         <table class="centered striped">
             <thead>
             <tr>
             <tr>
                 <th data-field="utilisateur"><a id="utilisateur" href="#" class="asc">Utilisateur</a></th>
-                <th data-field="notice"><a id="notice" href="#" class="asc">Nom des Livres</a></th>
+                <th data-field="notice"><a id="notice" href="#" class="asc">Titre</a></th>
                 <th data-field="dateEmprunt"><a id="dateEmprunt" href="#" class="asc">Emprunt date début</a></th>
                 <th data-field="dateEmpruntRetour"><a id="dateEmpruntRetour" href="#" class="asc">Emprunt date
                         retour</a></th>
@@ -38,6 +42,7 @@
         </table>
         <br>
 
+        <div class="divider"></div>
 
         <?php
     }
@@ -45,13 +50,14 @@
 
 
 
-    <h3>Liste des emprunts</h3>
+
+    <h3 class="center">Liste des emprunts</h3>
     	 <table class="centered striped">
     	 <thead>
     	 <tr>
     	 	<tr>
                 <th data-field="utilisateur"><a id="utilisateur" href="#" class="asc">Utilisateur</a></th>
-                <th data-field="notice"><a id="notice" href="#" class="asc">Nom des Livres</a></th>
+                <th data-field="notice"><a id="notice" href="#" class="asc">Titre</a></th>
                 <th data-field="dateEmprunt"><a id="dateEmprunt" href="#" class="asc">Emprunt date début</a></th>
                 <th data-field="dateEmpruntRetour"><a id="dateEmpruntRetour" href="#" class="asc">Emprunt date retour</a></th>
          </tr>
@@ -74,18 +80,18 @@
          </table>
     <br>
 
+    <div class="divider"></div>
 
 
 
 
 
-
-    <h3>Liste des réservations</h3>
+    <h3 class="center">Liste des réservations</h3>
     <table class="centered striped">
         <thead>
         <tr>
             <th data-field="utilisateur"><a id="utilisateur" href="#" class="asc">Utilisateur</a></th>
-            <th data-field="notice"><a id="notice" href="#" class="asc">Nom des Livres</a></th>
+            <th data-field="notice"><a id="notice" href="#" class="asc">Titre</a></th>
             <th data-field="dateEmprunt"><a id="dateEmprunt" href="#" class="asc">Emprunt date début</a></th>
             <th data-field="dateEmpruntRetour"><a id="dateEmpruntRetour" href="#" class="asc">Emprunt date retour</a></th>
         </tr>

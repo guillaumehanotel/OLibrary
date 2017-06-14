@@ -354,7 +354,9 @@ footer.page-footer {
     cursor: pointer;
 }
 
-
+#gestionExemplaires .divider{
+    margin-bottom: 50px;
+}
 
 
 /** GESTION AUTORITES **/
@@ -362,11 +364,14 @@ footer.page-footer {
     text-align: center;
 }
 
-.supprimerAutorité p , form {
+#gestionAutorites .supprimerAutorité p , form {
     text-align: center;
 
 }
 
+#gestionAutorites .divider{
+    margin-bottom: 50px;
+}
 
 
 
