@@ -11,7 +11,7 @@
         <div class="divider"></div>
 
         <div class="row center">
-            <a class="blue waves-effect waves-light btn" href="#modal1">Modifier les informations</a>
+            <a class="blue waves-effect waves-light btn" href="#modal1">Modifier votre profil</a>
         </div>
 
 
@@ -54,7 +54,7 @@
 
 
         <div class="row center">
-            <a class="red waves-effect waves-light btn" href="#modal2">Supprimer le compte</a>
+            <a class="red waves-effect waves-light btn" href="#modal2">Supprimer votre compte</a>
         </div>
         <!-- Modal Structure -->
         <div id="modal2" class="modal">
@@ -105,7 +105,7 @@
                     <td>
                         <form action="" method="post">
                             <input type="hidden" name="exemplaire_id" value="<?= $req_emprunt['exemplaire_id']?>">
-                            <input type="submit" name="rendre" value="Rendre">
+                            <input type="submit" class="btn green" name="rendre" value="Rendre">
                         </form>
                     </td>
                 </tr>

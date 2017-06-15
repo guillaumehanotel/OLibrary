@@ -1,9 +1,9 @@
 <main id="mentionsLegales"  class="content container">
 
 <h2 class="sous-titre">Mentions Légales</h2>
-<h4>Le texte ci dessous est totalement faux ! / Warning fake informations below</h4>
 
-<h5 >Éditeur</h5>
+
+<h5>Éditeur</h5>
 <p >La Bibliothèque OLibrary un service de la Ville de Babule.
 Ce site Internet est le site officiel dela Bibliothèque municipale de Babule.
 Directeur de la publication : Pitault Cyriaque</p>
