@@ -90,8 +90,14 @@
                                     <a href="<?php echo BASE_URL."/index/" ?>" class="brand-logo col m4 offset-m2 offset-l2 "><i class="fa fa-book fa-2x" aria-hidden="true"></i><h1>OLibrary</h1></a>
 
                                     <ul id="nav-mobile" class=" col m5 right hide-on-med-and-down">
-                                        <li><a href="<?= BASE_URL."/espaceperso/" ?>">Espace Perso</a></li>
-                                        <li><a href="<?= BASE_URL."/deconnexion/" ?>">Deconnexion</a></li>
+                                        <?php
+                                        if(true){
+                                            echo "<li></li>";
+                                        }
+                                        ?>
+                                        <li><a href="<?= BASE_URL."/espaceperso/" ?>">Mon Compte</a></li>
+                                        <li id="log_off"><a href="<?= BASE_URL."/deconnexion/" ?>"><i class="white-text fa fa-2x fa-power-off" aria-hidden="true"></i></a></li>
+
 
                                     </ul>
 
@@ -100,7 +106,7 @@
 
 
                             <ul class="side-nav" id="mobile-demo">
-                                <li><a href="<?= BASE_URL."/espaceperso/" ?>">Espace Perso</a></li>
+                                <li><a href="<?= BASE_URL."/espaceperso/" ?>">Mon Compte</a></li>
                                 <li><a href="<?= BASE_URL."/deconnexion/" ?>">Deconnexion</a></li>
                             </ul>
 

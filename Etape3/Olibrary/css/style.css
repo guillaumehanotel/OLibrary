@@ -70,6 +70,16 @@ h1 {
     font-weight: 800;
 }
 
+
+header #log_off a i {
+    line-height: 64px;
+}
+
+header #log_off a {
+    height: 64px;
+}
+
+
 footer.page-footer {
     background-color: #3498DB;
     color: white;
