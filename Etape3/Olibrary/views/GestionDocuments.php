@@ -31,13 +31,7 @@
 
             <td> <?= $emprunt['notice_titre']; ?> </td>
             <td> <?= $emprunt['user_prenom']; ?> <?= $emprunt['user_nom']; ?> </td>
-            <td><?php if($emprunt['is_reservation']){
-                    echo "Réservation";
-                } else {
-                    echo "Emprunt";
-                }
-                ?>
-            </td>
+            <td><?= $emprunt['is_reservation'] ? "Réservation" : "Emprunt"; ?></td>
             <td> <?=    date('d/m/Y', strtotime($emprunt['emprunt_date']))      ; ?> </td>   
             <td> <?= date('d/m/Y', strtotime($emprunt['emprunt_retour'])); ?> </td>
 
@@ -70,13 +64,7 @@
 
             <td> <?= $emprunt['notice_titre']; ?> </td>
             <td> <?= $emprunt['user_prenom']; ?> <?= $emprunt['user_nom']; ?> </td>
-            <td><?php if($emprunt['is_reservation']){
-                    echo "Réservation";
-                } else {
-                    echo "Emprunt";
-                }
-                ?>
-            </td>
+            <td><?= $emprunt['is_reservation'] ? "Réservation" : "Emprunt"; ?></td>
             <td> <?=    date('d/m/Y', strtotime($emprunt['emprunt_date']))      ; ?> </td>   
             <td> <?= date('d/m/Y', strtotime($emprunt['emprunt_retour'])); ?> </td>
 

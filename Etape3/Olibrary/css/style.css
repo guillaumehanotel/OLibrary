@@ -71,11 +71,11 @@ h1 {
 }
 
 
-header #log_off a i {
+header .icon_nav a i {
     line-height: 64px;
 }
 
-header #log_off a {
+header .icon_nav a {
     height: 64px;
 }
 
