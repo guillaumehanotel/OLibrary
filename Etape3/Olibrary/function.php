@@ -36,6 +36,8 @@ function securify($str){
     return htmlspecialchars($string);
 }
 
+
+/*
 function isEnRetard($date){
 
     // comparer date du jour et date en paramètre et renvoie vrai si la date passée en paramètre est supérieur à la date du jour
@@ -44,12 +46,49 @@ function isEnRetard($date){
     $today_time = strtotime($today);
     $date_time = strtotime($date);
 
-    if ($today_time > $date_time) {
-        return true;
-    } else {
-        return false;
-    }
+    return $today_time > $date_time ? true : false;
 }
+*/
+
+// $_SESSION['user_num']
+function isEnRetard($bdd, $user_id){
+    $requete_pret=
+        "SELECT *
+	FROM utilisateur u, emprunte em, exemplaire ex, notice n
+	WHERE u.user_num = em.user_num
+	AND em.exemplaire_id = ex.exemplaire_id
+	AND ex.exemplaire_notice_id = n.notice_id
+	AND u.user_num = $user_id ";
+
+// Seulement les emprunts
+    $requete_emprunt = $requete_pret . " AND is_reservation = 0";
+
+// Seulement les emprunts en retard
+    $requete_emprunt_retard = $requete_emprunt . " AND em.emprunt_retour < now()";
+    $resultat_emprunt_retard = getResultatsRequete($bdd, $requete_emprunt_retard);
+
+    return !empty($resultat_emprunt_retard) ? true : false;
+
+}
+
+
+
+
+
+
+function getEmprunt($bdd, $id){
+    $requeteemprunt = "SELECT * FROM emprunte WHERE exemplaire_id=$id ORDER BY emprunt_retour DESC";
+    return getResultatRequete($bdd, $requeteemprunt);
+}
+
+function isReservation($bdd, $id){
+    return ( getEmprunt($bdd, $id)['is_reservation'] == 1 ) ? true : false;
+}
+
+function getDateRetour($bdd, $id){
+    return getEmprunt($bdd, $id)['emprunt_retour'];
+}
+
 
 
 

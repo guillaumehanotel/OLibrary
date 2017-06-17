@@ -1,7 +1,13 @@
 <main id="gestionUtilisateurs"  class="content container">
 
 
-           <h2 class="soustitre">Gestion des utilisateurs</h2>
+    <div class="row">
+
+        <a href="<?= BASE_URL."/menugestion/"; ?>"><i id="arrowBack" class="black-text fa fa-arrow-left fa-2x" aria-hidden="true"></i></a>
+        <h2 class="soustitre">GESTION DES UTILISATEURS</h2>
+
+
+    </div>
 
 
     <table class="centered striped">

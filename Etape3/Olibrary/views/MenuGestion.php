@@ -1,6 +1,9 @@
 <main id="menuGestion" class="container">
 
-           <h2 class="soustitre">Gestionnaire de l'application</h2>
+    <div class="row">
+        <a href="<?= BASE_URL."/index/"; ?>"><i id="arrowBack" class="black-text fa fa-arrow-left fa-2x" aria-hidden="true"></i></a>
+        <h2 class="soustitre">Gestionnaire de l'application</h2>
+    </div>
 
     <div class="row center-align ">
 

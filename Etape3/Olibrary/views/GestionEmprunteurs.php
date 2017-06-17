@@ -1,20 +1,26 @@
 <main id="gestionEmprunteurs"  class="content container">
 
-    <h2 class="soustitre">Gestion des Emprunteurs</h2>
+
+    <div class="row">
+        <a href="<?= BASE_URL."/menugestion/"; ?>"><i id="arrowBack" class="black-text fa fa-arrow-left fa-2x" aria-hidden="true"></i></a>
+        <h2 class="soustitre">GESTION DES EMPRUNTEURS</h2>
+    </div>
 
 
+
+    <!-- Liste des retardataires -->
 
     <?php
     if($resultat_cpt_retard['cpt'] != 0) {
         ?>
 
-        <h3>Liste des retards</h3>
+        <h3 class="center">Liste des retards</h3>
         <table class="centered striped">
             <thead>
             <tr>
             <tr>
                 <th data-field="utilisateur"><a id="utilisateur" href="#" class="asc">Utilisateur</a></th>
-                <th data-field="notice"><a id="notice" href="#" class="asc">Nom des Livres</a></th>
+                <th data-field="notice"><a id="notice" href="#" class="asc">Titre</a></th>
                 <th data-field="dateEmprunt"><a id="dateEmprunt" href="#" class="asc">Emprunt date début</a></th>
                 <th data-field="dateEmpruntRetour"><a id="dateEmpruntRetour" href="#" class="asc">Emprunt date
                         retour</a></th>
@@ -38,6 +44,7 @@
         </table>
         <br>
 
+        <div class="divider"></div>
 
         <?php
     }
@@ -45,13 +52,17 @@
 
 
 
-    <h3>Liste des emprunts</h3>
+    <!-- Liste des emprunteurs valides -->
+    <?php
+    if(!empty($resultat_emprunt_ok)) {
+    ?>
+    <h3 class="center">Liste des emprunts</h3>
     	 <table class="centered striped">
     	 <thead>
     	 <tr>
     	 	<tr>
                 <th data-field="utilisateur"><a id="utilisateur" href="#" class="asc">Utilisateur</a></th>
-                <th data-field="notice"><a id="notice" href="#" class="asc">Nom des Livres</a></th>
+                <th data-field="notice"><a id="notice" href="#" class="asc">Titre</a></th>
                 <th data-field="dateEmprunt"><a id="dateEmprunt" href="#" class="asc">Emprunt date début</a></th>
                 <th data-field="dateEmpruntRetour"><a id="dateEmpruntRetour" href="#" class="asc">Emprunt date retour</a></th>
          </tr>
@@ -73,39 +84,54 @@
          </tbody>
          </table>
     <br>
-
-
-
-
-
-
-
-    <h3>Liste des réservations</h3>
-    <table class="centered striped">
-        <thead>
-        <tr>
-            <th data-field="utilisateur"><a id="utilisateur" href="#" class="asc">Utilisateur</a></th>
-            <th data-field="notice"><a id="notice" href="#" class="asc">Nom des Livres</a></th>
-            <th data-field="dateEmprunt"><a id="dateEmprunt" href="#" class="asc">Emprunt date début</a></th>
-            <th data-field="dateEmpruntRetour"><a id="dateEmpruntRetour" href="#" class="asc">Emprunt date retour</a></th>
-        </tr>
-        </thead>
-        <tbody id="bodyEmprunts">
         <?php
-        foreach ($resultat_reservation as $value) {?>
-            <tr class="selectable link_emprunts" id="row_<?= $value['user_num'] ?>">
-                <td class="user_name"><?= $value['user_prenom'];?> <?=$value['user_nom'];?></td>
-                <td class="notice_name"><?= $value['notice_titre'];?></td>
-                <td class="emprunt_date"><?=  date('d/m/Y', strtotime($value['emprunt_date'])) ?></td>
-                <td class="emprunt_retour"><?=  date('d/m/Y', strtotime($value['emprunt_retour'])); ?></td>
-            </tr>
-            <?php
-        }
+    } else {
+        echo "<h4 class='center'>Aucun emprunt en cours</h4>";
+    }
+    ?>
+
+    <div class="divider"></div>
+
+
+
+    <!-- Liste des réservations -->
+
+    <?php
+    if(!empty($resultat_reservation)) {
         ?>
-        </tbody>
-    </table>
 
+        <h3 class="center">Liste des réservations</h3>
+        <table class="centered striped">
+            <thead>
+            <tr>
+                <th data-field="utilisateur"><a id="utilisateur" href="#" class="asc">Utilisateur</a></th>
+                <th data-field="notice"><a id="notice" href="#" class="asc">Titre</a></th>
+                <th data-field="dateEmprunt"><a id="dateEmprunt" href="#" class="asc">Emprunt date début</a></th>
+                <th data-field="dateEmpruntRetour"><a id="dateEmpruntRetour" href="#" class="asc">Emprunt date
+                        retour</a></th>
+            </tr>
+            </thead>
+            <tbody id="bodyEmprunts">
+            <?php
+            foreach ($resultat_reservation as $value) { ?>
+                <tr class="selectable link_emprunts" id="row_<?= $value['user_num'] ?>">
+                    <td class="user_name"><?= $value['user_prenom']; ?> <?= $value['user_nom']; ?></td>
+                    <td class="notice_name"><?= $value['notice_titre']; ?></td>
+                    <td class="emprunt_date"><?= date('d/m/Y', strtotime($value['emprunt_date'])) ?></td>
+                    <td class="emprunt_retour"><?= date('d/m/Y', strtotime($value['emprunt_retour'])); ?></td>
+                </tr>
+                <?php
+            }
+            ?>
+            </tbody>
+        </table>
 
+        <?php
+    } else {
+        echo "<h4 class='center'>Aucune réservation en cours</h4>";
+
+    }
+    ?>
 
 
 

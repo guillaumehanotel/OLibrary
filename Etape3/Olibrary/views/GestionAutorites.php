@@ -7,13 +7,15 @@
 
 
 
-        <h3>AUTEURS</h3>
+    <h3>AUTEURS</h3>
 
 
     <!-- Modal Trigger -->
-    <a class="green waves-effect waves-light btn" href="#modal_auteur">Ajouter un auteur</a>
+    <div class="row center">
+        <a class="green waves-effect waves-light btn" href="#modal_auteur">Ajouter un auteur</a>
+    </div>
 
-    <!-- Modal Structure -->
+    <!-- Form Add Auteur -->
     <div id="modal_auteur" class="modal">
         <div class="modal-content">
             <h4>Ajouter un auteur</h4>
@@ -34,51 +36,57 @@
         </div>
     </div>
 
-    <table class="centered striped responsive-table">
-        <thead>
-        <tr>
-            <th>Nom</th>
-            <th>Prénom</th>
 
-            <th>Modification</th>
-            <th>Suppression</th>
-
-        </tr>
-        </thead>
-        <tbody>
-        <?php foreach ($requete_auteur as $req_auteur){ ?>
+    <!-- Liste des auteurs -->
+    <?php
+    if(!empty($requete_auteur)) {
+        ?>
+        <table class="centered striped responsive-table">
+            <thead>
             <tr>
-                <td><?= $req_auteur['auteur_nom']?></td>
-                <td><?= $req_auteur['auteur_prenom']?></td>
-
-                <td >
-                    <a class="link_edit_auteur modal-trigger" href="#modal_edit_auteur"
-                       data-auteur_id="<?= $req_auteur['auteur_id']?>"
-                       data-auteur_nom="<?= $req_auteur['auteur_nom']?>"
-                       data-auteur_prenom="<?= $req_auteur['auteur_prenom']?>"
-                    >
-                        <i  class="material-icons">mode_edit</i>
-                    </a>
-                </td>
-                <td><a href="<?= BASE_URL."/SupprimerAuteur"; ?>/?id=<?= $req_auteur['auteur_id'] ?>"><i class="material-icons">delete</i></a></td>
-
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Modification</th>
+                <th>Suppression</th>
             </tr>
-        <?php } ?>
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+            <?php foreach ($requete_auteur as $req_auteur) { ?>
+                <tr>
+                    <td><?= $req_auteur['auteur_nom'] ?></td>
+                    <td><?= $req_auteur['auteur_prenom'] ?></td>
+
+                    <td>
+                        <a class="link_edit_auteur modal-trigger" href="#modal_edit_auteur"
+                           data-auteur_id="<?= $req_auteur['auteur_id'] ?>"
+                           data-auteur_nom="<?= $req_auteur['auteur_nom'] ?>"
+                           data-auteur_prenom="<?= $req_auteur['auteur_prenom'] ?>"
+                        >
+                            <i class="material-icons">mode_edit</i>
+                        </a>
+                    </td>
+                    <td><a href="<?= BASE_URL . "/SupprimerAuteur"; ?>/?id=<?= $req_auteur['auteur_id'] ?>"><i
+                                class="material-icons">delete</i></a></td>
+
+                </tr>
+            <?php } ?>
+            </tbody>
+        </table>
+        <?php
+    } else {
+        echo "<h4 class='center'>Aucun auteur</h4>";
+    }
+    ?>
 
 
 
 
-
-    <h3>Ajouter un editeur :</h3>
 
     <!-- Modal Structure -->
     <div id="modal_edit_auteur" class="modal modal-fixed-footer">
 
         <div class="modal-content">
             <h4>Modification Auteur</h4>
-
 
             <div class="row">
                 <form class="col s12" action="" method="post">
@@ -120,9 +128,9 @@
 
     <h3>EDITEURS</h3>
 
-
-    <a class="green waves-effect waves-light btn" href="#modal_editeur">Ajouter un éditeur</a>
-
+    <div class="row center">
+        <a class="green waves-effect waves-light btn" href="#modal_editeur">Ajouter un éditeur</a>
+    </div>
 
     <!-- Modal Structure -->
     <div id="modal_editeur" class="modal">
@@ -145,33 +153,43 @@
     </div>
 
 
-
-    <table class="centered striped  responsive-table">
-        <thead>
-        <tr>
-            <th>Nom</th>
-            <th>Modification</th>
-            <th>Suppression</th>
-        </tr>
-        </thead>
-        <tbody>
-        <?php foreach ($requete_editeur as $req_editeur){ ?>
+    <!-- Liste des éditeurs -->
+    <?php
+    if(!empty($requete_editeur)) {
+        ?>
+        <table class="centered striped  responsive-table">
+            <thead>
             <tr>
-                <td><?= $req_editeur['editeur_nom']?></td>
-                <td><a class="link_edit_editeur modal-trigger" href="#modal_edit_editeur"
-                       data-editeur_id="<?= $req_editeur['editeur_id']?>"
-                       data-editeur_nom="<?= $req_editeur['editeur_nom']?>"
-                    >
-                        <i  class="material-icons">mode_edit</i>
-                    </a></td>
-                <td><a href="<?= BASE_URL."/SupprimerEditeur"; ?>/?id=<?= $req_editeur['editeur_id'] ?>"><i class="material-icons">delete</i></a></td>
+                <th>Nom</th>
+                <th>Modification</th>
+                <th>Suppression</th>
             </tr>
-        <?php } ?>
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+            <?php foreach ($requete_editeur as $req_editeur) { ?>
+                <tr>
+                    <td><?= $req_editeur['editeur_nom'] ?></td>
+                    <td><a class="link_edit_editeur modal-trigger" href="#modal_edit_editeur"
+                           data-editeur_id="<?= $req_editeur['editeur_id'] ?>"
+                           data-editeur_nom="<?= $req_editeur['editeur_nom'] ?>"
+                        >
+                            <i class="material-icons">mode_edit</i>
+                        </a></td>
+                    <td><a href="<?= BASE_URL . "/SupprimerEditeur"; ?>/?id=<?= $req_editeur['editeur_id'] ?>"><i
+                                class="material-icons">delete</i></a></td>
+                </tr>
+            <?php } ?>
+            </tbody>
+        </table>
+        <?php
+    } else {
+        echo "<h4 class='center'>Aucun éditeur</h4>";
+    }
+    ?>
 
 
-    <!-- Modal Structure -->
+
+    <!-- Form Edit Editeur -->
     <div id="modal_edit_editeur" class="modal modal-fixed-footer">
 
         <div class="modal-content">
@@ -218,8 +236,9 @@
 
     <h3>FOURNISSEURS</h3>
 
-
-    <a class="green waves-effect waves-light btn" href="#modal_fournisseur">Ajouter un fournisseur</a>
+    <div class="row center">
+        <a class="green waves-effect waves-light btn" href="#modal_fournisseur">Ajouter un fournisseur</a>
+    </div>
 
     <!-- Modal Structure -->
     <div id="modal_fournisseur" class="modal">
@@ -240,6 +259,10 @@
     </div>
 
 
+    <!-- Liste des fournisseurs -->
+    <?php
+    if(!empty($requete_fournisseur)) {
+        ?>
     <table class="centered striped  responsive-table">
         <thead>
         <tr>
@@ -263,6 +286,11 @@
         <?php } ?>
         </tbody>
     </table>
+    <?php
+    } else {
+        echo "<h4 class='center'>Aucun fournisseur</h4>";
+    }
+    ?>
 
 
 
@@ -316,8 +344,9 @@
 
     <h3>COLLECTIONS</h3>
 
-
-    <a class="green waves-effect waves-light btn" href="#modal_collection">Ajouter une collection</a>
+    <div class="row center">
+        <a class="green waves-effect waves-light btn" href="#modal_collection">Ajouter une collection</a>
+    </div>
 
     <!-- Modal Structure -->
     <div id="modal_collection" class="modal">
@@ -349,7 +378,10 @@
     </div>
 
 
-
+    <!-- Liste des collections -->
+    <?php
+    if(!empty($requete_collection)) {
+        ?>
     <table class="centered striped responsive-table">
         <thead>
         <tr>
@@ -377,6 +409,11 @@
         <?php } ?>
         </tbody>
     </table>
+    <?php
+    } else {
+        echo "<h4 class='center'>Aucune collection</h4>";
+    }
+    ?>
 
 
     <!-- Modal Structure -->

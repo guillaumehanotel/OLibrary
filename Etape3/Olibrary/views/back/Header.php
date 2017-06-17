@@ -87,8 +87,8 @@
 
                         <ul id="nav-mobile" class=" col m5 right hide-on-med-and-down">
                             <li><a href="<?= BASE_URL."/menugestion/" ?>">Menu Gestion</a></li>
-                            <li><a href="<?= BASE_URL."/espaceperso/" ?>">Espace Perso</a></li>
-                            <li><a href="<?= BASE_URL."/deconnexion/" ?>">Deconnexion</a></li>
+                            <li><a href="<?= BASE_URL."/espaceperso/" ?>">Mon Compte</a></li>
+                            <li id="log_off" class="icon_nav"><a href="<?= BASE_URL."/deconnexion/" ?>"><i class="white-text fa fa-2x fa-power-off" aria-hidden="true"></i></a></li>
 
                         </ul>
 
@@ -98,7 +98,7 @@
 
                 <ul class="side-nav" id="mobile-demo">
                     <li><a href="<?= BASE_URL."/menugestion/" ?>">Menu Gestion</a></li>
-                    <li><a href="<?= BASE_URL."/espaceperso/" ?>">Espace Perso</a></li>
+                    <li><a href="<?= BASE_URL."/espaceperso/" ?>">Mon Compte</a></li>
                     <li><a href="<?= BASE_URL."/deconnexion/" ?>">Deconnexion</a></li>
                 </ul>
 
