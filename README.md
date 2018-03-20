@@ -11,6 +11,8 @@ Création d’un portail de gestion de fonds documentaires et son catalogue publ
 Réalisation d'un SIGB (Système Intégré de Gestion de Bibliothèque) et son OPAC (Open 
 Public Access Catalog – Catalogue Public). 
 
+Le projet est réalisé en PHP/CSS(Materialize)/HTML/JS
+
 ### Enjeux Objectifs
 - Mettre en application les connaissances de différentes matières
 - Etudier un cahier des charges pour en faire ressortir un produit fini
