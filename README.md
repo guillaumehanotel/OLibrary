@@ -7,32 +7,32 @@ PITAULT Cyriaque
 GARDIN Kélian
 
 
+Création d’un portail de gestion de fonds documentaires et son catalogue public. 
+Réalisation d'un SIGB (Système Intégré de Gestion de Bibliothèque) et son OPAC (Open 
+Public Access Catalog – Catalogue Public). 
 
-## Espace perso utilisateur :
-
-
-* Affichage d'un message d'alerte l'informant qu'il n'a pas rendu un livre à temps
-
-
-## Espace admin
-
-### Gestion des notices et des exemplaires
+### Enjeux Objectifs
+- Mettre en application les connaissances de différentes matières
+- Etudier un cahier des charges pour en faire ressortir un produit fini
+- Respecter des contraintes fonctionnelles, techniques et temporelles
 
 
-### Gestion des Emprunteurs
+### Cahier des charges global
+Les fonctions du système sont listées ci-après : 
 
-* Une fois que le livre réservé a été rendu par l'utilisateur, il faut que la personne ayant réservé soit informé qu'un exemplaire est libre et qu'il peut le réserver.
+#### SIGB
+- Espace sécurisé par un couple utilisateur/mot de passe
+- Les utilisateurs doivent être administrables depuis l’interface
+- Gestion de notices et des exemplaires associés
+- Gestion des autorités : auteurs, éditeurs, fournisseurs, collections, … 
+- Gestion des emprunteurs
+- Gestion de la circulation prêts, retours, retards, rappels, historique, réservation, …
+- Création d’un échantillon suffisant de données pour les tests (cf. Ressources en ligne)
 
-
-### Gestion des Autorités
-
-* Vérifier l'input utilisateur / clean le controller
-
-### Gestion/Circulation des Documents
-
-
-
-### Gestion des Utilisateurs
+#### OPAC
+- Consultation du fonds documentaire
+- Recherche
+- Bonus : espace « adhérents » (prêts en cours, réservation, profil, …)
 
 
 
