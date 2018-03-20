@@ -32,7 +32,7 @@ Les fonctions du système sont listées ci-après :
 #### OPAC
 - Consultation du fonds documentaire
 - Recherche
-- Bonus : espace « adhérents » (prêts en cours, réservation, profil, …)
+- espace « adhérents » (prêts en cours, réservation, profil, …)
 
 
 
